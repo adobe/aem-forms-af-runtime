@@ -1,0 +1,580 @@
+openapi: 3.0.0
+info:
+  title: AEM Forms API
+  description:  |
+    AEM Forms as a Cloud Service - Headless Forms HTTP APIs.
+    # Introduction
+    Headless APIs let you get the Headless Adaptive Form definition, prefill the form, validate and submit it.
+  version: '1.0.0'
+servers:
+  - url: '/adobe/forms/af/v1'
+externalDocs:
+  description: API documentation
+  url: "https://wiki.corp.adobe.com/display/lc/Form+Headless+API+Specification"
+paths:
+  /listforms:
+    get:
+      operationId: listForms
+      tags:
+        - List Forms
+      description: Gets the list of forms available to a user
+      parameters:
+        - "$ref": '#/components/parameters/offsetParam'
+        - "$ref": '#/components/parameters/limitParam'
+      responses:
+        '200':
+          description: Successful request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FormsList'
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+
+  /{id}:
+    get:
+      operationId: getForm
+      tags:
+        - Get Form Definition
+      description: Gets the definition of the given form
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+      responses:
+        '200':
+          description: Successful request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+          links:
+            submit:
+              operationId: submitForm
+              parameters:
+                id: $id
+            prefill:
+              operationId: getFormData
+              parameters:
+                id: $id
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+  /data/{id}:
+    get:
+      operationId: getFormData
+      tags:
+        - Get Form Data
+      description: Gets the form data
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+        - in: query
+          name: dataRef
+          description: Unique identifier of the data to be prefilled. This is returned by the submit API.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Form Data
+          content:
+            application/json:
+              schema:
+                "$ref" : '#/components/schemas/PrefillResponse'
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          "$ref": "#/components/responses/default"
+  /submit/{id}:
+    post:
+      operationId: submitForm
+      tags:
+        - Submit Form
+      description: Submits the given form
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+        - in: header
+          name: Prefer
+          description: It should be provided if async response is desired
+          schema:
+            type: string
+          example:
+            "respond-async"
+      requestBody:
+        description: Request body to submit form
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SubmitFormDataMultiPart'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitFormData'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/SubmitFormData'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              description: Key value pair for submitting data where key corresponds to the field name
+              additionalProperties:
+                oneOf:
+                  - type: string
+                  - type: number
+      responses:
+        '200':
+          description: Successful request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitResult'
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+                description: document of record bytes if dor is configured in form
+          links:
+            getData:
+              operationId: getFormData
+              parameters:
+                dataRef: $response.body#/submissionId
+        '202':
+          description: Accepted the form submission request (applicable in case of async submission)
+          headers:
+            Location:
+              description: Link of the URL for querying status of forms submission
+              schema:
+                type: string
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          "$ref": "#/components/responses/default"
+  /submit/status/{id}:
+    get:
+      operationId: trackFormSubmission
+      tags:
+        - Track Submit Status
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+        - "$ref": "#/components/parameters/submissionId"
+      responses:
+        '200':
+          description: Submission Status
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/SubmitResult'
+                  - type: object
+                    properties:
+                      submitStatus:
+                        type: string
+                        enum:
+                          - PENDING
+                          - SUCCESSFUL
+                          - FAILURE
+                          - EXPIRED
+                      signInfo:
+                        description: It contains information about signing process. It can eb further used to track signing status from Adobe Sign
+                        type: object
+                        properties:
+                          agreementId:
+                            type: string
+                      validationErrors:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ValidationError'
+                      metadata:
+                        description: This can contain any additional properties which custom post submit action invocation returns that can be further used to the post submit action status.
+                        type: object
+                        additionalProperties:
+                          type: string
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+  /validate/{id}:
+    post:
+      operationId: validateForm
+      tags:
+        - Validate Form
+      description: Validates the given form
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+      requestBody:
+        description: Request body to submit form
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataMultiPart'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormData'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/FormData'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties:
+                oneOf:
+                  - type: string
+                  - type: number
+                  - type: boolean
+      responses:
+        '200':
+          description: Successful request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationResult'
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+  /dor/{id}:
+    post:
+      operationId: generateDoR
+      tags:
+        - Generate DoR
+      description: Generates the Document of Record for the given form. It will not perform server-side validation of form data.
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+        - "$ref": "#/components/parameters/locale"
+      requestBody:
+        description: Request body to submit form
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataMultiPart'
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/FormData'
+                - type: object
+                  properties:
+                    submissionId:
+                      description: unique identifier of the data submitted
+                      type: string
+                  required: [submissionId]
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties:
+                oneOf:
+                  - type: string
+                  - type: number
+                  - type: boolean
+      responses:
+        '200':
+          description: Successful request.
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+                description: document of record bytes if dor is configured in form
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+components:
+  schemas:
+    FormsList:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/FormElement'
+        _links:
+          type: object
+          properties:
+            self:
+              type: string
+              format: uri
+            prev:
+              type: string
+              format: uri
+            next:
+              type: string
+              format: uri
+    FormElement:
+      type: object
+      properties:
+        id:
+          type: string
+        path:
+          type: string
+        description:
+          type: string
+        title:
+          type: string
+        tags:
+          type: array
+          items:
+            type: string
+    Form:
+      type: object
+      properties:
+        afModelDefinition:
+          type: object
+          description: https://git.corp.adobe.com/livecycle/af2-docs/blob/gh-pages/schema/generated/adaptive-form.schema.json
+        dataSchema:
+          oneOf:
+            - type: string
+            - type: object
+          description: Schema of the data that the Form generates or consumes
+        allowedSubmissionTypes:
+          type: array
+          description: list of allowed content types for Submit Form API. application/x-www-form-urlencoded is only valid when there is no data schema configured in the form
+          items:
+            type: string
+            enum:
+              - application/json
+              - multipart/form-data
+              - application/xml
+              - application/x-www-form-urlencoded
+    FormData:
+      type: object
+      properties:
+        'data':
+          type: object
+          description: form data for the form. It must conform to the schema referred in the dataSchema of the Form. It will include attachments only when the request body payload is of application/json or application/xml type
+      required:
+        - data
+    PrefillResponse:
+      allOf:
+        - $ref: '#/components/schemas/FormData'
+        - type: object
+          properties:
+            metadata:
+              type: object
+              properties:
+                lastFocusField:
+                  type: string
+                  title: The id of the field that was on focus when the form was saved
+                formSaveTime:
+                  type: string
+                  format: date-time
+                  title: The time when the form was last saved.
+                formSubmitTime:
+                  type: string
+                  format: date-time
+                  title: The time when the form was submitted.
+
+    SubmitFormData:
+      allOf:
+        - $ref: '#/components/schemas/FormData'
+        - type: object
+          properties:
+            submitMetadata:
+              description: It can be used to send additional metadata to the submit end point. For example, dtaftid can be passed in cases where a draft is submitted through portal.
+              type: object
+              additionalProperties:
+                type: string
+    MultiPartAttachments:
+      type: object
+      additionalProperties:
+        type: string
+        format: binary
+        description: attachment in the form. The name of the property must be of the following format <name of field>:<filename>
+    FormDataMultiPart:
+      allOf:
+        - $ref: '#/components/schemas/FormData'
+        - $ref: '#/components/schemas/MultiPartAttachments'
+    SubmitFormDataMultiPart:
+      allOf:
+        - $ref: '#/components/schemas/SubmitFormData'
+        - $ref: '#/components/schemas/MultiPartAttachments'
+    SubmitResult:
+      type: object
+      properties:
+        'submissionId':
+          type: string
+          description: unique id of the data submitted. It can be further used to track status for post submit action through /submit/status API
+        'redirectUrl':
+          type: string
+          description: Page to show to the user after successful submission. It can be a URL of a thank you page or an Adobe Sign document for signing.
+        'thankYouMessage':
+          type: string
+          description: thank you message to be shown to the user after successful submission
+        'metadata':
+          type: object
+          description: any additional properties that may be returned by custom submit service
+          additionalProperties:
+            type: string
+      required: [submissionId]
+    ValidationResult:
+      type: object
+      properties:
+        validationStatus:
+          type: boolean
+        validationErrors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ValidationError:
+      type: object
+      properties:
+        fieldName:
+          type: string
+          description: Qualified Name of the Field whose data sent is invalid
+        dataRef:
+          type: string
+          description: JSONPath (or XPath) of the data element which is invalid
+        details:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: Error Message(s) for the field
+    ErrorResponse:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        detail:
+          type: string
+        instance:
+          type: string
+  parameters:
+    formId:
+      name: id
+      in: path
+      description: Unique identifier of the form. It can be retrieved from the forms manager UI while authoring the form or from the Forms Portal listForms API
+      required: true
+      schema:
+        type: string
+    locale:
+      name: locale
+      in: query
+      description: form locale
+      schema:
+        type: string
+        default: "en"
+    submissionId:
+      name: submissionId
+      in: query
+      description: tracking id for the form submission
+      required: true
+      schema:
+        type: string
+    offsetParam:
+      name: offset
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+    limitParam:
+      name: limit
+      in: query
+      schema:
+        type: integer
+        minimum: 0
+        default: 20
+  examples:
+    submit-json-payload:
+      summary: Sample submit payload
+      value:
+        data : {'foo' : 'bar'}
+        "/d/f/def.txt" : "" ## binary
+        metadata:
+          draftId : "askhakshkashaksas"
+    form-data:
+      summary: Sample form data
+      value:
+        data: {'foo' : 'bar'}
+        metadata:
+          draftId: "sample-draft-id"
+  responses:
+    BadRequest:
+      description: Bad Request. The request was invalid or cannot be served.
+      content:
+        application/problem+json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/ErrorResponse'
+              - type: object
+                properties:
+                  validationErrors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ValidationError'
+    GenericBadRequest:
+      description: Bad Request. The request was invalid or cannot be served.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    InternalServer:
+      description: Internal Server Error. The server has encountered an error and is unable to process your request at this time.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    RequestTimeout:
+      description: Request timed out. An operation has timed out on the client.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Forbidden:
+      description: Forbidden. Please check your permissions.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    default:
+      description: Invalid request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
