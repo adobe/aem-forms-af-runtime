@@ -10,7 +10,6 @@ servers:
   - url: '/adobe/forms/af/v1'
 externalDocs:
   description: API documentation
-  url: "https://wiki.corp.adobe.com/display/lc/Form+Headless+API+Specification"
 paths:
   /listforms:
     get:
@@ -36,7 +35,6 @@ paths:
           $ref: '#/components/responses/RequestTimeout'
         '500':
           $ref: '#/components/responses/InternalServer'
-
   /{id}:
     get:
       operationId: getForm
@@ -69,36 +67,6 @@ paths:
           $ref: '#/components/responses/RequestTimeout'
         '500':
           $ref: '#/components/responses/InternalServer'
-  /data/{id}:
-    get:
-      operationId: getFormData
-      tags:
-        - Get Form Data
-      description: Gets the form data
-      parameters:
-        - "$ref": "#/components/parameters/formId"
-        - in: query
-          name: dataRef
-          description: Unique identifier of the data to be prefilled. This is returned by the submit API.
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Form Data
-          content:
-            application/json:
-              schema:
-                "$ref" : '#/components/schemas/PrefillResponse'
-        '400':
-          $ref: '#/components/responses/GenericBadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '408':
-          $ref: '#/components/responses/RequestTimeout'
-        '500':
-          $ref: '#/components/responses/InternalServer'
-        default:
-          "$ref": "#/components/responses/default"
   /submit/{id}:
     post:
       operationId: submitForm
@@ -169,149 +137,6 @@ paths:
           $ref: '#/components/responses/InternalServer'
         default:
           "$ref": "#/components/responses/default"
-  /submit/status/{id}:
-    get:
-      operationId: trackFormSubmission
-      tags:
-        - Track Submit Status
-      parameters:
-        - "$ref": "#/components/parameters/formId"
-        - "$ref": "#/components/parameters/submissionId"
-      responses:
-        '200':
-          description: Submission Status
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/SubmitResult'
-                  - type: object
-                    properties:
-                      submitStatus:
-                        type: string
-                        enum:
-                          - PENDING
-                          - SUCCESSFUL
-                          - FAILURE
-                          - EXPIRED
-                      signInfo:
-                        description: It contains information about signing process. It can eb further used to track signing status from Adobe Sign
-                        type: object
-                        properties:
-                          agreementId:
-                            type: string
-                      validationErrors:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/ValidationError'
-                      metadata:
-                        description: This can contain any additional properties which custom post submit action invocation returns that can be further used to the post submit action status.
-                        type: object
-                        additionalProperties:
-                          type: string
-        '400':
-          $ref: '#/components/responses/GenericBadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '408':
-          $ref: '#/components/responses/RequestTimeout'
-        '500':
-          $ref: '#/components/responses/InternalServer'
-  /validate/{id}:
-    post:
-      operationId: validateForm
-      tags:
-        - Validate Form
-      description: Validates the given form
-      parameters:
-        - "$ref": "#/components/parameters/formId"
-      requestBody:
-        description: Request body to submit form
-        required: true
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/FormDataMultiPart'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FormData'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/FormData'
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              additionalProperties:
-                oneOf:
-                  - type: string
-                  - type: number
-                  - type: boolean
-      responses:
-        '200':
-          description: Successful request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationResult'
-        '400':
-          $ref: '#/components/responses/GenericBadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '408':
-          $ref: '#/components/responses/RequestTimeout'
-        '500':
-          $ref: '#/components/responses/InternalServer'
-  /dor/{id}:
-    post:
-      operationId: generateDoR
-      tags:
-        - Generate DoR
-      description: Generates the Document of Record for the given form. It will not perform server-side validation of form data.
-      parameters:
-        - "$ref": "#/components/parameters/formId"
-        - "$ref": "#/components/parameters/locale"
-      requestBody:
-        description: Request body to submit form
-        required: true
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/FormDataMultiPart'
-          application/json:
-            schema:
-              oneOf:
-                - $ref: '#/components/schemas/FormData'
-                - type: object
-                  properties:
-                    submissionId:
-                      description: unique identifier of the data submitted
-                      type: string
-                  required: [submissionId]
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              additionalProperties:
-                oneOf:
-                  - type: string
-                  - type: number
-                  - type: boolean
-      responses:
-        '200':
-          description: Successful request.
-          content:
-            application/pdf:
-              schema:
-                type: string
-                format: binary
-                description: document of record bytes if dor is configured in form
-        '400':
-          $ref: '#/components/responses/GenericBadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '408':
-          $ref: '#/components/responses/RequestTimeout'
-        '500':
-          $ref: '#/components/responses/InternalServer'
 components:
   schemas:
     FormsList:
@@ -353,7 +178,6 @@ components:
       properties:
         afModelDefinition:
           type: object
-          description: https://git.corp.adobe.com/livecycle/af2-docs/blob/gh-pages/schema/generated/adaptive-form.schema.json
         dataSchema:
           oneOf:
             - type: string
