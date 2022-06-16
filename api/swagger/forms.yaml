@@ -4,7 +4,7 @@ info:
   description:  |
     AEM Forms as a Cloud Service - Headless Forms HTTP APIs.
     # Introduction
-    Headless APIs let you get the Headless Adaptive Form definition, prefill the form, validate and submit it.
+    Headless APIs let you fetch the Headless Adaptive Form definitions, and submit form data to AEM.
   version: '1.0.0'
 servers:
   - url: '/adobe/forms/af/v1'
