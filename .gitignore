@@ -201,5 +201,3 @@ lib/
 tmp-dist/
 dist/
 tmp-story/
-story/
-storybook-static/
