@@ -51,4 +51,4 @@ const json = {...}
 1. [Story book](https://opensource.adobe.com/aem-forms-af-runtime/storybook)
 2. [JS API Docs](https://opensource.adobe.com/aem-forms-af-runtime/jsdocs)
 3. [HTTP API Docs](https://opensource.adobe.com/aem-forms-af-runtime/api)
-4. [Javascript packages](https://www.npmjs.com/org/aemforms)
+4. [Adaptive Form Runtime packages](https://www.npmjs.com/org/aemforms)
