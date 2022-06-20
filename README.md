@@ -1,7 +1,6 @@
 # AEM Forms - Adaptive Forms
 
-AEM Forms now provide a mechanism to render Adaptive Form using React Components in Single Page Applications. It exposes headless APIs to fetch the 
-form definition from AEM and render it using JavaScript libraries.
+Headless Adaptive Forms will allow a mechanism to deliver forms in a headless, channel-agnostic format and render them in a channel-optimal manner leveraging front end expertise in frameworks like React, Angular or native IOS, Android Apps. Right now there is full support provided for React apps through SDK, however the model can be used using any technology. It also exposes headless APIs to fetch the form definition from AEM and render it using JavaScript libraries
 
 # Usage
 
