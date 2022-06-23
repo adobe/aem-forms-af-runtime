@@ -1,0 +1,352 @@
+{
+  "adaptiveform": "0.10.0",
+  "items": [
+    {
+      "fieldType": "plain-text",
+      "value": "Merchant Information"
+    },
+    {
+      "name": "section1",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "legalName",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Business legal name"
+          },
+          "placeholder": "Business legal name*"
+        },
+        {
+          "name": "phoneNumber",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "pattern": "[0-9]{10}",
+          "label": {
+            "value": "Phone number"
+          },
+          "placeholder": "Phone number*"
+        }
+      ]
+    },
+    {
+      "name": "section2",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "firstName",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "First Name"
+          },
+          "placeholder": "First Name*"
+        },
+        {
+          "name": "lastName",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Last Name"
+          },
+          "placeholder": "Last Name*"
+        }
+      ]
+    },
+    {
+      "name": "section3",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "email",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "format": "email",
+          "label": {
+            "value": "Contact Email"
+          },
+          "placeholder": "Contact Email*"
+        },
+        {
+          "name": "confirmEmail",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "format": "email",
+          "label": {
+            "value": "Email Confirmation"
+          },
+          "placeholder": "Email Confirmation*"
+        }
+      ]
+    },
+    {
+      "name": "salesChannel",
+      "fieldType": "checkbox-group",
+      "required": true,
+      "label": {
+        "value": "Sales Channels"
+      },
+      "enum": [
+        "retail",
+        "mail",
+        "eCommerce",
+        "telephone"
+      ],
+      "enumNames": [
+        "Retail",
+        "Mail Order",
+        "eCommerce",
+        "Telephone Order"
+      ]
+    },
+    {
+      "name": "visaType",
+      "fieldType": "drop-down",
+      "type": "string",
+      "required": true,
+      "label": {
+        "value": "Surcharging All Visa Credit Cards or Specific Visa Credit Products"
+      },
+      "enumNames": [
+        "Visa Brand Level",
+        "Visa Product Level"
+      ],
+      "enum": [
+        "brand",
+        "product"
+      ]
+    },
+    {
+      "name": "visaCreditProducts",
+      "fieldType": "checkbox-group",
+      "label": {
+        "value": "Visa Credit Products to be Surcharged"
+      },
+      "enum": [
+        "traditional",
+        "signature",
+        "eCommerce",
+        "commercial",
+        "traditional Rewards",
+        "signature Preferred"
+      ],
+      "enumNames": [
+        "Visa Traditional",
+        "Visa Signature",
+        "eCommerce",
+        "Visa Commercial",
+        "Visa Traditional Rewards",
+        "Visa Signature Preferred"
+      ]
+    },
+    {
+      "name": "otherBrandsAccepted",
+      "fieldType": "checkbox-group",
+      "label": {
+        "value": "Other Brands Accepted"
+      },
+      "required": true,
+      "enum": [
+        "American Express",
+        "MasterCard",
+        "PayPal",
+        "Discover",
+        "JCB",
+        "Other"
+      ],
+      "enumNames": [
+        "American Express",
+        "MasterCard",
+        "PayPal",
+        "Discover",
+        "JCB",
+        "Other"
+      ]
+    },
+    {
+      "fieldType": "plain-text",
+      "value": "Acquirer / Payment service provider / ISO"
+    },
+    {
+      "name": "companyInfo1",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "companyName",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Company Name"
+          },
+          "placeholder": "Company Name*"
+        },
+        {
+          "name": "compfirstName",
+          "fieldType": "text-input",
+          "type": "string",
+          "label": {
+            "value": "First Name"
+          },
+          "placeholder": "First Name"
+        }
+      ]
+    },
+    {
+      "name": "companyInfo2",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "compLastName",
+          "fieldType": "text-input",
+          "type": "string",
+          "label": {
+            "value": "Last Name"
+          },
+          "placeholder": "Last Name"
+        },
+        {
+          "name": "compPhoneNumber",
+          "fieldType": "text-input",
+          "type": "string",
+          "pattern": "[0-9]{0,10}",
+          "label": {
+            "value": "Phone number"
+          },
+          "placeholder": "Phone number"
+        }
+      ]
+    },
+    {
+      "name": "compEmail",
+      "fieldType": "text-input",
+      "type": "string",
+      "format": "email",
+      "label": {
+        "value": "Email"
+      },
+      "placeholder": "Email"
+    },
+    {
+      "fieldType": "plain-text",
+      "value": "Merchant Location Information"
+    },
+    {
+      "name": "merchantInfo1",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "locationName",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Location Name"
+          },
+          "placeholder": "Location Name*"
+        },
+        {
+          "name": "merchantId",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Assigned merchant ID"
+          },
+          "placeholder": "Assigned merchant ID*"
+        }
+      ]
+    },
+    {
+      "name": "merchantInfo2",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "locationAddress",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Location street address"
+          },
+          "placeholder": "Location street address*"
+        },
+        {
+          "name": "locationCity",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Location city"
+          },
+          "placeholder": "Location city*"
+        }
+      ]
+    },
+    {
+      "name": "merchantInfo2",
+      ":type": "custom:horizontal-flex",
+      "type": "object",
+      "items": [
+        {
+          "name": "locationState",
+          "fieldType": "drop-down",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Location State"
+          },
+          "enumNames": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "enum": [
+            "a",
+            "b",
+            "c",
+            "d"
+          ]
+        },
+        {
+          "name": "postalCode",
+          "fieldType": "text-input",
+          "type": "string",
+          "required": true,
+          "label": {
+            "value": "Postal code"
+          },
+          "placeholder": "Postal code*"
+        }
+      ]
+    },
+    {
+      "fieldType": "button",
+      "label": {
+        "value": "Submit"
+      },
+      "events": {
+        "click": "submitForm()"
+      }
+    }
+  ],
+  "metadata": {
+    "grammar": "json-formula-1.0.0",
+    "version": "1.0.0"
+  }
+}
