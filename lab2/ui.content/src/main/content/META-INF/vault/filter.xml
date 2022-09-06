@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/myheadlessform" mode="merge"/>
+    <filter root="/content/myheadlessform" mode="merge"/>
+    <filter root="/content/dam/myheadlessform/asset.jpg" mode="merge"/>
+    <filter root="/content/experience-fragments/myheadlessform" mode="merge"/>
+    <filter root="/content/dam/myheadlessform/af_model_sample.json" mode="merge"/>
+</workspaceFilter>
