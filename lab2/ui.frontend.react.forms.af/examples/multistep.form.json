@@ -10,6 +10,49 @@
   },
   "items": [
     {
+      "name": "locale",
+      "fieldType": "drop-down",
+      "type": "string",
+      "label": {
+        "value": "Select a locale"
+      },
+      "default": "en-US",
+      "events": {
+        "change": "dispatchEvent($form, 'custom:localeChange', $field.$value)"
+      },
+      "enumNames": [
+        "de-DE",
+        "en-US",
+        "es-ES",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN",
+        "zh-TW"
+      ],
+      "enum": [
+        "de-DE",
+        "en-US",
+        "es-ES",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN",
+        "zh-TW"
+      ],
+      "properties": {
+        "afs:translationIds": {
+          "enum": "locale##enum##5528",
+          "enumNames": "locale##enumNames##8702",
+          "label.value": "locale##label.value##523"
+        }
+      }
+    },
+    {
       "name": "wizardState",
       "fieldType": "text-input",
       "type": "number",
@@ -108,6 +151,12 @@
                 "title": {
                   "value": "Mobile Number",
                   "hi": "मोबाइल नंबर"
+                },
+                "afs:translationIds": {
+                  "description": "identifyYourself##identifyOtpStart##mobileNumber##description##5716",
+                  "label.value": "identifyYourself##identifyOtpStart##mobileNumber##label.value##6560",
+                  "constraintMessages.pattern": "identifyYourself##identifyOtpStart##mobileNumber##constraintMessages.pattern##7562",
+                  "constraintMessages.required": "identifyYourself##identifyOtpStart##mobileNumber##constraintMessages.required##7157"
                 }
               }
             },
@@ -133,6 +182,12 @@
                 "title": {
                   "value": "Credit Card Ending Number",
                   "hi": "क्रेडिट कार्ड समाप्ति संख्या"
+                },
+                "afs:translationIds": {
+                  "description": "identifyYourself##identifyOtpStart##creditCardEndingNumber##description##7801",
+                  "label.value": "identifyYourself##identifyOtpStart##creditCardEndingNumber##label.value##3106",
+                  "constraintMessages.pattern": "identifyYourself##identifyOtpStart##creditCardEndingNumber##constraintMessages.pattern##1668",
+                  "constraintMessages.required": "identifyYourself##identifyOtpStart##creditCardEndingNumber##constraintMessages.required##417"
                 }
               }
             },
@@ -149,6 +204,9 @@
               "properties": {
                 "afs:layout": {
                   "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "identifyYourself##identifyOtpStart##viewEligibilityButton##label.value##2564"
                 }
               }
             }
@@ -184,6 +242,9 @@
                 },
                 "afs:layout": {
                   "UNSAFE_className": "text-field-bg"
+                },
+                "afs:translationIds": {
+                  "label.value": "identifyYourself##identifyOtpConfirm##identifyOtpValue##label.value##5832"
                 }
               }
             },
@@ -196,6 +257,9 @@
               "properties": {
                 "afs:layout": {
                   "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "identifyYourself##identifyOtpConfirm##viewEligibilityConfirmButton##label.value##4204"
                 }
               },
               "events": {
@@ -295,6 +359,12 @@
                 "title": {
                   "value": "Loan Amount",
                   "hi": "ऋण की राशि"
+                },
+                "afs:translationIds": {
+                  "description": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##description##7928",
+                  "label.value": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##label.value##4846",
+                  "constraintMessages.maximum": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##constraintMessages.maximum##3236",
+                  "constraintMessages.minimum": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##constraintMessages.minimum##5954"
                 }
               }
             },
@@ -321,6 +391,10 @@
                 "title": {
                   "value": "Loan Duration",
                   "hi": "ऋण अवधि"
+                },
+                "afs:translationIds": {
+                  "description": "chooseLoanAmount##loanAmountDetails##loanDuration##description##5095",
+                  "label.value": "chooseLoanAmount##loanAmountDetails##loanDuration##label.value##7945"
                 }
               }
             },
@@ -337,6 +411,9 @@
                 "prefix": "₹",
                 "afs:layout": {
                   "UNSAFE_className": "text-loan"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##monthlyEmi##label.value##738"
                 }
               },
               "rules": {
@@ -359,6 +436,9 @@
                 "suffix": "%",
                 "afs:layout": {
                   "UNSAFE_className": "text-loan"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##rateOfInterest##label.value##6658"
                 }
               }
             },
@@ -377,6 +457,9 @@
                 "prefix": "₹",
                 "afs:layout": {
                   "UNSAFE_className": "text-loan-amount"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##netAmountPayable##label.value##7793"
                 }
               }
             },
@@ -426,6 +509,10 @@
                     "title": {
                       "value": "Bank Name",
                       "hi": "बैंक का नाम"
+                    },
+                    "afs:translationIds": {
+                      "enum": "chooseLoanAmount##loanAmountDetails##acountDetails##bankName##enum##3048",
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##bankName##label.value##9124"
                     }
                   }
                 },
@@ -447,6 +534,11 @@
                     "title": {
                       "value": "Account Number",
                       "hi": "खाता संख्या"
+                    },
+                    "afs:translationIds": {
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumber##label.value##5016",
+                      "constraintMessages.pattern": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumber##constraintMessages.pattern##4471",
+                      "constraintMessages.required": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumber##constraintMessages.required##9585"
                     }
                   }
                 },
@@ -463,6 +555,11 @@
                     "title": {
                       "value": "Account Number Confirmation",
                       "hi": "खाता संख्या पुष्टि"
+                    },
+                    "afs:translationIds": {
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumberReEnter##label.value##443",
+                      "constraintMessages.pattern": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumberReEnter##constraintMessages.pattern##4186",
+                      "constraintMessages.required": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumberReEnter##constraintMessages.required##6837"
                     }
                   },
                   "pattern": "[0-9]{10,10}",
@@ -484,6 +581,10 @@
                     "title": {
                       "value": "IFSC Code",
                       "hi": "आईएफएससी कोड"
+                    },
+                    "afs:translationIds": {
+                      "description": "chooseLoanAmount##loanAmountDetails##acountDetails##ifscCode##description##5313",
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##ifscCode##label.value##1717"
                     }
                   },
                   "description": "You can find it on Your cheque Book"
@@ -502,6 +603,9 @@
               "properties": {
                 "afs:layout": {
                   "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##loanAmountConfirmButton##label.value##4415"
                 }
               }
             }
@@ -537,6 +641,9 @@
                 "title": {
                   "value": "Confirm OTP",
                   "hi": "ओटीपी की पुष्टि करें"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanConfirmOtp##loanOtpValue##label.value##7316"
                 }
               }
             },
@@ -553,6 +660,9 @@
               "properties": {
                 "afs:layout": {
                   "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanConfirmOtp##loanOtpConfirmButton##label.value##9970"
                 }
               }
             }
