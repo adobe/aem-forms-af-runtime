@@ -4,10 +4,14 @@ import mappings from "./material-ui/mappings";
 import useEditorEvents from "./hooks/useEditorEvents";
 import ReactDOM from "react-dom";
 import { Action } from '@aemforms/af-core';
+import {useParams} from 'react-router-dom';
 //@ts-ignore
 import {Provider as Spectrum3Provider, defaultTheme} from '@adobe/react-spectrum'
 // import the dictionary created using
-import localizationMessages from '../../generated/__localization__/multistep.form.i18n.json';
+// @ts-ignore
+import localizationMessages from '../../../generated/__localization__/multistep.form.i18n.json';
+// @ts-ignore
+import formJson from '../examples/multistep.form.json';
 
 const base64url = (s: any) => {
     var to64url = btoa(s);
@@ -37,10 +41,7 @@ const Form = (props: any) => {
     const [form, setForm] = useState("")
     const [state, setState] = useEditorEvents()
     // locale specific state
-    const [locale, setLocale] = useState('en-US');
-    const localeChangeHandler = useCallback((action: Action) => {
-        setLocale(action.payload);
-    }, []);
+    const {lang} = useParams();
     const fetchForm = async () => {
         let id = getId();
         if (id) {
@@ -55,11 +56,10 @@ const Form = (props: any) => {
         const element = document.querySelector(".cmp-formcontainer__content")
         const retVal = (<Spectrum3Provider theme={defaultTheme}>
             <AdaptiveForm
-                formJson={JSON.parse(form)}
+                formJson={formJson /*JSON.parse(form)*/}
                 localizationMessages={localizationMessages}
                 mappings={mappings}
-                locale={locale}
-                onLocaleChange={localeChangeHandler}/>
+                locale={lang}/>
         </Spectrum3Provider>)
         return ReactDOM.createPortal(retVal, element)
     }

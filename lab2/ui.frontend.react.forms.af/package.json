@@ -47,6 +47,8 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-intl": "^5.8.4",
-    "react-is": "^16.8.6"
+    "react-is": "^16.8.6",
+    "react-router": "^6.3.0",
+    "react-router-dom": "^6.3.0"
   }
 }
