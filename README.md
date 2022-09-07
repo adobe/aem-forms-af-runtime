@@ -1,53 +1,126 @@
-# AEM Forms - Adaptive Forms
+# Sample AEM project template
 
-Headless Adaptive Forms will allow a mechanism to deliver forms in a headless, channel-agnostic format and render them in a channel-optimal manner leveraging front end expertise in frameworks like React, Angular or native IOS, Android Apps. Right now there is full support provided for React apps through SDK, however the model can be used using any technology. It also exposes headless APIs to fetch the form definition from AEM and render it using JavaScript libraries
+This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
 
-# Usage
+## Modules
 
-## Prerequisites
-The assumption is that you have node > 16 and npm > 8 installed on your machine and created a react project (using react version ^16.14.0 || ^17.0.2). There are multiple ways to do that (create-react-app, webpack, etc.).
+The main parts of the template are:
 
-Once you have your React project ready you need to install the following dependencies
+* core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
+* it.tests: Java based integration tests
+* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
+* ui.content: contains sample content using the components from the ui.apps
+* ui.config: contains runmode specific OSGi configs for the project
+* ui.frontend: an optional dedicated front-end build mechanism (Angular, React or general Webpack project)
+* ui.tests: Selenium based UI tests
+* all: a single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
+* analyse: this module runs analysis on the project which provides additional validation for deploying into AEMaaCS
 
-```
-npm i --save @aemforms/af-react-renderer @aemforms/af-react-components @adobe/react-spectrum
-```
+## How to build
 
-## Form JSON
-One needs to fetch The Form JSON from aem using the headless APIs
+To build all the modules run in the project root directory the following command with Maven 3:
 
-## Mappings Object
+    mvn clean install
 
-A Mappings Object is a JavaScript map that maps the field types defined in the Specification to its respective React Component. The Adaptive Form Super Component uses this map to render the different components defined in the Form JSON.
+To build all the modules and deploy the `all` package to a local instance of AEM, run in the project root directory the following command:
 
-To use that in your project use the following import, assuming you have added the project as a dependency in your project
+    mvn clean install -PautoInstallSinglePackage
 
-```
-import {mappings} from '@aemforms/af-react-components'
-```
+Or to deploy it to a publish instance, run
 
-Once you have fetched the JSON for the form, the code would look like
+    mvn clean install -PautoInstallSinglePackagePublish
 
-```
-import {mappings} from '@aemforms/af-react-components'
-const json = {...}
-<AdaptiveForm mappings={mappings} formJson={json} />
-```
+Or alternatively
 
-If you are not using React Spectrum then you might need to start your app with the React Spectrum Provider.
+    mvn clean install -PautoInstallSinglePackage -Daem.port=4503
 
-If you are not using Provider at your app level, you can use that with the Adaptive Form Super Component
+Or to deploy only the bundle to the author, run
 
-```
-import {mappings} from '@aemforms/af-react-components'
-import { Provider as Spectrum3Provider, defaultTheme } from '@adobe/react-spectrum'
-const json = {...}
-<SpectrumProvider theme={defaultTheme}>
-<AdaptiveForm mappings={mappings} formJson={json} />
-</SpectrumProvider>
-```
-# Links
-1. [Story book](https://opensource.adobe.com/aem-forms-af-runtime/storybook)
-2. [JS API Docs](https://opensource.adobe.com/aem-forms-af-runtime/jsdocs)
-3. [HTTP API Docs](https://opensource.adobe.com/aem-forms-af-runtime/api)
-4. [Adaptive Form Runtime packages](https://www.npmjs.com/org/aemforms)
+    mvn clean install -PautoInstallBundle
+
+Or to deploy only a single content package, run in the sub-module directory (i.e `ui.apps`)
+
+    mvn clean install -PautoInstallPackage
+
+## Testing
+
+There are three levels of testing contained in the project:
+
+### Unit tests
+
+This show-cases classic unit testing of the code contained in the bundle. To
+test, execute:
+
+    mvn clean test
+
+### Integration tests
+
+This allows running integration tests that exercise the capabilities of AEM via
+HTTP calls to its API. To run the integration tests, run:
+
+    mvn clean verify -Plocal
+
+Test classes must be saved in the `src/main/java` directory (or any of its
+subdirectories), and must be contained in files matching the pattern `*IT.java`.
+
+The configuration provides sensible defaults for a typical local installation of
+AEM. If you want to point the integration tests to different AEM author and
+publish instances, you can use the following system properties via Maven's `-D`
+flag.
+
+| Property | Description | Default value |
+| --- | --- | --- |
+| `it.author.url` | URL of the author instance | `http://localhost:4502` |
+| `it.author.user` | Admin user for the author instance | `admin` |
+| `it.author.password` | Password of the admin user for the author instance | `admin` |
+| `it.publish.url` | URL of the publish instance | `http://localhost:4503` |
+| `it.publish.user` | Admin user for the publish instance | `admin` |
+| `it.publish.password` | Password of the admin user for the publish instance | `admin` |
+
+The integration tests in this archetype use the [AEM Testing
+Clients](https://github.com/adobe/aem-testing-clients) and showcase some
+recommended [best
+practices](https://github.com/adobe/aem-testing-clients/wiki/Best-practices) to
+be put in use when writing integration tests for AEM.
+
+## Static Analysis
+
+The `analyse` module performs static analysis on the project for deploying into AEMaaCS. It is automatically
+run when executing
+
+    mvn clean install
+
+from the project root directory. Additional information about this analysis and how to further configure it
+can be found here https://github.com/adobe/aemanalyser-maven-plugin
+
+### UI tests
+
+They will test the UI layer of your AEM application using Selenium technology. 
+
+To run them locally:
+
+    mvn clean verify -Pui-tests-local-execution
+
+This default command requires:
+* an AEM author instance available at http://localhost:4502 (with the whole project built and deployed on it, see `How to build` section above)
+* Chrome browser installed at default location
+
+Check README file in `ui.tests` module for more details.
+
+## ClientLibs
+
+The frontend module is made available using an [AEM ClientLib](https://helpx.adobe.com/experience-manager/6-5/sites/developing/using/clientlibs.html). When executing the NPM build script, the app is built and the [`aem-clientlib-generator`](https://github.com/wcm-io-frontend/aem-clientlib-generator) package takes the resulting build output and transforms it into such a ClientLib.
+
+A ClientLib will consist of the following files and directories:
+
+- `css/`: CSS files which can be requested in the HTML
+- `css.txt` (tells AEM the order and names of files in `css/` so they can be merged)
+- `js/`: JavaScript files which can be requested in the HTML
+- `js.txt` (tells AEM the order and names of files in `js/` so they can be merged
+- `resources/`: Source maps, non-entrypoint code chunks (resulting from code splitting), static assets (e.g. icons), etc.
+
+## Maven settings
+
+The project comes with the auto-public repository configured. To setup the repository in your Maven settings, refer to:
+
+    https://experienceleague.adobe.com/docs/experience-cloud-kcs/kbarticles/KA-17454.html?lang=en
