@@ -7,9 +7,8 @@ import { Action } from '@aemforms/af-core';
 import {useParams} from 'react-router-dom';
 //@ts-ignore
 import {Provider as Spectrum3Provider, defaultTheme} from '@adobe/react-spectrum'
-// import the dictionary created using
-// @ts-ignore
-import localizationMessages from '../../../generated/__localization__/multistep.form.i18n.json';
+// import the dictionary created using translation option from VS code plugin
+import localizationMessages from '../../generated/__localization__/L2NvbnRlbnQvZm9ybXMvYWYvY29udGFjdA==.form.i18n.json';
 
 const base64url = (s: any) => {
     var to64url = btoa(s);
