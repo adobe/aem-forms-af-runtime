@@ -1,0 +1,722 @@
+{
+  "adaptiveform": "0.10.0",
+  "events": {
+    "custom:submitform": "submitForm('submitSuccess', 'submitError')"
+  },
+  "properties": {
+    "baseUrl": "https://arnjainfunctions.azurewebsites.net",
+    "baseUrlLocal": "https://localhost:7071",
+    "afs:thankyouMessage": "Thank you for submitting the form"
+  },
+  "items": [
+    {
+      "name": "locale",
+      "fieldType": "drop-down",
+      "type": "string",
+      "label": {
+        "value": "Select a locale"
+      },
+      "default": "en-US",
+      "events": {
+        "change": "dispatchEvent($form, 'custom:localeChange', $field.$value)"
+      },
+      "enumNames": [
+        "de-DE",
+        "en-US",
+        "es-ES",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN",
+        "zh-TW"
+      ],
+      "enum": [
+        "de-DE",
+        "en-US",
+        "es-ES",
+        "fr-FR",
+        "it-IT",
+        "ja-JP",
+        "ko-KR",
+        "pt-BR",
+        "zh-CN",
+        "zh-TW"
+      ],
+      "properties": {
+        "afs:translationIds": {
+          "enum": "locale##enum##5528",
+          "enumNames": "locale##enumNames##8702",
+          "label.value": "locale##label.value##523"
+        }
+      }
+    },
+    {
+      "name": "wizardState",
+      "fieldType": "text-input",
+      "type": "number",
+      "visible": false,
+      "value": 0,
+      "events": {
+        "custom:navigate": "{value: $event.payload}"
+      }
+    },
+    {
+      "name": "identifyYourself",
+      "fieldType": "panel",
+      "type": "object",
+      "rules": {
+        "visible": "$form.wizardState.$value == `0`"
+      },
+      "properties": {
+        "afs:layout": {
+          "width": "100%"
+        }
+      },
+      "items": [
+        {
+          "name": "identifyState",
+          "fieldType": "text-input",
+          "type": "number",
+          "visible": false,
+          "value": 0,
+          "events": {
+            "custom:navigate": "{value: $event.payload}"
+          }
+        },
+        {
+          ":type": "custom:header",
+          "fieldType": "plain-text",
+          "properties": {
+            "step": 1
+          }
+        },
+        {
+          ":type": "custom:text",
+          "fieldType": "plain-text",
+          "label": {
+            "value": "Welcome"
+          },
+          "properties": {
+            "afs:layout": {
+              "UNSAFE_className": "text"
+            }
+          }
+        },
+        {
+          ":type": "custom:text",
+          "fieldType": "plain-text",
+          "label": {
+            "value": "You are just in time. Your offer expires soon!"
+          },
+          "properties": {
+            "afs:layout": {
+              "UNSAFE_className": "text"
+            }
+          }
+        },
+        {
+          "name": "identifyOtpStart",
+          "fieldType": "panel",
+          "type": "object",
+          "rules": {
+            "visible": "$form.identifyYourself.identifyState.$value == `0`"
+          },
+          "properties": {
+            "afs:layout": {
+              "width": "100%"
+            }
+          },
+          "items": [
+            {
+              "name": "mobileNumber",
+              "fieldType": "text-input",
+              "type": "string",
+              "pattern": "[0-9]{10}",
+              "required": true,
+              "constraintMessages": {
+                "pattern": "Mobiile number must be 10 digits long.",
+                "required": "Mobile number cannot be empty."
+              },
+              "description": "You do not need to add +91 - Share your 10 digit mobile number.\n We will be sending you an OTP to this number have it handy.",
+              "label": {
+                "value": "Please share your registered mobile number",
+                "hi": "कृपया अपना पंजीकृत मोबाइल नंबर साझा करें"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "text-field-bg"
+                },
+                "title": {
+                  "value": "Mobile Number",
+                  "hi": "मोबाइल नंबर"
+                },
+                "afs:translationIds": {
+                  "description": "identifyYourself##identifyOtpStart##mobileNumber##description##5716",
+                  "label.value": "identifyYourself##identifyOtpStart##mobileNumber##label.value##6560",
+                  "constraintMessages.pattern": "identifyYourself##identifyOtpStart##mobileNumber##constraintMessages.pattern##7562",
+                  "constraintMessages.required": "identifyYourself##identifyOtpStart##mobileNumber##constraintMessages.required##7157"
+                }
+              }
+            },
+            {
+              "name": "creditCardEndingNumber",
+              "fieldType": "text-input",
+              "type": "string",
+              "pattern": "[0-9]{4}",
+              "required": true,
+              "constraintMessages": {
+                "pattern": "Credit card digits must have 4 digits",
+                "required": "Credit card digits cannot be empty."
+              },
+              "description": "We will need your credit card number to check your eligibility",
+              "label": {
+                "value": "Share last 4 digits of your credit card number",
+                "hi": "अपने क्रेडिट कार्ड नंबर के अंतिम 4 अंक साझा करें"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "text-field-bg"
+                },
+                "title": {
+                  "value": "Credit Card Ending Number",
+                  "hi": "क्रेडिट कार्ड समाप्ति संख्या"
+                },
+                "afs:translationIds": {
+                  "description": "identifyYourself##identifyOtpStart##creditCardEndingNumber##description##7801",
+                  "label.value": "identifyYourself##identifyOtpStart##creditCardEndingNumber##label.value##3106",
+                  "constraintMessages.pattern": "identifyYourself##identifyOtpStart##creditCardEndingNumber##constraintMessages.pattern##1668",
+                  "constraintMessages.required": "identifyYourself##identifyOtpStart##creditCardEndingNumber##constraintMessages.required##417"
+                }
+              }
+            },
+            {
+              "name": "viewEligibilityButton",
+              "fieldType": "button",
+              "label": {
+                "value": "View Loan Eligibility"
+              },
+              "events": {
+                "click": "request($form.$properties.baseUrl & '/api/otp?mobile_number=' & mobileNumber.$value, 'GET', {}, 'success_otpget', 'failure_otpget')",
+                "custom:success_otpget": "dispatchEvent($form.identifyYourself.identifyState, 'custom:navigate', 1)"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "identifyYourself##identifyOtpStart##viewEligibilityButton##label.value##2564"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "identifyOtpConfirm",
+          "fieldType": "panel",
+          "type": "object",
+          "rules": {
+            "visible": "$form.identifyYourself.identifyState.$value == `1`"
+          },
+          "properties": {
+            "afs:layout": {
+              "width": "100%"
+            }
+          },
+          "items": [
+            {
+              "name": "identifyOtpValue",
+              "fieldType": "text-input",
+              "type": "string",
+              "pattern": "[0-9]{5}",
+              "required": true,
+              "label": {
+                "value": "Please enter OTP to authenticate",
+                "hi": "प्रमाणित करने के लिए कृपया ओटीपी दर्ज करें"
+              },
+              "properties": {
+                "title": {
+                  "value": "OTP",
+                  "hi": "ओटीपी"
+                },
+                "afs:layout": {
+                  "UNSAFE_className": "text-field-bg"
+                },
+                "afs:translationIds": {
+                  "label.value": "identifyYourself##identifyOtpConfirm##identifyOtpValue##label.value##5832"
+                }
+              }
+            },
+            {
+              "name": "viewEligibilityConfirmButton",
+              "fieldType": "button",
+              "label": {
+                "value": "Authenticate"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "identifyYourself##identifyOtpConfirm##viewEligibilityConfirmButton##label.value##4204"
+                }
+              },
+              "events": {
+                "click": "request($form.$properties.baseUrl & '/api/otp?mobile_number=' & $form.identifyYourself.identifyOtpStart.mobileNumber.$value & '&otp=' & identifyOtpValue.$value, 'POST', {}, 'success_otp', 'failure_otp')",
+                "custom:success_otp": "dispatchEvent($form.wizardState, 'custom:navigate', 1)"
+              }
+            },
+            {
+              "name": "identifyOtpAttemptsCount",
+              "fieldType": "text-input",
+              "type": "number",
+              "visible": false,
+              "value": 3,
+              "events": {
+                "custom:failure_otp": "{value: $field.$value - 1}"
+              }
+            },
+            {
+              ":type": "custom:text",
+              "name": "identifyOtpAttempts",
+              "fieldType": "plain-text",
+              "type": "string",
+              "visible": true,
+              "value": "",
+              "events": {
+                "custom:failure_otp": "{value: 'There are ' & toString(identifyOtpAttemptsCount.$value) & ' attempts remaining.'}"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "chooseLoanAmount",
+      "fieldType": "panel",
+      "type": "object",
+      "rules": {
+        "visible": "$form.wizardState.$value == 1"
+      },
+      "properties": {
+        "afs:layout": {
+          "width": "100%"
+        }
+      },
+      "items": [
+        {
+          "name": "loanAmountState",
+          "fieldType": "text-input",
+          "type": "number",
+          "visible": false,
+          "value": 0,
+          "events": {
+            "custom:navigate": "{value: $event.payload}"
+          }
+        },
+        {
+          ":type": "custom:header",
+          "fieldType": "plain-text",
+          "properties": {
+            "step": 2
+          }
+        },
+        {
+          "name": "loanAmountDetails",
+          "fieldType": "panel",
+          "type": "object",
+          "rules": {
+            "visible": "$form.chooseLoanAmount.loanAmountState.$value == `0`"
+          },
+          "properties": {
+            "afs:layout": {
+              "width": "100%"
+            }
+          },
+          "items": [
+            {
+              "name": "loanAmountNumber",
+              "fieldType": "text-input",
+              ":type": "custom:slider",
+              "required": true,
+              "value": 600000,
+              "constraintMessages": {
+                "minimum": "Loan amount cannot be less than minimum",
+                "maximum": "Loan amount cannot exceed the maximum limit"
+              },
+              "description": "It doesn't block your credit limit",
+              "label": {
+                "value": "Choose Loan Amount",
+                "hi": "ऋण राशि चुनें"
+              },
+              "properties": {
+                "afs:layout": {
+                  "minValue": 0,
+                  "maxValue": 1000000,
+                  "UNSAFE_className": "text-field-bg"
+                },
+                "title": {
+                  "value": "Loan Amount",
+                  "hi": "ऋण की राशि"
+                },
+                "afs:translationIds": {
+                  "description": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##description##7928",
+                  "label.value": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##label.value##4846",
+                  "constraintMessages.maximum": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##constraintMessages.maximum##3236",
+                  "constraintMessages.minimum": "chooseLoanAmount##loanAmountDetails##loanAmountNumber##constraintMessages.minimum##5954"
+                }
+              }
+            },
+            {
+              "name": "loanDuration",
+              "fieldType": "text-input",
+              ":type": "custom:slider",
+              "value": 12,
+              "description": "Longer duration = Lower EMI",
+              "label": {
+                "value": "Choose Loan Duration in Months",
+                "hi": "महीनों में ऋण अवधि चुनें"
+              },
+              "events": {
+                "blur": "request($form.$properties.baseUrl & '/api/whatsap/', 'POST', getData(), 'ignore','ignore')"
+              },
+              "properties": {
+                "afs:layout": {
+                  "minValue": 0,
+                  "maxValue": 60,
+                  "step": 1,
+                  "UNSAFE_className": "text-field-bg"
+                },
+                "title": {
+                  "value": "Loan Duration",
+                  "hi": "ऋण अवधि"
+                },
+                "afs:translationIds": {
+                  "description": "chooseLoanAmount##loanAmountDetails##loanDuration##description##5095",
+                  "label.value": "chooseLoanAmount##loanAmountDetails##loanDuration##label.value##7945"
+                }
+              }
+            },
+            {
+              "name": "monthlyEmi",
+              "fieldType": "text-input",
+              ":type": "custom:text",
+              "type": "string",
+              "readOnly": true,
+              "label": {
+                "value": "Monthly EMI"
+              },
+              "properties": {
+                "prefix": "₹",
+                "afs:layout": {
+                  "UNSAFE_className": "text-loan"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##monthlyEmi##label.value##738"
+                }
+              },
+              "rules": {
+                "value": "toString( loanAmountNumber.$value * rateOfInterest.$value / 1200 * power(1 + rateOfInterest.$value / 1200, loanDuration.$value) / (power(1 + rateOfInterest.$value / 1200, loanDuration.$value) - 1))"
+              }
+            },
+            {
+              "name": "rateOfInterest",
+              "fieldType": "text-input",
+              ":type": "custom:text",
+              "type": "string",
+              "readOnly": true,
+              "label": {
+                "value": "Rate of Interest"
+              },
+              "rules": {
+                "value": "8"
+              },
+              "properties": {
+                "suffix": "%",
+                "afs:layout": {
+                  "UNSAFE_className": "text-loan"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##rateOfInterest##label.value##6658"
+                }
+              }
+            },
+            {
+              "name": "netAmountPayable",
+              "fieldType": "text-input",
+              ":type": "custom:text",
+              "readOnly": true,
+              "label": {
+                "value": "Net Amount Payable to You"
+              },
+              "rules": {
+                "value": "$form.chooseLoanAmount.loanAmountDetails.loanAmountNumber.$value"
+              },
+              "properties": {
+                "prefix": "₹",
+                "afs:layout": {
+                  "UNSAFE_className": "text-loan-amount"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##netAmountPayable##label.value##7793"
+                }
+              }
+            },
+            {
+              ":type": "custom:text",
+              "fieldType": "plain-text",
+              "label": {
+                "value": "How would you like to receive the amount?"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "text",
+                  "UNSAFE_style": {
+                    "textAlign": "left"
+                  }
+                }
+              }
+            },
+            {
+              "name": "acountDetails",
+              "fieldType": "panel",
+              "type": "object",
+              "properties": {
+                "afs:layout": {
+                  "width": "100%",
+                  "UNSAFE_className": "text-field-bg"
+                }
+              },
+              "items": [
+                {
+                  "name": "bankName",
+                  "fieldType": "drop-down",
+                  "required": true,
+                  "label": {
+                    "value": "Please provide Name of your Bank",
+                    "hi": "कृपया अपने बैंक का नाम प्रदान करें"
+                  },
+                  "enum": [
+                    "HDFC Bank",
+                    "ICICI",
+                    "Kotak"
+                  ],
+                  "properties": {
+                    "afs:layout": {
+                      "width": "100%"
+                    },
+                    "title": {
+                      "value": "Bank Name",
+                      "hi": "बैंक का नाम"
+                    },
+                    "afs:translationIds": {
+                      "enum": "chooseLoanAmount##loanAmountDetails##acountDetails##bankName##enum##3048",
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##bankName##label.value##9124"
+                    }
+                  }
+                },
+                {
+                  "name": "acountNumber",
+                  "fieldType": "text-input",
+                  "type": "string",
+                  "required": true,
+                  "label": {
+                    "value": "Next, Your Acount Number",
+                    "hi": "आपका खाता संख्या"
+                  },
+                  "pattern": "[0-9]{10,10}",
+                  "constraintMessages": {
+                    "pattern": "Account number must be 10 digits long.",
+                    "required": "Account number cannot be empty."
+                  },
+                  "properties": {
+                    "title": {
+                      "value": "Account Number",
+                      "hi": "खाता संख्या"
+                    },
+                    "afs:translationIds": {
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumber##label.value##5016",
+                      "constraintMessages.pattern": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumber##constraintMessages.pattern##4471",
+                      "constraintMessages.required": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumber##constraintMessages.required##9585"
+                    }
+                  }
+                },
+                {
+                  "name": "acountNumberReEnter",
+                  "fieldType": "text-input",
+                  "type": "string",
+                  "required": true,
+                  "label": {
+                    "value": "Kindely re-enter Your Acount Number",
+                    "hi": "कृपया अपना खाता नंबर दोबारा दर्ज करें"
+                  },
+                  "properties": {
+                    "title": {
+                      "value": "Account Number Confirmation",
+                      "hi": "खाता संख्या पुष्टि"
+                    },
+                    "afs:translationIds": {
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumberReEnter##label.value##443",
+                      "constraintMessages.pattern": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumberReEnter##constraintMessages.pattern##4186",
+                      "constraintMessages.required": "chooseLoanAmount##loanAmountDetails##acountDetails##acountNumberReEnter##constraintMessages.required##6837"
+                    }
+                  },
+                  "pattern": "[0-9]{10,10}",
+                  "constraintMessages": {
+                    "pattern": "Account number must be 10 digits long.",
+                    "required": "Account number cannot be empty."
+                  }
+                },
+                {
+                  "name": "ifscCode",
+                  "fieldType": "text-input",
+                  "type": "string",
+                  "required": true,
+                  "label": {
+                    "value": "We will now need Your Bank's IFSC",
+                    "hi": "अब हमें आपके बैंक के IFSC की आवश्यकता होगी"
+                  },
+                  "properties": {
+                    "title": {
+                      "value": "IFSC Code",
+                      "hi": "आईएफएससी कोड"
+                    },
+                    "afs:translationIds": {
+                      "description": "chooseLoanAmount##loanAmountDetails##acountDetails##ifscCode##description##5313",
+                      "label.value": "chooseLoanAmount##loanAmountDetails##acountDetails##ifscCode##label.value##1717"
+                    }
+                  },
+                  "description": "You can find it on Your cheque Book"
+                }
+              ]
+            },
+            {
+              "name": "loanAmountConfirmButton",
+              "fieldType": "button",
+              "label": {
+                "value": "Confirm"
+              },
+              "events": {
+                "click": "dispatchEvent($form.chooseLoanAmount.loanAmountState, 'custom:navigate', 1)"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanAmountDetails##loanAmountConfirmButton##label.value##4415"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "loanConfirmOtp",
+          "fieldType": "panel",
+          "type": "object",
+          "rules": {
+            "visible": "$form.chooseLoanAmount.loanAmountState.$value == `1`"
+          },
+          "properties": {
+            "afs:layout": {
+              "width": "100%"
+            }
+          },
+          "items": [
+            {
+              "name": "loanOtpValue",
+              "fieldType": "text-input",
+              "type": "string",
+              "pattern": "[0-9]{5}",
+              "required": true,
+              "label": {
+                "value": "Please enter OTP to authenticate",
+                "hi": "प्रमाणित करने के लिए कृपया ओटीपी दर्ज करें"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "text-field-bg"
+                },
+                "title": {
+                  "value": "Confirm OTP",
+                  "hi": "ओटीपी की पुष्टि करें"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanConfirmOtp##loanOtpValue##label.value##7316"
+                }
+              }
+            },
+            {
+              "name": "loanOtpConfirmButton",
+              "fieldType": "button",
+              "label": {
+                "value": "Authenticate"
+              },
+              "events": {
+                "click": "request( $form.$properties.baseUrl & '/api/otp?mobile_number=' & $form.identifyYourself.identifyOtpStart.mobileNumber.$value & '&otp=' & loanOtpValue.$value, 'POST', {}, 'submitform', 'submitform')",
+                "custom:submitform": "dispatchEvent($form.wizardState, 'custom:navigate', 2)"
+              },
+              "properties": {
+                "afs:layout": {
+                  "UNSAFE_className": "custom-button"
+                },
+                "afs:translationIds": {
+                  "label.value": "chooseLoanAmount##loanConfirmOtp##loanOtpConfirmButton##label.value##9970"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "confirmation",
+      "fieldType": "panel",
+      "type": "object",
+      "rules": {
+        "visible": "$form.wizardState.$value == 2"
+      },
+      "properties": {
+        "afs:layout": {
+          "width": "100%"
+        }
+      },
+      "items": [
+        {
+          ":type": "custom:header",
+          "fieldType": "plain-text",
+          "properties": {
+            "step": 3
+          }
+        },
+        {
+          "name": "confirmationScreen",
+          "fieldType": "plain-text",
+          ":type": "custom:confirmation",
+          "type": "string",
+          "rules": {
+            "value": "$form.chooseLoanAmount.loanAmountDetails.netAmountPayable.$value"
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "grammar": "json-formula-1.0.0",
+    "version": "1.0.0",
+    "description": "Get instant loan on Credit Card!",
+    "name": "Instant Loan",
+    "tags": [
+      "credit",
+      "instant",
+      "card",
+      "loan"
+    ]
+  },
+  "action": "https://core.crispr-api.workers.dev/submit/content/forms/af/hdfc/credit-loan",
+  "thankYouMessage": "Thank you for submitting the form. Loan amount will be credited in your account within few minutes.",
+  "actionType": "POST",
+  "restEndpointPostUrl": "https://forms-api.azure-api.net/api/af",
+  "id": "/content/forms/af/hdfc/credit-loan"
+}
