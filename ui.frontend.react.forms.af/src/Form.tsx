@@ -1,6 +1,8 @@
 import React, {useEffect, useState, useCallback} from "react";
 import {AdaptiveForm} from "@aemforms/af-react-renderer";
 import mappings from "./material-ui/mappings";
+// Replace above line 3 with line 5 if you have not completed steps in lab 1
+// import {mappings} from "@aemforms/af-react-components"
 import useEditorEvents from "./hooks/useEditorEvents";
 import ReactDOM from "react-dom";
 import { Action } from '@aemforms/af-core';
@@ -35,10 +37,12 @@ const getForm = async (id: string) => {
 
 const getLocalizationMessages = async (id: string) => {
     const url = process.env.API_ENDPOINT ? process.env.API_ENDPOINT.replace("${FORMPATH}", id).replace(".form.json", ".form.i18n.json") : '';
-    let json = "";
+    let json = {};
     if (url) {
         const resp = await fetch(url)
-        json = (await resp.json())
+        if (resp.ok) {
+            json = (await resp.json())
+        }
     }
     return json
 }

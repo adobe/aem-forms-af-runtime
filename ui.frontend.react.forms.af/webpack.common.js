@@ -33,7 +33,7 @@ module.exports = {
         new CopyPlugin({
             patterns : [
                 { from: 'public', to: 'public' },
-                { from: '../generated/__localization__', to: 'public' }
+                //{ from: '../generated/__localization__', to: 'public' }
             ]
         }),
     ],
