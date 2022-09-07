@@ -1,6 +1,6 @@
 {
   "de-DE": {
-    "tabs##user##label.value##8513": "Identify Yourself de",
+    "tabs##user##label.value##8513": "Identify Yourself",
     "tabs##user##mobileNumber##description##8196": "You do not need to add +91 - Share your 10 digit mobile number.\n We will be sending you an OTP to this number have it handy.",
     "tabs##user##mobileNumber##label.value##641": "Please share your registered mobile number",
     "tabs##user##mobileNumber##constraintMessages.pattern##4713": "Mobiile number must be 10 digits long.",
