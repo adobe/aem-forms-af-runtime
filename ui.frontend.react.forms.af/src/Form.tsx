@@ -7,8 +7,6 @@ import { Action } from '@aemforms/af-core';
 import {useParams} from 'react-router-dom';
 //@ts-ignore
 import {Provider as Spectrum3Provider, defaultTheme} from '@adobe/react-spectrum'
-// import the dictionary created using translation option from VS code plugin
-import localizationMessages from '../../generated/__localization__/L2NvbnRlbnQvZm9ybXMvYWYvY29udGFjdA==.form.i18n.json';
 
 const base64url = (s: any) => {
     var to64url = btoa(s);
@@ -35,8 +33,19 @@ const getForm = async (id: string) => {
     return json
 }
 
+const getLocalizationMessages = async (id: string) => {
+    const url = process.env.API_ENDPOINT ? process.env.API_ENDPOINT.replace("${FORMPATH}", id).replace(".form.json", ".form.i18n.json") : '';
+    let json = "";
+    if (url) {
+        const resp = await fetch(url)
+        json = (await resp.json())
+    }
+    return json
+}
+
 const Form = (props: any) => {
     const [form, setForm] = useState("")
+    const [localizationMessages, setLocalizationMessages] = useState("" as any)
     const [state, setState] = useEditorEvents()
     // locale specific state
     const {lang} = useParams();
@@ -44,7 +53,9 @@ const Form = (props: any) => {
         let id = getId();
         if (id) {
             const json:any = await getForm(id);
+            const localeJson:any = await getLocalizationMessages(id);
             setForm(JSON.stringify(json.afModelDefinition || json))
+            setLocalizationMessages(localeJson);
         }
     }
     useEffect(() => {
