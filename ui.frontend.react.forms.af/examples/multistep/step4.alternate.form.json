@@ -1,0 +1,92 @@
+{
+    "adaptiveform": "0.10.0",
+    "items": [
+        {
+            "name": "topPanel",
+            "label": {
+                "value": "Welcome"
+            },
+            ":type" : "custom:vertical-tab",
+            "items": [
+                {
+                    "fieldType": "panel",
+                    "label": {
+                        "value": " Identify Yourself"
+                    },
+                    "events" : {
+                        "custom:activate" : "{visible : $event.payload.index == $field.$index}"
+                    },
+                    "name": "identifyYourself",
+                    "items": [
+                        {
+                            "name": "mobileNumber",
+                            "fieldType": "text-input",
+                            "type": "string",
+                            "required": true,
+                            "description": "You do not need to add +91 - Share your 10 digit mobile number.\n We will be sending you an OTP to this number have it handy.",
+                            "label": {
+                                "value": "Please share your registered mobile number"
+                            }
+                        },
+                        {
+                            "name": "creditCardEndingNumber",
+                            "fieldType": "text-input",
+                            "type": "string",
+                            "required": true,
+                            "description": "We will need your credit card number to check your eligibility",
+                            "label": {
+                                "value": "Share last 4 digits of your credit card number"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "verifyOtp",
+                    "label": {
+                        "value": "Verify OTP"
+                    },
+                    "events" : {
+                        "custom:activate" : "{visible : $event.payload.index == $field.$index}"
+                    },
+                    "visible" : false,
+                    "items": [
+                        {
+                            "name": "identifyOtpValue",
+                            "fieldType": "text-input",
+                            "type": "string",
+                            "pattern": "[0-9]{5}",
+                            "required": true,
+                            "label": {
+                                "value": "Please enter OTP to authenticate"
+                            }
+                        },
+                        {
+                            "name": "viewEligibilityConfirmButton",
+                            "fieldType": "button",
+                            "label": {
+                                "value": "Authenticate"
+                            },
+                            "rules": {
+                                "visible": "length(identifyOtpValue) > 0"
+                            }
+                        }
+                    ],
+                    "fieldType": "panel"
+                }
+            ],
+            "fieldType": "panel"
+        },
+        {
+            "name": "nextButton",
+            "fieldType": "button",
+            "label": {
+                "value": "Next"
+            },
+            "events": {
+                "initialize" : "{properties : {activePanel : topPanel.$items[?@.$visible == true()] | [0].$index}}",
+                "click": ["{properties : {activePanel : topPanel.$items[?@.$visible == true()] | [0].$index}}", "if(length(validate(topPanel.$items[$field.$properties.activePanel])) == 0, dispatchEvent('custom:activate', {index: $field.$properties.activePanel + 1}), {})"],
+                "custom:activate" : "{visible: (topPanel.$items[?@.$visible == true()] | [0].$index) == (length(topPanel.$items) - 1)}"
+            }
+        }   
+    ]
+}

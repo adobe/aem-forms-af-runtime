@@ -1,0 +1,84 @@
+{
+    "adaptiveform": "0.10.0",
+    "items": [
+        {
+            "name": "topPanel",
+            "label": {
+                "value": "Welcome"
+            },
+            ":type" : "custom:vertical-tab",
+            "items": [
+                {
+                    "fieldType": "panel",
+                    "label": {
+                        "value": " Identify Yourself"
+                    },
+                    "name": "identifyYourself",
+                    "items": [
+                        {
+                            "name": "mobileNumber",
+                            "fieldType": "text-input",
+                            "type": "string",
+                            "required": true,
+                            "description": "You do not need to add +91 - Share your 10 digit mobile number.\n We will be sending you an OTP to this number have it handy.",
+                            "label": {
+                                "value": "Please share your registered mobile number"
+                            }
+                        },
+                        {
+                            "name": "creditCardEndingNumber",
+                            "fieldType": "text-input",
+                            "type": "string",
+                            "required": true,
+                            "description": "We will need your credit card number to check your eligibility",
+                            "label": {
+                                "value": "Share last 4 digits of your credit card number"
+                            }
+                        },
+                        {
+                            "name": "viewEligibilityButton",
+                            "fieldType": "button",
+                            "label": {
+                                "value": "View Loan Eligibility"
+                            },
+                            "events": {
+                                "click": "validate($parent)"
+                              }
+                        }
+                    ]
+                },
+                {
+                    "name": "verifyOtp",
+                    "label": {
+                        "value": "Verify OTP"
+                    },
+                    "visible" : false,
+                    "items": [
+                        {
+                            "name": "identifyOtpValue",
+                            "fieldType": "text-input",
+                            "type": "string",
+                            "pattern": "[0-9]{5}",
+                            "required": true,
+                            "label": {
+                                "value": "Please enter OTP to authenticate"
+                            }
+                        },
+                        {
+                            "name": "viewEligibilityConfirmButton",
+                            "fieldType": "button",
+                            "label": {
+                                "value": "Authenticate"
+                            },
+                            "rules": {
+                                "visible": "length(identifyOtpValue) > 0"
+                            }
+                        }
+                    ],
+                    "fieldType": "panel"
+                }
+            ],
+            "fieldType": "panel"
+        }        
+    ]
+}
