@@ -13,7 +13,7 @@ module.exports =
         performance: {hints: 'warning'},
         devServer: {
             static: {
-                directory: path.join(__dirname, 'dist'),
+                directory: path.join(__dirname, 'dist')
             },
             historyApiFallback: true,
             client: {
@@ -41,7 +41,8 @@ module.exports =
                         THEME_LIGHTEST: 'false',
                         THEME_DARK: 'false',
                         THEME_DARKEST: 'false',
-                        FORMPATH: `'${process.env.FORMPATH}'`
+                        FORMPATH: `'${process.env.FORMPATH}'`,
+                        API_ENDPOINT : `'${process.env.API_ENDPOINT}'`,
                     }
                 }
             }),

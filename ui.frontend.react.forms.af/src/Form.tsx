@@ -10,13 +10,11 @@ import {Provider as Spectrum3Provider, defaultTheme} from '@adobe/react-spectrum
 // import the dictionary created using
 // @ts-ignore
 import localizationMessages from '../../../generated/__localization__/multistep.form.i18n.json';
-// @ts-ignore
-import formJson from '../examples/multistep.form.json';
 
 const base64url = (s: any) => {
     var to64url = btoa(s);
     // Replace non-url compatible chars with base64url standard chars and remove leading =
-    return to64url.replace(/\+/g, '_').replace(/\//g, '-').replace(/=+$/g, '');
+    return to64url.replace(/\+/g, '_').replace(/\//g, '-');
 }
 
 
@@ -32,7 +30,8 @@ export const getId = () => {
 }
 
 const getForm = async (id: string) => {
-    const resp = await fetch(`/adobe/forms/af/v1/${id}`)
+    const url = process.env.API_ENDPOINT ? process.env.API_ENDPOINT.replace("${FORMPATH}", id) : `/adobe/forms/af/v1/${id}`;
+    const resp = await fetch(url)
     const json = (await resp.json())
     return json
 }
@@ -46,7 +45,7 @@ const Form = (props: any) => {
         let id = getId();
         if (id) {
             const json:any = await getForm(id);
-            setForm(JSON.stringify(json.afModelDefinition))
+            setForm(JSON.stringify(json.afModelDefinition || json))
         }
     }
     useEffect(() => {
@@ -56,7 +55,7 @@ const Form = (props: any) => {
         const element = document.querySelector(".cmp-formcontainer__content")
         const retVal = (<Spectrum3Provider theme={defaultTheme}>
             <AdaptiveForm
-                formJson={formJson /*JSON.parse(form)*/}
+                formJson={JSON.parse(form)}
                 localizationMessages={localizationMessages}
                 mappings={mappings}
                 locale={lang}/>

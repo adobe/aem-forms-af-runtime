@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const pkg = require('./package.json');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const alias = Object.keys(pkg.dependencies)
     .reduce((obj, key) => ({...obj, [key]: path.resolve(__dirname, 'node_modules', key)}), {});
 
@@ -28,7 +29,12 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: 'dist/[name].css',
-        })
+        }),
+        new CopyPlugin({
+            patterns : [
+                { from: 'public', to: 'public' }
+            ]
+        }),
     ],
     resolve: {
         alias: {
