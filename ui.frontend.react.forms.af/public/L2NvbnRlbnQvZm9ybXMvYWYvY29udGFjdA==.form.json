@@ -1,0 +1,328 @@
+{
+  "adaptiveform": "0.10.0",
+  "items": [
+    {
+      ":type": "custom:vertical-tab",
+      "name": "tabs",
+      "items": [
+        {
+          "name": "user",
+          "fieldType": "panel",
+          "type": "object",
+          "label": {
+            "value": "Identify Yourself"
+          },
+          "items": [
+            {
+              "name": "mobileNumber",
+              "fieldType": "text-input",
+              "type": "string",
+              "pattern": "[0-9]{10}",
+              "required": true,
+              "constraintMessages": {
+                "pattern": "Mobiile number must be 10 digits long.",
+                "required": "Mobile number cannot be empty."
+              },
+              "description": "You do not need to add +91 - Share your 10 digit mobile number.\n We will be sending you an OTP to this number have it handy.",
+              "label": {
+                "value": "Please share your registered mobile number"
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "description": "tabs##user##mobileNumber##description##8196",
+                  "label.value": "tabs##user##mobileNumber##label.value##641",
+                  "constraintMessages.pattern": "tabs##user##mobileNumber##constraintMessages.pattern##4713",
+                  "constraintMessages.required": "tabs##user##mobileNumber##constraintMessages.required##1079"
+                }
+              }
+            },
+            {
+              "name": "creditCardEndingNumber",
+              "fieldType": "text-input",
+              "type": "string",
+              "pattern": "[0-9]{4}",
+              "required": true,
+              "constraintMessages": {
+                "pattern": "Credit card digits must have 4 digits",
+                "required": "Credit card digits cannot be empty."
+              },
+              "description": "We will need your credit card number to check your eligibility",
+              "label": {
+                "value": "Share last 4 digits of your credit card number"
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "description": "tabs##user##creditCardEndingNumber##description##2366",
+                  "label.value": "tabs##user##creditCardEndingNumber##label.value##8385",
+                  "constraintMessages.pattern": "tabs##user##creditCardEndingNumber##constraintMessages.pattern##3541",
+                  "constraintMessages.required": "tabs##user##creditCardEndingNumber##constraintMessages.required##5122"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "afs:translationIds": {
+              "label.value": "tabs##user##label.value##8513"
+            }
+          }
+        },
+        {
+          "name": "loanDetails",
+          "fieldType": "panel",
+          "type": "object",
+          "label": {
+            "value": "Loan Details"
+          },
+          "items": [
+            {
+              "name": "amount",
+              "fieldType": "text-input",
+              ":type": "custom:slider",
+              "required": true,
+              "value": 600000,
+              "constraintMessages": {
+                "minimum": "Loan amount cannot be less than minimum",
+                "maximum": "Loan amount cannot exceed the maximum limit"
+              },
+              "description": "It doesn't block your credit limit",
+              "label": {
+                "value": "Choose Loan Amount"
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "description": "tabs##loanDetails##amount##description##1562",
+                  "label.value": "tabs##loanDetails##amount##label.value##6012",
+                  "constraintMessages.maximum": "tabs##loanDetails##amount##constraintMessages.maximum##2368",
+                  "constraintMessages.minimum": "tabs##loanDetails##amount##constraintMessages.minimum##4362"
+                }
+              }
+            },
+            {
+              "name": "duration",
+              "fieldType": "text-input",
+              ":type": "custom:slider",
+              "value": 12,
+              "description": "Longer duration = Lower EMI",
+              "label": {
+                "value": "Choose Loan Duration in Months"
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "description": "tabs##loanDetails##duration##description##2836",
+                  "label.value": "tabs##loanDetails##duration##label.value##9336"
+                }
+              }
+            },
+            {
+              "name": "emi",
+              "fieldType": "text-input",
+              ":type": "custom:text",
+              "type": "string",
+              "readOnly": true,
+              "label": {
+                "value": "Monthly EMI"
+              },
+              "rules": {
+                "value": "toString( amount.$value * rateOfInterest.$value / 1200 * power(1 + rateOfInterest.$value / 1200, duration.$value) / (power(1 + rateOfInterest.$value / 1200, duration.$value) - 1))"
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "label.value": "tabs##loanDetails##emi##label.value##955"
+                }
+              }
+            },
+            {
+              "name": "rateOfInterest",
+              "fieldType": "text-input",
+              ":type": "custom:text",
+              "type": "string",
+              "readOnly": true,
+              "label": {
+                "value": "Rate of Interest"
+              },
+              "rules": {
+                "value": "8"
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "label.value": "tabs##loanDetails##rateOfInterest##label.value##2689"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "afs:translationIds": {
+              "label.value": "tabs##loanDetails##label.value##9758"
+            }
+          }
+        },
+        {
+          "name": "acountDetails",
+          "fieldType": "panel",
+          "type": "object",
+          "label": {
+            "value": "Account Details"
+          },
+          "items": [
+            {
+              "name": "bankName",
+              "fieldType": "drop-down",
+              "required": true,
+              "label": {
+                "value": "Please provide Name of your Bank"
+              },
+              "enum": [
+                "HDFC Bank",
+                "ICICI",
+                "Kotak"
+              ],
+              "properties": {
+                "afs:translationIds": {
+                  "enum": "tabs##acountDetails##bankName##enum##9135",
+                  "label.value": "tabs##acountDetails##bankName##label.value##8109"
+                }
+              }
+            },
+            {
+              "name": "acountNumber",
+              "fieldType": "text-input",
+              "type": "string",
+              "required": true,
+              "label": {
+                "value": "Next, Your Acount Number"
+              },
+              "pattern": "[0-9]{10,10}",
+              "constraintMessages": {
+                "pattern": "Account number must be 10 digits long.",
+                "required": "Account number cannot be empty."
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "label.value": "tabs##acountDetails##acountNumber##label.value##9520",
+                  "constraintMessages.pattern": "tabs##acountDetails##acountNumber##constraintMessages.pattern##9694",
+                  "constraintMessages.required": "tabs##acountDetails##acountNumber##constraintMessages.required##2198"
+                }
+              }
+            },
+            {
+              "name": "acountNumberReEnter",
+              "fieldType": "text-input",
+              "type": "string",
+              "required": true,
+              "label": {
+                "value": "Kindely re-enter Your Acount Number"
+              },
+              "pattern": "[0-9]{10,10}",
+              "constraintMessages": {
+                "pattern": "Account number must be 10 digits long.",
+                "required": "Account number cannot be empty."
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "label.value": "tabs##acountDetails##acountNumberReEnter##label.value##1475",
+                  "constraintMessages.pattern": "tabs##acountDetails##acountNumberReEnter##constraintMessages.pattern##2547",
+                  "constraintMessages.required": "tabs##acountDetails##acountNumberReEnter##constraintMessages.required##2634"
+                }
+              }
+            },
+            {
+              "name": "ifscCode",
+              "fieldType": "text-input",
+              "type": "string",
+              "required": true,
+              "label": {
+                "value": "We will now need Your Bank's IFSC"
+              },
+              "description": "You can find it on Your cheque Book",
+              "properties": {
+                "afs:translationIds": {
+                  "description": "tabs##acountDetails##ifscCode##description##2642",
+                  "label.value": "tabs##acountDetails##ifscCode##label.value##8276"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "afs:translationIds": {
+              "label.value": "tabs##acountDetails##label.value##5650"
+            }
+          }
+        },
+        {
+          "name": "loanAmountConfirm",
+          "fieldType": "button",
+          "label": {
+            "value": "Confirmation"
+          },
+          "items": [
+            {
+              ":type": "custom:vertical-flex",
+              "name": "flex",
+              "fieldType": "panel",
+              "items": [
+                {
+                  "name": "loanOtpConfirmButton",
+                  "fieldType": "button",
+                  "label": {
+                    "value": "Send OTP"
+                  },
+                  "properties": {
+                    "afs:translationIds": {
+                      "label.value": "tabs##loanAmountConfirm##flex##loanOtpConfirmButton##label.value##1688"
+                    }
+                  }
+                },
+                {
+                  "name": "loanOtpValue",
+                  "fieldType": "text-input",
+                  "type": "string",
+                  "pattern": "[0-9]{5}",
+                  "required": true,
+                  "label": {
+                    "value": "Please enter OTP to authenticate"
+                  },
+                  "properties": {
+                    "afs:translationIds": {
+                      "label.value": "tabs##loanAmountConfirm##flex##loanOtpValue##label.value##1347"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "name": "loanOtpConfirmButton",
+              "fieldType": "button",
+              "label": {
+                "value": "Submit"
+              },
+              "properties": {
+                "afs:translationIds": {
+                  "label.value": "tabs##loanAmountConfirm##loanOtpConfirmButton##label.value##7226"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "afs:translationIds": {
+              "label.value": "tabs##loanAmountConfirm##label.value##1815"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "grammar": "json-formula-1.0.0",
+    "version": "1.0.0",
+    "description": "Loan based on Credit Card!",
+    "name": "Loan Form",
+    "tags": [
+      "credit",
+      "instant",
+      "card",
+      "loan"
+    ]
+  },
+  "id": "/content/forms/af/loan",
+  "action": "/adobe/forms/af/v1/submit/L2NvbnRlbnQvZm9ybXMvYWYvY29udGFjdA=="
+}
