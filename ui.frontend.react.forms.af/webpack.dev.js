@@ -4,7 +4,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
 const webpack = require('webpack')
 const path = require('path');
-require('dotenv').config({ path: './.env' });
+require('dotenv').config({ path: './.env.development' });
 
 module.exports =
     merge(common, {

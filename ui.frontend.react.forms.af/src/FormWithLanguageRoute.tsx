@@ -16,6 +16,8 @@ const FormWithLanguageRoute = (props: any) => {
             <Routes>
                 <Route path="/" element={<AForm/>}/>
                 <Route path="/:lang" element={<AForm/>}/>
+                <Route path="*"
+                        element={<AForm />}/>
             </Routes>
         </BrowserRouter>);
 };

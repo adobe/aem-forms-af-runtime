@@ -3,6 +3,8 @@ const common = require('./webpack.common.js');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
     .BundleAnalyzerPlugin;
 const webpack = require('webpack')
+require('dotenv').config({ path: './.env' });
+
 module.exports =
     merge(common, {
         mode: 'production',
@@ -24,7 +26,8 @@ module.exports =
                         THEME_LIGHT: 'true',
                         THEME_LIGHTEST: 'false',
                         THEME_DARK: 'false',
-                        THEME_DARKEST: 'false'
+                        THEME_DARKEST: 'false',
+                        API_ENDPOINT : `'${process.env.API_ENDPOINT}'`,
                     }
                 }
             }),

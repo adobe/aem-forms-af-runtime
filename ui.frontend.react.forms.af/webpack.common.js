@@ -47,6 +47,7 @@ module.exports = {
         filename: '[name].js',
         path: path.resolve(__dirname, 'dist'),
         clean: true,
+        publicPath: '/'
         //sourceMapFilename: `clientlib-forms-react/resources/[name].map[ext]` // uncomment for debugging
     }
 };
