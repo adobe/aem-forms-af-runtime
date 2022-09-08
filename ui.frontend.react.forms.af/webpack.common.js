@@ -32,8 +32,8 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns : [
-                { from: 'public', to: 'public' },
-                //{ from: '../generated/__localization__', to: 'public' }
+                { from: 'public', to: 'public', noErrorOnMissing: true },
+                { from: '../generated/__localization__', to: 'public', noErrorOnMissing: true }
             ]
         }),
     ],
