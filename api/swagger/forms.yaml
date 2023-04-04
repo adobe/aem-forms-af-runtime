@@ -8,9 +8,6 @@ info:
   version: '1.0.0'
 servers:
   - url: '/adobe/forms/af'
-externalDocs:
-  description: API documentation
-  url: "https://wiki.corp.adobe.com/display/lc/Form+Headless+API+Specification"
 paths:
   /listforms:
     get:
@@ -44,40 +41,6 @@ paths:
       description: Gets the definition of the given form. 
       parameters:
         - "$ref": "#/components/parameters/formId"
-        - "$ref": "#/components/parameters/acceptLang"
-      responses:
-        '200':
-          description: Successful request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Form'
-          links:
-            submit:
-              operationId: submitForm
-              parameters:
-                id: $id
-            prefill:
-              operationId: getFormData
-              parameters:
-                id: $id
-        '400':
-          $ref: '#/components/responses/GenericBadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '408':
-          $ref: '#/components/responses/RequestTimeout'
-        '500':
-          $ref: '#/components/responses/InternalServer'
-  /{id}/{locale}:
-    get:
-      operationId: getFormWithLocale
-      tags:
-        - Get Localised Form Definition
-      description: Gets the localised definition of the given form. 
-      parameters:
-        - "$ref": "#/components/parameters/formId"
-        - "$ref": "#/components/parameters/locale"
         - "$ref": "#/components/parameters/acceptLang"
       responses:
         '200':
@@ -203,98 +166,6 @@ paths:
           $ref: '#/components/responses/InternalServer'
         default:
           "$ref": "#/components/responses/default"
-  /submit/status/{id}:
-    get:
-      operationId: trackFormSubmission
-      tags:
-        - Track Submit Status
-      parameters:
-        - "$ref": "#/components/parameters/formId"
-        - "$ref": "#/components/parameters/submissionId"
-      responses:
-        '200':
-          description: Submission Status
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/SubmitResult'
-                  - type: object
-                    properties:
-                      submitStatus:
-                        type: string
-                        enum:
-                          - PENDING
-                          - SUCCESSFUL
-                          - FAILURE
-                          - EXPIRED
-                      signInfo:
-                        description: It contains information about signing process. It can eb further used to track signing status from Adobe Sign
-                        type: object
-                        properties:
-                          agreementId:
-                            type: string
-                      validationErrors:
-                        type: array
-                        items:
-                          $ref: '#/components/schemas/ValidationError'
-                      metadata:
-                        description: This can contain any additional properties which custom post submit action invocation returns that can be further used to the post submit action status.
-                        type: object
-                        additionalProperties:
-                          type: string
-        '400':
-          $ref: '#/components/responses/GenericBadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '408':
-          $ref: '#/components/responses/RequestTimeout'
-        '500':
-          $ref: '#/components/responses/InternalServer'
-  /validate/{id}:
-    post:
-      operationId: validateForm
-      tags:
-        - Validate Form
-      description: Validates the given form
-      parameters:
-        - "$ref": "#/components/parameters/formId"
-      requestBody:
-        description: Request body to submit form
-        required: true
-        content:
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/FormDataMultiPart'
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FormData'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/FormData'
-          application/x-www-form-urlencoded:
-            schema:
-              type: object
-              additionalProperties:
-                oneOf:
-                  - type: string
-                  - type: number
-                  - type: boolean
-      responses:
-        '200':
-          description: Successful request.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationResult'
-        '400':
-          $ref: '#/components/responses/GenericBadRequest'
-        '403':
-          $ref: '#/components/responses/Forbidden'
-        '408':
-          $ref: '#/components/responses/RequestTimeout'
-        '500':
-          $ref: '#/components/responses/InternalServer'
   /dor/{id}:
     post:
       operationId: generateDoR
@@ -478,15 +349,6 @@ components:
           additionalProperties:
             type: string
       required: [submissionId]
-    ValidationResult:
-      type: object
-      properties:
-        validationStatus:
-          type: boolean
-        validationErrors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     ValidationError:
       type: object
       properties:
