@@ -263,7 +263,6 @@ components:
       properties:
         afModelDefinition:
           type: object
-          description: https://git.corp.adobe.com/livecycle/af2-docs/blob/gh-pages/schema/generated/adaptive-form.schema.json
         dataSchema:
           oneOf:
             - type: string
