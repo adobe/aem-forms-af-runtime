@@ -149,13 +149,6 @@ paths:
               operationId: getFormData
               parameters:
                 dataRef: $response.body#/submissionId
-        '202':
-          description: Accepted the form submission request (applicable in case of async submission)
-          headers:
-            Location:
-              description: Link of the URL for querying status of forms submission
-              schema:
-                type: string
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':
