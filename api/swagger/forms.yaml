@@ -41,7 +41,6 @@ paths:
       description: Gets the definition of the given form. 
       parameters:
         - "$ref": "#/components/parameters/formId"
-        - "$ref": "#/components/parameters/acceptLang"
       responses:
         '200':
           description: Successful request.
@@ -182,14 +181,7 @@ paths:
               $ref: '#/components/schemas/FormDataMultiPart'
           application/json:
             schema:
-              oneOf:
-                - $ref: '#/components/schemas/FormData'
-                - type: object
-                  properties:
-                    submissionId:
-                      description: unique identifier of the data submitted
-                      type: string
-                  required: [submissionId]
+              $ref: '#/components/schemas/FormData'
           application/x-www-form-urlencoded:
             schema:
               type: object
@@ -384,14 +376,6 @@ components:
       in: path
       description: form locale represented as language tag.
       required: true
-      schema:
-        type: string
-        default: "en"
-        example: "fr-CH"
-    acceptLang:
-      name: Accept-Language
-      in: header
-      description: The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.). This parameter is incompatible with `locale`
       schema:
         type: string
         default: "en"
