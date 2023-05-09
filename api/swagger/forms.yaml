@@ -4,12 +4,10 @@ info:
   description:  |
     AEM Forms as a Cloud Service - Headless Forms HTTP APIs.
     # Introduction
-    Headless APIs let you fetch the Headless Adaptive Form definitions, and submit form data to AEM.
+    Headless APIs let you get the Headless Adaptive Form definition, prefill the form, validate and submit it.
   version: '1.0.0'
 servers:
-  - url: '/adobe/forms/af/v1'
-externalDocs:
-  description: API documentation
+  - url: '/adobe/forms/af'
 paths:
   /listforms:
     get:
@@ -40,9 +38,10 @@ paths:
       operationId: getForm
       tags:
         - Get Form Definition
-      description: Gets the definition of the given form
+      description: Gets the definition of the given form. 
       parameters:
         - "$ref": "#/components/parameters/formId"
+        - "$ref": "#/components/parameters/acceptLang"
       responses:
         '200':
           description: Successful request.
@@ -67,6 +66,70 @@ paths:
           $ref: '#/components/responses/RequestTimeout'
         '500':
           $ref: '#/components/responses/InternalServer'
+  /{id}/{locale}:
+    get:
+      operationId: getFormWithLocale
+      tags:
+        - Get Localised Form Definition
+      description: Gets the localised definition of the given form.
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+        - "$ref": "#/components/parameters/locale"
+        - "$ref": "#/components/parameters/acceptLang"
+      responses:
+        '200':
+          description: Successful request.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Form'
+          links:
+            submit:
+              operationId: submitForm
+              parameters:
+                id: $id
+            prefill:
+              operationId: getFormData
+              parameters:
+                id: $id
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+  /data/{id}:
+    get:
+      operationId: getFormData
+      tags:
+        - Get Form Data
+      description: Gets the form data
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+        - in: query
+          name: dataRef
+          description: Unique identifier of the data to be prefilled. This is returned by the submit API.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Form Data
+          content:
+            application/json:
+              schema:
+                "$ref" : '#/components/schemas/PrefillResponse'
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
+        default:
+          "$ref": "#/components/responses/default"
   /submit/{id}:
     post:
       operationId: submitForm
@@ -75,13 +138,6 @@ paths:
       description: Submits the given form
       parameters:
         - "$ref": "#/components/parameters/formId"
-        - in: header
-          name: Prefer
-          description: It should be provided if async response is desired
-          schema:
-            type: string
-          example:
-            "respond-async"
       requestBody:
         description: Request body to submit form
         required: true
@@ -120,13 +176,6 @@ paths:
               operationId: getFormData
               parameters:
                 dataRef: $response.body#/submissionId
-        '202':
-          description: Accepted the form submission request (applicable in case of async submission)
-          headers:
-            Location:
-              description: Link of the URL for querying status of forms submission
-              schema:
-                type: string
         '400':
           $ref: '#/components/responses/BadRequest'
         '403':
@@ -137,6 +186,55 @@ paths:
           $ref: '#/components/responses/InternalServer'
         default:
           "$ref": "#/components/responses/default"
+  /dor/{id}:
+    post:
+      operationId: generateDoR
+      tags:
+        - Generate DoR
+      description: Generates the Document of Record for the given form. It will not perform server-side validation of form data.
+      parameters:
+        - "$ref": "#/components/parameters/formId"
+        - name: locale
+          in: query
+          description: form locale
+          schema:
+            type: string
+            default: "en"
+      requestBody:
+        description: Request body to submit form
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/FormDataMultiPart'
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FormData'
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties:
+                oneOf:
+                  - type: string
+                  - type: number
+                  - type: boolean
+      responses:
+        '200':
+          description: Successful request.
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+                description: document of record bytes if dor is configured in form
+        '400':
+          $ref: '#/components/responses/GenericBadRequest'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '408':
+          $ref: '#/components/responses/RequestTimeout'
+        '500':
+          $ref: '#/components/responses/InternalServer'
 components:
   schemas:
     FormsList:
@@ -263,15 +361,6 @@ components:
           additionalProperties:
             type: string
       required: [submissionId]
-    ValidationResult:
-      type: object
-      properties:
-        validationStatus:
-          type: boolean
-        validationErrors:
-          type: array
-          items:
-            $ref: '#/components/schemas/ValidationError'
     ValidationError:
       type: object
       properties:
@@ -312,11 +401,21 @@ components:
         type: string
     locale:
       name: locale
-      in: query
-      description: form locale
+      in: path
+      required: true
+      description: form locale represented as language tag.
       schema:
         type: string
         default: "en"
+        example: "fr-CH"
+    acceptLang:
+      name: Accept-Language
+      in: header
+      description: The header advertises which languages the client is able to understand, and which locale variant is preferred. (By languages, we mean natural languages, such as English, and not programming languages.). This parameter is incompatible with `locale`
+      schema:
+        type: string
+        default: "en"
+        example: "fr-CH"
     submissionId:
       name: submissionId
       in: query
