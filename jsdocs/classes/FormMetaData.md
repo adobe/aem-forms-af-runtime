@@ -22,7 +22,6 @@ Defines form metadata which implements [Form MetaData Model](../interfaces/FormM
 
 - [grammar](FormMetaData.md#grammar)
 - [isContainer](FormMetaData.md#iscontainer)
-- [locale](FormMetaData.md#locale)
 - [version](FormMetaData.md#version)
 
 ## Constructors
@@ -70,22 +69,6 @@ ___
 #### Inherited from
 
 Node.isContainer
-
-___
-
-### locale
-
-• `get` **locale**(): `string`
-
-Form locale
-
-#### Returns
-
-`string`
-
-#### Implementation of
-
-[FormMetaDataModel](../interfaces/FormMetaDataModel.md).[locale](../interfaces/FormMetaDataModel.md#locale)
 
 ___
 

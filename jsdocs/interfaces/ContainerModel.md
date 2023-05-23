@@ -25,6 +25,7 @@ Defines properties that each container should have
 
 - [:type](ContainerModel.md#:type)
 - [accept](ContainerModel.md#accept)
+- [activeChild](ContainerModel.md#activechild)
 - [dataRef](ContainerModel.md#dataref)
 - [default](ContainerModel.md#default)
 - [description](ContainerModel.md#description)
@@ -42,23 +43,29 @@ Defines properties that each container should have
 - [isContainer](ContainerModel.md#iscontainer)
 - [items](ContainerModel.md#items)
 - [label](ContainerModel.md#label)
+- [lang](ContainerModel.md#lang)
 - [maxFileSize](ContainerModel.md#maxfilesize)
 - [maxItems](ContainerModel.md#maxitems)
 - [maxLength](ContainerModel.md#maxlength)
+- [maxOccur](ContainerModel.md#maxoccur)
 - [maximum](ContainerModel.md#maximum)
 - [minItems](ContainerModel.md#minitems)
 - [minLength](ContainerModel.md#minlength)
+- [minOccur](ContainerModel.md#minoccur)
 - [minimum](ContainerModel.md#minimum)
 - [name](ContainerModel.md#name)
 - [parent](ContainerModel.md#parent)
 - [pattern](ContainerModel.md#pattern)
 - [placeholder](ContainerModel.md#placeholder)
 - [properties](ContainerModel.md#properties)
+- [qualifiedName](ContainerModel.md#qualifiedname)
 - [readOnly](ContainerModel.md#readonly)
+- [repeatable](ContainerModel.md#repeatable)
 - [required](ContainerModel.md#required)
 - [rules](ContainerModel.md#rules)
 - [step](ContainerModel.md#step)
 - [type](ContainerModel.md#type)
+- [uniqueItems](ContainerModel.md#uniqueitems)
 - [valid](ContainerModel.md#valid)
 - [validationExpression](ContainerModel.md#validationexpression)
 - [value](ContainerModel.md#value)
@@ -67,6 +74,8 @@ Defines properties that each container should have
 ### Methods
 
 - [indexOf](ContainerModel.md#indexof)
+- [isTransparent](ContainerModel.md#istransparent)
+- [reset](ContainerModel.md#reset)
 - [validate](ContainerModel.md#validate)
 
 ## Properties
@@ -90,6 +99,12 @@ ___
 #### Inherited from
 
 [BaseModel](BaseModel.md).[accept](BaseModel.md#accept)
+
+___
+
+### activeChild
+
+• **activeChild**: ``null`` \| [`BaseModel`](BaseModel.md)
 
 ___
 
@@ -163,7 +178,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[]
+• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Inherited from
 
@@ -289,6 +304,18 @@ Label to be used for the field.
 
 ___
 
+### lang
+
+• `Optional` `Readonly` **lang**: `string`
+
+language of the field
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[lang](BaseModel.md#lang)
+
+___
+
 ### maxFileSize
 
 • `Optional` **maxFileSize**: `string` \| `number`
@@ -319,6 +346,16 @@ ___
 
 ___
 
+### maxOccur
+
+• `Optional` **maxOccur**: `number`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[maxOccur](BaseModel.md#maxoccur)
+
+___
+
 ### maximum
 
 • `Optional` **maximum**: `number`
@@ -346,6 +383,16 @@ ___
 #### Inherited from
 
 [BaseModel](BaseModel.md).[minLength](BaseModel.md#minlength)
+
+___
+
+### minOccur
+
+• `Optional` **minOccur**: `number`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[minOccur](BaseModel.md#minoccur)
 
 ___
 
@@ -421,6 +468,16 @@ Custom properties of the form field.
 
 ___
 
+### qualifiedName
+
+• `Readonly` **qualifiedName**: `string`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[qualifiedName](BaseModel.md#qualifiedname)
+
+___
+
 ### readOnly
 
 • `Optional` **readOnly**: `boolean`
@@ -430,6 +487,18 @@ Whether the field should be readOnly to end user or not.
 #### Inherited from
 
 [BaseModel](BaseModel.md).[readOnly](BaseModel.md#readonly)
+
+___
+
+### repeatable
+
+• `Optional` `Readonly` **repeatable**: `boolean`
+
+Field is repeatable or not
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[repeatable](BaseModel.md#repeatable)
 
 ___
 
@@ -476,6 +545,16 @@ ___
 #### Inherited from
 
 [BaseModel](BaseModel.md).[type](BaseModel.md#type)
+
+___
+
+### uniqueItems
+
+• `Optional` **uniqueItems**: `boolean`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[uniqueItems](BaseModel.md#uniqueitems)
 
 ___
 
@@ -542,6 +621,32 @@ Returns the index of the [child item](FieldModel.md) or the [child container](Fi
 `number`
 
 `index` of the item
+
+___
+
+### isTransparent
+
+▸ **isTransparent**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+___
+
+### reset
+
+▸ **reset**(): `any`
+
+Resets the form model
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[reset](BaseModel.md#reset)
 
 ___
 

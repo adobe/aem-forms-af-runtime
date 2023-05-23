@@ -1,44 +1,44 @@
-# Class: Change
+# Class: Reset
 
-Implementation of `change` event. The change event is triggered on the field whenever the value of the field is changed
+Implementation of `reset` event. The reset event is triggered on the Form.
+To trigger the reset event, reset function needs to be invoked or one can invoke dispatchEvent API.
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`Change`**
+  ↳ **`Reset`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](Change.md#constructor)
+- [constructor](Reset.md#constructor)
 
 ### Accessors
 
-- [isCustomEvent](Change.md#iscustomevent)
-- [metadata](Change.md#metadata)
-- [payload](Change.md#payload)
-- [target](Change.md#target)
-- [type](Change.md#type)
+- [isCustomEvent](Reset.md#iscustomevent)
+- [metadata](Reset.md#metadata)
+- [payload](Reset.md#payload)
+- [target](Reset.md#target)
+- [type](Reset.md#type)
 
 ### Methods
 
-- [toJson](Change.md#tojson)
-- [toString](Change.md#tostring)
-- [withAdditionalChange](Change.md#withadditionalchange)
+- [toJson](Reset.md#tojson)
+- [toString](Reset.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new Change**(`payload`, `dispatch?`)
+• **new Reset**(`payload?`, `dispatch?`)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `payload` | [`ChangePayload`](../README.md#changepayload) | `undefined` |
+| `payload?` | `any` | `undefined` |
 | `dispatch` | `boolean` | `false` |
 
 #### Overrides
@@ -148,19 +148,3 @@ ___
 #### Inherited from
 
 ActionImpl.toString
-
-___
-
-### withAdditionalChange
-
-▸ **withAdditionalChange**(`change`): [`Change`](Change.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `change` | [`Change`](Change.md) |
-
-#### Returns
-
-[`Change`](Change.md)

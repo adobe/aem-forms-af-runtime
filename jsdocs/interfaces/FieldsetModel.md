@@ -21,6 +21,7 @@ Defines properties that each field set should have
 
 - [:type](FieldsetModel.md#:type)
 - [accept](FieldsetModel.md#accept)
+- [activeChild](FieldsetModel.md#activechild)
 - [dataRef](FieldsetModel.md#dataref)
 - [default](FieldsetModel.md#default)
 - [description](FieldsetModel.md#description)
@@ -38,23 +39,29 @@ Defines properties that each field set should have
 - [isContainer](FieldsetModel.md#iscontainer)
 - [items](FieldsetModel.md#items)
 - [label](FieldsetModel.md#label)
+- [lang](FieldsetModel.md#lang)
 - [maxFileSize](FieldsetModel.md#maxfilesize)
 - [maxItems](FieldsetModel.md#maxitems)
 - [maxLength](FieldsetModel.md#maxlength)
+- [maxOccur](FieldsetModel.md#maxoccur)
 - [maximum](FieldsetModel.md#maximum)
 - [minItems](FieldsetModel.md#minitems)
 - [minLength](FieldsetModel.md#minlength)
+- [minOccur](FieldsetModel.md#minoccur)
 - [minimum](FieldsetModel.md#minimum)
 - [name](FieldsetModel.md#name)
 - [parent](FieldsetModel.md#parent)
 - [pattern](FieldsetModel.md#pattern)
 - [placeholder](FieldsetModel.md#placeholder)
 - [properties](FieldsetModel.md#properties)
+- [qualifiedName](FieldsetModel.md#qualifiedname)
 - [readOnly](FieldsetModel.md#readonly)
+- [repeatable](FieldsetModel.md#repeatable)
 - [required](FieldsetModel.md#required)
 - [rules](FieldsetModel.md#rules)
 - [step](FieldsetModel.md#step)
 - [type](FieldsetModel.md#type)
+- [uniqueItems](FieldsetModel.md#uniqueitems)
 - [valid](FieldsetModel.md#valid)
 - [validationExpression](FieldsetModel.md#validationexpression)
 - [value](FieldsetModel.md#value)
@@ -64,6 +71,8 @@ Defines properties that each field set should have
 
 - [getState](FieldsetModel.md#getstate)
 - [indexOf](FieldsetModel.md#indexof)
+- [isTransparent](FieldsetModel.md#istransparent)
+- [reset](FieldsetModel.md#reset)
 - [validate](FieldsetModel.md#validate)
 
 ## Properties
@@ -87,6 +96,16 @@ ___
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[accept](ContainerModel.md#accept)
+
+___
+
+### activeChild
+
+• **activeChild**: ``null`` \| [`BaseModel`](BaseModel.md)
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[activeChild](ContainerModel.md#activechild)
 
 ___
 
@@ -160,7 +179,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[]
+• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Inherited from
 
@@ -286,6 +305,18 @@ Label to be used for the field.
 
 ___
 
+### lang
+
+• `Optional` `Readonly` **lang**: `string`
+
+language of the field
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[lang](ContainerModel.md#lang)
+
+___
+
 ### maxFileSize
 
 • `Optional` **maxFileSize**: `string` \| `number`
@@ -316,6 +347,16 @@ ___
 
 ___
 
+### maxOccur
+
+• `Optional` **maxOccur**: `number`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[maxOccur](ContainerModel.md#maxoccur)
+
+___
+
 ### maximum
 
 • `Optional` **maximum**: `number`
@@ -343,6 +384,16 @@ ___
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[minLength](ContainerModel.md#minlength)
+
+___
+
+### minOccur
+
+• `Optional` **minOccur**: `number`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[minOccur](ContainerModel.md#minoccur)
 
 ___
 
@@ -418,6 +469,16 @@ Custom properties of the form field.
 
 ___
 
+### qualifiedName
+
+• `Readonly` **qualifiedName**: `string`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[qualifiedName](ContainerModel.md#qualifiedname)
+
+___
+
 ### readOnly
 
 • `Optional` **readOnly**: `boolean`
@@ -427,6 +488,18 @@ Whether the field should be readOnly to end user or not.
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[readOnly](ContainerModel.md#readonly)
+
+___
+
+### repeatable
+
+• `Optional` `Readonly` **repeatable**: `boolean`
+
+Field is repeatable or not
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[repeatable](ContainerModel.md#repeatable)
 
 ___
 
@@ -473,6 +546,16 @@ ___
 #### Overrides
 
 [ContainerModel](ContainerModel.md).[type](ContainerModel.md#type)
+
+___
+
+### uniqueItems
+
+• `Optional` **uniqueItems**: `boolean`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[uniqueItems](ContainerModel.md#uniqueitems)
 
 ___
 
@@ -524,13 +607,13 @@ Whether the field should be visible to author or not.
 
 ### getState
 
-▸ **getState**(): [`State`](../README.md#state)<`T`\>
+▸ **getState**(): `any`
 
 [state](../README.md#state) of the form object
 
 #### Returns
 
-[`State`](../README.md#state)<`T`\>
+`any`
 
 #### Inherited from
 
@@ -559,6 +642,36 @@ Returns the index of the [child item](FieldModel.md) or the [child container](Fi
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[indexOf](ContainerModel.md#indexof)
+
+___
+
+### isTransparent
+
+▸ **isTransparent**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[isTransparent](ContainerModel.md#istransparent)
+
+___
+
+### reset
+
+▸ **reset**(): `any`
+
+Resets the form model
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[reset](ContainerModel.md#reset)
 
 ___
 

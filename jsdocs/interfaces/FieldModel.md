@@ -27,6 +27,10 @@ Defines properties that each form field should have
 - [dataRef](FieldModel.md#dataref)
 - [default](FieldModel.md#default)
 - [description](FieldModel.md#description)
+- [displayFormat](FieldModel.md#displayformat)
+- [displayValue](FieldModel.md#displayvalue)
+- [editFormat](FieldModel.md#editformat)
+- [editValue](FieldModel.md#editvalue)
 - [enabled](FieldModel.md#enabled)
 - [enforceEnum](FieldModel.md#enforceenum)
 - [enum](FieldModel.md#enum)
@@ -41,23 +45,29 @@ Defines properties that each form field should have
 - [isContainer](FieldModel.md#iscontainer)
 - [items](FieldModel.md#items)
 - [label](FieldModel.md#label)
+- [lang](FieldModel.md#lang)
 - [maxFileSize](FieldModel.md#maxfilesize)
 - [maxItems](FieldModel.md#maxitems)
 - [maxLength](FieldModel.md#maxlength)
+- [maxOccur](FieldModel.md#maxoccur)
 - [maximum](FieldModel.md#maximum)
 - [minItems](FieldModel.md#minitems)
 - [minLength](FieldModel.md#minlength)
+- [minOccur](FieldModel.md#minoccur)
 - [minimum](FieldModel.md#minimum)
 - [name](FieldModel.md#name)
 - [parent](FieldModel.md#parent)
 - [pattern](FieldModel.md#pattern)
 - [placeholder](FieldModel.md#placeholder)
 - [properties](FieldModel.md#properties)
+- [qualifiedName](FieldModel.md#qualifiedname)
 - [readOnly](FieldModel.md#readonly)
+- [repeatable](FieldModel.md#repeatable)
 - [required](FieldModel.md#required)
 - [rules](FieldModel.md#rules)
 - [step](FieldModel.md#step)
 - [type](FieldModel.md#type)
+- [uniqueItems](FieldModel.md#uniqueitems)
 - [valid](FieldModel.md#valid)
 - [validationExpression](FieldModel.md#validationexpression)
 - [value](FieldModel.md#value)
@@ -66,6 +76,7 @@ Defines properties that each form field should have
 ### Methods
 
 - [getState](FieldModel.md#getstate)
+- [reset](FieldModel.md#reset)
 - [validate](FieldModel.md#validate)
 
 ## Properties
@@ -128,6 +139,38 @@ Extra description to be shown to the user to aid in form filling experience. It 
 
 ___
 
+### displayFormat
+
+• `Optional` `Readonly` **displayFormat**: `string`
+
+format in which user will see the value after update
+
+___
+
+### displayValue
+
+• `Optional` `Readonly` **displayValue**: `string`
+
+value to be displayed to the user after update
+
+___
+
+### editFormat
+
+• `Optional` `Readonly` **editFormat**: `string`
+
+format in which user will edit the value
+
+___
+
+### editValue
+
+• `Optional` `Readonly` **editValue**: `string`
+
+value to be displayed to the user for edit
+
+___
+
 ### enabled
 
 • `Optional` **enabled**: `boolean`
@@ -162,7 +205,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[]
+• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Inherited from
 
@@ -288,6 +331,18 @@ Label to be used for the field.
 
 ___
 
+### lang
+
+• `Optional` `Readonly` **lang**: `string`
+
+language of the field
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[lang](BaseModel.md#lang)
+
+___
+
 ### maxFileSize
 
 • `Optional` **maxFileSize**: `string` \| `number`
@@ -318,6 +373,16 @@ ___
 
 ___
 
+### maxOccur
+
+• `Optional` **maxOccur**: `number`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[maxOccur](BaseModel.md#maxoccur)
+
+___
+
 ### maximum
 
 • `Optional` **maximum**: `number`
@@ -345,6 +410,16 @@ ___
 #### Inherited from
 
 [BaseModel](BaseModel.md).[minLength](BaseModel.md#minlength)
+
+___
+
+### minOccur
+
+• `Optional` **minOccur**: `number`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[minOccur](BaseModel.md#minoccur)
 
 ___
 
@@ -420,6 +495,16 @@ Custom properties of the form field.
 
 ___
 
+### qualifiedName
+
+• `Readonly` **qualifiedName**: `string`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[qualifiedName](BaseModel.md#qualifiedname)
+
+___
+
 ### readOnly
 
 • `Optional` **readOnly**: `boolean`
@@ -429,6 +514,18 @@ Whether the field should be readOnly to end user or not.
 #### Inherited from
 
 [BaseModel](BaseModel.md).[readOnly](BaseModel.md#readonly)
+
+___
+
+### repeatable
+
+• `Optional` `Readonly` **repeatable**: `boolean`
+
+Field is repeatable or not
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[repeatable](BaseModel.md#repeatable)
 
 ___
 
@@ -475,6 +572,16 @@ ___
 #### Inherited from
 
 [BaseModel](BaseModel.md).[type](BaseModel.md#type)
+
+___
+
+### uniqueItems
+
+• `Optional` **uniqueItems**: `boolean`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[uniqueItems](BaseModel.md#uniqueitems)
 
 ___
 
@@ -526,17 +633,33 @@ Whether the field should be visible to author or not.
 
 ### getState
 
-▸ **getState**(): [`State`](../README.md#state)<`T`\>
+▸ **getState**(): `any`
 
 [state](../README.md#state) of the form object
 
 #### Returns
 
-[`State`](../README.md#state)<`T`\>
+`any`
 
 #### Inherited from
 
 WithState.getState
+
+___
+
+### reset
+
+▸ **reset**(): `any`
+
+Resets the form model
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[reset](BaseModel.md#reset)
 
 ___
 

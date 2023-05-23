@@ -1,45 +1,35 @@
-# Class: Change
-
-Implementation of `change` event. The change event is triggered on the field whenever the value of the field is changed
+# Class: Focus
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`Change`**
+  ↳ **`Focus`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](Change.md#constructor)
+- [constructor](Focus.md#constructor)
 
 ### Accessors
 
-- [isCustomEvent](Change.md#iscustomevent)
-- [metadata](Change.md#metadata)
-- [payload](Change.md#payload)
-- [target](Change.md#target)
-- [type](Change.md#type)
+- [isCustomEvent](Focus.md#iscustomevent)
+- [metadata](Focus.md#metadata)
+- [payload](Focus.md#payload)
+- [target](Focus.md#target)
+- [type](Focus.md#type)
 
 ### Methods
 
-- [toJson](Change.md#tojson)
-- [toString](Change.md#tostring)
-- [withAdditionalChange](Change.md#withadditionalchange)
+- [toJson](Focus.md#tojson)
+- [toString](Focus.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new Change**(`payload`, `dispatch?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `payload` | [`ChangePayload`](../README.md#changepayload) | `undefined` |
-| `dispatch` | `boolean` | `false` |
+• **new Focus**()
 
 #### Overrides
 
@@ -148,19 +138,3 @@ ___
 #### Inherited from
 
 ActionImpl.toString
-
-___
-
-### withAdditionalChange
-
-▸ **withAdditionalChange**(`change`): [`Change`](Change.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `change` | [`Change`](Change.md) |
-
-#### Returns
-
-[`Change`](Change.md)

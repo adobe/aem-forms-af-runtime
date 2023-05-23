@@ -1,45 +1,37 @@
-# Class: Change
+# Class: FormLoad
 
-Implementation of `change` event. The change event is triggered on the field whenever the value of the field is changed
+Implementation of `load` event. The event is when the form initialization is complete
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`Change`**
+  ↳ **`FormLoad`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](Change.md#constructor)
+- [constructor](FormLoad.md#constructor)
 
 ### Accessors
 
-- [isCustomEvent](Change.md#iscustomevent)
-- [metadata](Change.md#metadata)
-- [payload](Change.md#payload)
-- [target](Change.md#target)
-- [type](Change.md#type)
+- [isCustomEvent](FormLoad.md#iscustomevent)
+- [metadata](FormLoad.md#metadata)
+- [payload](FormLoad.md#payload)
+- [target](FormLoad.md#target)
+- [type](FormLoad.md#type)
 
 ### Methods
 
-- [toJson](Change.md#tojson)
-- [toString](Change.md#tostring)
-- [withAdditionalChange](Change.md#withadditionalchange)
+- [toJson](FormLoad.md#tojson)
+- [toString](FormLoad.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new Change**(`payload`, `dispatch?`)
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `payload` | [`ChangePayload`](../README.md#changepayload) | `undefined` |
-| `dispatch` | `boolean` | `false` |
+• **new FormLoad**()
 
 #### Overrides
 
@@ -148,19 +140,3 @@ ___
 #### Inherited from
 
 ActionImpl.toString
-
-___
-
-### withAdditionalChange
-
-▸ **withAdditionalChange**(`change`): [`Change`](Change.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `change` | [`Change`](Change.md) |
-
-#### Returns
-
-[`Change`](Change.md)

@@ -20,6 +20,7 @@ Defines the interface for form model
 
 - [:type](FormModel.md#:type)
 - [accept](FormModel.md#accept)
+- [activeChild](FormModel.md#activechild)
 - [data](FormModel.md#data)
 - [dataRef](FormModel.md#dataref)
 - [default](FormModel.md#default)
@@ -38,26 +39,32 @@ Defines the interface for form model
 - [isContainer](FormModel.md#iscontainer)
 - [items](FormModel.md#items)
 - [label](FormModel.md#label)
+- [lang](FormModel.md#lang)
 - [logger](FormModel.md#logger)
 - [maxFileSize](FormModel.md#maxfilesize)
 - [maxItems](FormModel.md#maxitems)
 - [maxLength](FormModel.md#maxlength)
+- [maxOccur](FormModel.md#maxoccur)
 - [maximum](FormModel.md#maximum)
 - [metadata](FormModel.md#metadata)
 - [minItems](FormModel.md#minitems)
 - [minLength](FormModel.md#minlength)
+- [minOccur](FormModel.md#minoccur)
 - [minimum](FormModel.md#minimum)
 - [name](FormModel.md#name)
 - [parent](FormModel.md#parent)
 - [pattern](FormModel.md#pattern)
 - [placeholder](FormModel.md#placeholder)
 - [properties](FormModel.md#properties)
+- [qualifiedName](FormModel.md#qualifiedname)
 - [readOnly](FormModel.md#readonly)
+- [repeatable](FormModel.md#repeatable)
 - [required](FormModel.md#required)
 - [rules](FormModel.md#rules)
 - [step](FormModel.md#step)
 - [title](FormModel.md#title)
 - [type](FormModel.md#type)
+- [uniqueItems](FormModel.md#uniqueitems)
 - [valid](FormModel.md#valid)
 - [validationExpression](FormModel.md#validationexpression)
 - [value](FormModel.md#value)
@@ -66,11 +73,15 @@ Defines the interface for form model
 ### Methods
 
 - [exportData](FormModel.md#exportdata)
+- [fieldAdded](FormModel.md#fieldadded)
 - [getElement](FormModel.md#getelement)
 - [getState](FormModel.md#getstate)
 - [importData](FormModel.md#importdata)
 - [indexOf](FormModel.md#indexof)
+- [isTransparent](FormModel.md#istransparent)
+- [reset](FormModel.md#reset)
 - [validate](FormModel.md#validate)
+- [visit](FormModel.md#visit)
 
 ## Properties
 
@@ -93,6 +104,16 @@ ___
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[accept](ContainerModel.md#accept)
+
+___
+
+### activeChild
+
+• **activeChild**: ``null`` \| [`BaseModel`](BaseModel.md)
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[activeChild](ContainerModel.md#activechild)
 
 ___
 
@@ -174,7 +195,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[]
+• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Inherited from
 
@@ -300,6 +321,18 @@ Label to be used for the field.
 
 ___
 
+### lang
+
+• `Optional` `Readonly` **lang**: `string`
+
+language of the field
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[lang](ContainerModel.md#lang)
+
+___
+
 ### logger
 
 • `Readonly` **logger**: `Logger`
@@ -333,6 +366,16 @@ ___
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[maxLength](ContainerModel.md#maxlength)
+
+___
+
+### maxOccur
+
+• `Optional` **maxOccur**: `number`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[maxOccur](ContainerModel.md#maxoccur)
 
 ___
 
@@ -371,6 +414,16 @@ ___
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[minLength](ContainerModel.md#minlength)
+
+___
+
+### minOccur
+
+• `Optional` **minOccur**: `number`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[minOccur](ContainerModel.md#minoccur)
 
 ___
 
@@ -446,6 +499,16 @@ Custom properties of the form field.
 
 ___
 
+### qualifiedName
+
+• `Readonly` **qualifiedName**: `string`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[qualifiedName](ContainerModel.md#qualifiedname)
+
+___
+
 ### readOnly
 
 • `Optional` **readOnly**: `boolean`
@@ -455,6 +518,18 @@ Whether the field should be readOnly to end user or not.
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[readOnly](ContainerModel.md#readonly)
+
+___
+
+### repeatable
+
+• `Optional` `Readonly` **repeatable**: `boolean`
+
+Field is repeatable or not
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[repeatable](ContainerModel.md#repeatable)
 
 ___
 
@@ -509,6 +584,16 @@ ___
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[type](ContainerModel.md#type)
+
+___
+
+### uniqueItems
+
+• `Optional` **uniqueItems**: `boolean`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[uniqueItems](ContainerModel.md#uniqueitems)
 
 ___
 
@@ -570,6 +655,22 @@ Exports the form data
 
 ___
 
+### fieldAdded
+
+▸ **fieldAdded**(`field`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `field` | [`FieldModel`](FieldModel.md) \| [`FieldsetModel`](FieldsetModel.md) |
+
+#### Returns
+
+`void`
+
+___
+
 ### getElement
 
 ▸ **getElement**(`id`): [`FormModel`](FormModel.md) \| [`FieldModel`](FieldModel.md) \| [`FieldsetModel`](FieldsetModel.md)
@@ -590,13 +691,13 @@ ___
 
 ### getState
 
-▸ **getState**(): [`State`](../README.md#state)<`T`\>
+▸ **getState**(): `any`
 
 [state](../README.md#state) of the form object
 
 #### Returns
 
-[`State`](../README.md#state)<`T`\>
+`any`
 
 #### Inherited from
 
@@ -650,6 +751,36 @@ Returns the index of the [child item](FieldModel.md) or the [child container](Fi
 
 ___
 
+### isTransparent
+
+▸ **isTransparent**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[isTransparent](ContainerModel.md#istransparent)
+
+___
+
+### reset
+
+▸ **reset**(): `any`
+
+Resets the form model
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[reset](ContainerModel.md#reset)
+
+___
+
 ### validate
 
 ▸ **validate**(): [`ValidationError`](../classes/ValidationError.md)[]
@@ -665,3 +796,21 @@ list of [validation errors](../classes/ValidationError.md)
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[validate](ContainerModel.md#validate)
+
+___
+
+### visit
+
+▸ **visit**(`callBack`): `void`
+
+visits each element in the form
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `callBack` | (`field`: [`FieldModel`](FieldModel.md) \| [`FieldsetModel`](FieldsetModel.md)) => `void` | a function which is invoked on each form element (including container type elements) visited |
+
+#### Returns
+
+`void`

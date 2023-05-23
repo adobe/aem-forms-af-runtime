@@ -11,7 +11,6 @@ Defines form meta data properties
 ### Properties
 
 - [grammar](FormMetaDataModel.md#grammar)
-- [locale](FormMetaDataModel.md#locale)
 - [version](FormMetaDataModel.md#version)
 
 ## Properties
@@ -21,14 +20,6 @@ Defines form meta data properties
 • `Readonly` **grammar**: `string`
 
 Version of the rule grammar
-
-___
-
-### locale
-
-• `Readonly` **locale**: `string`
-
-Form locale
 
 ___
 

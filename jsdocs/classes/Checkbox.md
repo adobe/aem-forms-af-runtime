@@ -14,11 +14,20 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 
 - [:type](Checkbox.md#:type)
 - [dataRef](Checkbox.md#dataref)
+- [default](Checkbox.md#default)
 - [description](Checkbox.md#description)
+- [displayFormat](Checkbox.md#displayformat)
+- [displayValue](Checkbox.md#displayvalue)
+- [editFormat](Checkbox.md#editformat)
+- [editValue](Checkbox.md#editvalue)
 - [emptyValue](Checkbox.md#emptyvalue)
 - [enabled](Checkbox.md#enabled)
+- [enforceEnum](Checkbox.md#enforceenum)
 - [enum](Checkbox.md#enum)
 - [enumNames](Checkbox.md#enumnames)
+- [errorMessage](Checkbox.md#errormessage)
+- [exclusiveMaximum](Checkbox.md#exclusivemaximum)
+- [exclusiveMinimum](Checkbox.md#exclusiveminimum)
 - [fieldType](Checkbox.md#fieldtype)
 - [form](Checkbox.md#form)
 - [format](Checkbox.md#format)
@@ -26,16 +35,26 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [index](Checkbox.md#index)
 - [isContainer](Checkbox.md#iscontainer)
 - [label](Checkbox.md#label)
+- [lang](Checkbox.md#lang)
+- [maxLength](Checkbox.md#maxlength)
 - [maximum](Checkbox.md#maximum)
+- [minLength](Checkbox.md#minlength)
 - [minimum](Checkbox.md#minimum)
 - [name](Checkbox.md#name)
 - [parent](Checkbox.md#parent)
+- [pattern](Checkbox.md#pattern)
+- [placeholder](Checkbox.md#placeholder)
 - [properties](Checkbox.md#properties)
+- [qualifiedName](Checkbox.md#qualifiedname)
 - [readOnly](Checkbox.md#readonly)
+- [repeatable](Checkbox.md#repeatable)
 - [required](Checkbox.md#required)
 - [ruleEngine](Checkbox.md#ruleengine)
-- [rules](Checkbox.md#rules)
+- [screenReaderText](Checkbox.md#screenreadertext)
+- [step](Checkbox.md#step)
+- [tooltip](Checkbox.md#tooltip)
 - [type](Checkbox.md#type)
+- [uniqueItems](Checkbox.md#uniqueitems)
 - [valid](Checkbox.md#valid)
 - [value](Checkbox.md#value)
 - [visible](Checkbox.md#visible)
@@ -45,10 +64,15 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [dispatch](Checkbox.md#dispatch)
 - [executeAction](Checkbox.md#executeaction)
 - [executeExpression](Checkbox.md#executeexpression)
+- [focus](Checkbox.md#focus)
 - [getErrorMessage](Checkbox.md#geterrormessage)
+- [getNonTransparentParent](Checkbox.md#getnontransparentparent)
+- [getRules](Checkbox.md#getrules)
 - [getState](Checkbox.md#getstate)
 - [importData](Checkbox.md#importdata)
 - [isTransparent](Checkbox.md#istransparent)
+- [markAsInvalid](Checkbox.md#markasinvalid)
+- [ruleNodeReference](Checkbox.md#rulenodereference)
 - [toString](Checkbox.md#tostring)
 - [triggerValidationEvent](Checkbox.md#triggervalidationevent)
 - [validate](Checkbox.md#validate)
@@ -84,6 +108,20 @@ Field.dataRef
 
 ___
 
+### default
+
+• `get` **default**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+Field.default
+
+___
+
 ### description
 
 • `get` **description**(): `undefined` \| `string`
@@ -111,6 +149,62 @@ Field.description
 #### Inherited from
 
 Field.description
+
+___
+
+### displayFormat
+
+• `get` **displayFormat**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.displayFormat
+
+___
+
+### displayValue
+
+• `get` **displayValue**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+Field.displayValue
+
+___
+
+### editFormat
+
+• `get` **editFormat**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.editFormat
+
+___
+
+### editValue
+
+• `get` **editValue**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+Field.editValue
 
 ___
 
@@ -158,6 +252,20 @@ Field.enabled
 
 ___
 
+### enforceEnum
+
+• `get` **enforceEnum**(): `undefined` \| `boolean`
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Inherited from
+
+Field.enforceEnum
+
+___
+
 ### enum
 
 • `get` **enum**(): `any`[]
@@ -176,11 +284,11 @@ ___
 
 ### enumNames
 
-• `get` **enumNames**(): `undefined` \| `string`[]
+• `get` **enumNames**(): `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Returns
 
-`undefined` \| `string`[]
+`undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Inherited from
 
@@ -192,7 +300,7 @@ Field.enumNames
 
 | Name | Type |
 | :------ | :------ |
-| `e` | `undefined` \| `string`[] |
+| `e` | `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[] |
 
 #### Returns
 
@@ -201,6 +309,80 @@ Field.enumNames
 #### Inherited from
 
 Field.enumNames
+
+___
+
+### errorMessage
+
+• `get` **errorMessage**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.errorMessage
+
+___
+
+### exclusiveMaximum
+
+• `get` **exclusiveMaximum**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Inherited from
+
+Field.exclusiveMaximum
+
+• `set` **exclusiveMaximum**(`eM`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eM` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Field.exclusiveMaximum
+
+___
+
+### exclusiveMinimum
+
+• `get` **exclusiveMinimum**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Inherited from
+
+Field.exclusiveMinimum
+
+• `set` **exclusiveMinimum**(`eM`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eM` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Field.exclusiveMinimum
 
 ___
 
@@ -234,13 +416,13 @@ ___
 
 ### format
 
-• `get` **format**(): `string`
+• `get` **format**(): `undefined` \| `string`
 
 returns the format constraint
 
 #### Returns
 
-`string`
+`undefined` \| `string`
 
 #### Inherited from
 
@@ -320,6 +502,34 @@ Field.label
 
 ___
 
+### lang
+
+• `get` **lang**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.lang
+
+___
+
+### maxLength
+
+• `get` **maxLength**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Inherited from
+
+Field.maxLength
+
+___
+
 ### maximum
 
 • `get` **maximum**(): `undefined` \| `number`
@@ -347,6 +557,20 @@ Field.maximum
 #### Inherited from
 
 Field.maximum
+
+___
+
+### minLength
+
+• `get` **minLength**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Inherited from
+
+Field.minLength
 
 ___
 
@@ -408,6 +632,34 @@ Field.parent
 
 ___
 
+### pattern
+
+• `get` **pattern**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.pattern
+
+___
+
+### placeholder
+
+• `get` **placeholder**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.placeholder
+
+___
+
 ### properties
 
 • `get` **properties**(): `Object`
@@ -438,6 +690,20 @@ Field.properties
 
 ___
 
+### qualifiedName
+
+• `get` **qualifiedName**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+Field.qualifiedName
+
+___
+
 ### readOnly
 
 • `get` **readOnly**(): `undefined` \| `boolean`
@@ -465,6 +731,20 @@ Field.readOnly
 #### Inherited from
 
 Field.readOnly
+
+___
+
+### repeatable
+
+• `get` **repeatable**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+Field.repeatable
 
 ___
 
@@ -512,17 +792,45 @@ Field.ruleEngine
 
 ___
 
-### rules
+### screenReaderText
 
-• `get` **rules**(): [`Items`](../README.md#items)<`string`\>
+• `get` **screenReaderText**(): `undefined` \| `string`
 
 #### Returns
 
-[`Items`](../README.md#items)<`string`\>
+`undefined` \| `string`
 
 #### Inherited from
 
-Field.rules
+Field.screenReaderText
+
+___
+
+### step
+
+• `get` **step**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Inherited from
+
+Field.step
+
+___
+
+### tooltip
+
+• `get` **tooltip**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.tooltip
 
 ___
 
@@ -537,6 +845,20 @@ ___
 #### Inherited from
 
 Field.type
+
+___
+
+### uniqueItems
+
+• `get` **uniqueItems**(): `undefined` \| `boolean`
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Inherited from
+
+Field.uniqueItems
 
 ___
 
@@ -676,6 +998,20 @@ ___
 
 ___
 
+### focus
+
+▸ **focus**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Field](Field.md).[focus](Field.md#focus)
+
+___
+
 ### getErrorMessage
 
 ▸ **getErrorMessage**(`constraint`): `string`
@@ -698,15 +1034,101 @@ Returns the error message for a given constraint
 
 ___
 
+### getNonTransparentParent
+
+▸ **getNonTransparentParent**(): [`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Returns
+
+[`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Inherited from
+
+[Field](Field.md).[getNonTransparentParent](Field.md#getnontransparentparent)
+
+___
+
+### getRules
+
+▸ **getRules**(): [`Items`](../README.md#items)<`string`\>
+
+#### Returns
+
+[`Items`](../README.md#items)<`string`\>
+
+#### Inherited from
+
+[Field](Field.md).[getRules](Field.md#getrules)
+
+___
+
 ### getState
 
-▸ **getState**(): `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  }
+▸ **getState**(): `Object`
 
 [state](../README.md#state) of the form object
 
 #### Returns
 
-`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  }
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `:type` | `string` |
+| `accept?` | `string`[] |
+| `altText?` | `string` |
+| `constraintMessages?` | [`ConstraintsMessages`](../README.md#constraintsmessages) |
+| `dataRef?` | ``null`` \| `string` |
+| `default?` | `any` |
+| `description?` | `string` |
+| `displayFormat` | `undefined` \| `string` |
+| `displayValue` | `any` |
+| `editFormat` | `undefined` \| `string` |
+| `editValue` | `any` |
+| `emptyValue?` | ``""`` \| ``"undefined"`` \| ``"null"`` |
+| `enabled` | `undefined` \| `boolean` |
+| `enforceEnum?` | `boolean` |
+| `enum?` | `any`[] |
+| `enumNames?` | `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `errorMessage?` | `string` |
+| `events` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> & {} |
+| `exclusiveMaximum?` | `number` |
+| `exclusiveMinimum?` | `number` |
+| `fieldType?` | `string` |
+| `format?` | `string` |
+| `id` | `string` |
+| `index` | `number` |
+| `label?` | [`Label`](../README.md#label) |
+| `lang?` | `string` |
+| `maxFileSize?` | `string` \| `number` |
+| `maxItems?` | `number` |
+| `maxLength?` | `number` |
+| `maxOccur?` | `number` |
+| `maximum?` | `number` |
+| `minItems?` | `number` |
+| `minLength?` | `number` |
+| `minOccur?` | `number` |
+| `minimum?` | `number` |
+| `name?` | `string` |
+| `parent` | `undefined` |
+| `pattern?` | `string` |
+| `placeholder?` | `string` |
+| `properties` | { [key: string]: `any`;  } |
+| `qualifiedName` | `any` |
+| `readOnly` | `undefined` \| `boolean` |
+| `repeatable` | `undefined` \| `boolean` |
+| `required?` | `boolean` |
+| `rules` | [`Items`](../README.md#items)<`string`\> & {} |
+| `screenReaderText?` | `string` |
+| `step?` | `number` |
+| `tooltip?` | `string` |
+| `type?` | `string` |
+| `uniqueItems?` | `boolean` |
+| `valid?` | `boolean` |
+| `validationExpression?` | `string` |
+| `value?` | `any` |
+| `viewType?` | `string` |
+| `visible?` | `boolean` |
 
 #### Inherited from
 
@@ -747,6 +1169,40 @@ Transparent form fields are meant only for creation of view. They are also not p
 #### Inherited from
 
 [Field](Field.md).[isTransparent](Field.md#istransparent)
+
+___
+
+### markAsInvalid
+
+▸ **markAsInvalid**(`message`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Field](Field.md).[markAsInvalid](Field.md#markasinvalid)
+
+___
+
+### ruleNodeReference
+
+▸ **ruleNodeReference**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[Field](Field.md).[ruleNodeReference](Field.md#rulenodereference)
 
 ___
 

@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.15.0
+# @aemforms/af-core - v0.22.43
 
 ## Table of contents
 
@@ -12,11 +12,13 @@
 - [FormMetaDataModel](interfaces/FormMetaDataModel.md)
 - [FormModel](interfaces/FormModel.md)
 - [IFileObject](interfaces/IFileObject.md)
+- [IFormFieldFactory](interfaces/IFormFieldFactory.md)
 - [IValidationError](interfaces/IValidationError.md)
 - [ScriptableField](interfaces/ScriptableField.md)
 
 ### Classes
 
+- [AddInstance](classes/AddInstance.md)
 - [AddItem](classes/AddItem.md)
 - [BaseNode](classes/BaseNode.md)
 - [Blur](classes/Blur.md)
@@ -31,12 +33,16 @@
 - [Fieldset](classes/Fieldset.md)
 - [FileObject](classes/FileObject.md)
 - [FileUpload](classes/FileUpload.md)
+- [Focus](classes/Focus.md)
 - [Form](classes/Form.md)
+- [FormLoad](classes/FormLoad.md)
 - [FormMetaData](classes/FormMetaData.md)
 - [Initialize](classes/Initialize.md)
 - [Invalid](classes/Invalid.md)
 - [Node](classes/Node.md)
+- [RemoveInstance](classes/RemoveInstance.md)
 - [RemoveItem](classes/RemoveItem.md)
+- [Reset](classes/Reset.md)
 - [Scriptable](classes/Scriptable.md)
 - [Submit](classes/Submit.md)
 - [Valid](classes/Valid.md)
@@ -50,6 +56,7 @@
 - [ConstraintsJson](README.md#constraintsjson)
 - [ConstraintsMessages](README.md#constraintsmessages)
 - [ContainerJson](README.md#containerjson)
+- [EnumName](README.md#enumname)
 - [FieldJson](README.md#fieldjson)
 - [FieldsetJson](README.md#fieldsetjson)
 - [FormJson](README.md#formjson)
@@ -64,6 +71,7 @@
 ### Variables
 
 - [CUSTOM\_PROPS\_KEY](README.md#custom_props_key)
+- [FunctionRuntime](README.md#functionruntime)
 - [TRANSLATION\_ID](README.md#translation_id)
 - [TRANSLATION\_TOKEN](README.md#translation_token)
 - [constraintProps](README.md#constraintprops)
@@ -77,21 +85,29 @@
 - [createTranslationObject](README.md#createtranslationobject)
 - [defaultFieldTypes](README.md#defaultfieldtypes)
 - [exportDataSchema](README.md#exportdataschema)
+- [extractFileInfo](README.md#extractfileinfo)
 - [fetchForm](README.md#fetchform)
 - [getFileSizeInBytes](README.md#getfilesizeinbytes)
+- [getOrElse](README.md#getorelse)
 - [getProperty](README.md#getproperty)
 - [isCheckbox](README.md#ischeckbox)
 - [isCheckboxGroup](README.md#ischeckboxgroup)
+- [isDateField](README.md#isdatefield)
+- [isEmailInput](README.md#isemailinput)
+- [isEmpty](README.md#isempty)
 - [isFile](README.md#isfile)
+- [isRepeatable](README.md#isrepeatable)
 - [jsonString](README.md#jsonstring)
 - [propertyChange](README.md#propertychange)
+- [registerFunctions](README.md#registerfunctions)
+- [validateFormData](README.md#validateformdata)
 - [validateFormInstance](README.md#validateforminstance)
 
 ## Type aliases
 
 ### BaseJson
 
-Ƭ **BaseJson**: `TranslationBaseJson` & [`RulesJson`](README.md#rulesjson) & [`ConstraintsJson`](README.md#constraintsjson) & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](README.md#constraintsmessages) ; `dataRef?`: `string` \| ``null`` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  }
+Ƭ **BaseJson**: `TranslationBaseJson` & [`RulesJson`](README.md#rulesjson) & [`ConstraintsJson`](README.md#constraintsjson) & { `:type?`: `string` ; `altText?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](README.md#constraintsmessages) ; `dataRef?`: `string` \| ``null`` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  }
 
 Type for `generic form properties` based on `adaptive form specification`
 
@@ -113,7 +129,7 @@ ___
 
 ### ConstraintsJson
 
-Ƭ **ConstraintsJson**: `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `number` \| `string` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  }
+Ƭ **ConstraintsJson**: `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `number` \| `string` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  }
 
 Type for `constraint properties` based on `adaptive form specification`
 
@@ -145,21 +161,37 @@ Type for `constraint messages` based on `adaptive form specification`
 | `required?` | `string` |
 | `step?` | `string` |
 | `type?` | `string` |
+| `uniqueItems?` | `string` |
 | `validationExpression?` | `string` |
 
 ___
 
 ### ContainerJson
 
-Ƭ **ContainerJson**: [`BaseJson`](README.md#basejson) & { `initialItems?`: `number` ; `items`: ([`FieldJson`](README.md#fieldjson) \| [`ContainerJson`](README.md#containerjson))[]  }
+Ƭ **ContainerJson**: [`BaseJson`](README.md#basejson) & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](README.md#fieldjson) \| [`ContainerJson`](README.md#containerjson))[]  }
 
 Type for `form container properties` based on `adaptive form specification`
 
 ___
 
+### EnumName
+
+Ƭ **EnumName**: `Object`
+
+Type for `enumNames` based on `adaptive form specification`
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `richText?` | `boolean` |
+| `value` | `string` |
+
+___
+
 ### FieldJson
 
-Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  }
+Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  }
 
 Type for `form field properties` based on `adaptive form specification`
 
@@ -167,7 +199,7 @@ ___
 
 ### FieldsetJson
 
-Ƭ **FieldsetJson**: [`ContainerJson`](README.md#containerjson) & { `type?`: ``"array"`` \| ``"object"``  }
+Ƭ **FieldsetJson**: [`ContainerJson`](README.md#containerjson) & { `readOnly?`: `boolean` ; `type?`: ``"array"`` \| ``"object"``  }
 
 Type for `form fieldset` based on `adaptive form specification`
 
@@ -175,7 +207,7 @@ ___
 
 ### FormJson
 
-Ƭ **FormJson**: [`ContainerJson`](README.md#containerjson) & { `action?`: `string` ; `adaptiveForm?`: `string` ; `data?`: `any` ; `metadata?`: [`MetaDataJson`](README.md#metadatajson) ; `title?`: `string`  }
+Ƭ **FormJson**: [`ContainerJson`](README.md#containerjson) & { `action?`: `string` ; `adaptiveForm?`: `string` ; `data?`: `any` ; `lang?`: `string` ; `metadata?`: [`MetaDataJson`](README.md#metadatajson) ; `title?`: `string`  }
 
 Type for `form model` based on `adaptive form specification`
 
@@ -226,7 +258,6 @@ Type for `form metadata` based on `adaptive form specification`
 | Name | Type |
 | :------ | :------ |
 | `grammar?` | `string` |
-| `locale?` | `string` |
 | `version?` | `string` |
 
 ___
@@ -256,7 +287,7 @@ ___
 
 ### State
 
-Ƭ **State**<`T`\>: `T` extends [`ContainerJson`](README.md#containerjson) ? `T` & { `id`: `string` ; `items`: [`State`](README.md#state)<[`FieldJson`](README.md#fieldjson) \| [`ContainerJson`](README.md#containerjson)\>[]  } : `T` & { `:type`: `string` ; `id`: `string`  }
+Ƭ **State**<`T`\>: `stateProps` & `T` extends [`ContainerJson`](README.md#containerjson) ? `T` & { `items`: [`State`](README.md#state)<[`FieldJson`](README.md#fieldjson) \| [`ContainerJson`](README.md#containerjson)\>[]  } : `T`
 
 Generic type for a form object state
 
@@ -279,6 +310,12 @@ Type for all properties which can be translated based on `adaptive form specific
 ### CUSTOM\_PROPS\_KEY
 
 • **CUSTOM\_PROPS\_KEY**: ``"properties"``
+
+___
+
+### FunctionRuntime
+
+• **FunctionRuntime**: `FunctionRuntimeImpl`
 
 ___
 
@@ -440,6 +477,26 @@ json schema of form model definition
 
 ___
 
+### extractFileInfo
+
+▸ `Const` **extractFileInfo**(`file`): `any`
+
+Utility to extract [FileObject](classes/FileObject.md) from string or HTML File data type
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `file` | `any` |
+
+#### Returns
+
+`any`
+
+list of [FileObject](classes/FileObject.md)
+
+___
+
 ### fetchForm
 
 ▸ `Const` **fetchForm**(`url`, `headers?`): `Promise`<`string`\>
@@ -478,6 +535,26 @@ Converts file size in string to bytes based on IEC specification
 `number`
 
 file size as bytes (in kb) based on IEC specification
+
+___
+
+### getOrElse
+
+▸ `Const` **getOrElse**(`input`, `key`, `defaultValue?`): `any`
+
+Gets the value for the given key from the input, in case of no value, default is returned
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `input` | `any` | `undefined` | input object |
+| `key` | `string` \| `string`[] | `undefined` | key to return from input object (key could be comma separated, example, label.value) |
+| `defaultValue` | `any` | `null` | default value |
+
+#### Returns
+
+`any`
 
 ___
 
@@ -547,6 +624,66 @@ Checks if the input item provided is a form check box group field
 
 ___
 
+### isDateField
+
+▸ `Const` **isDateField**(`item`): `boolean`
+
+Checks if the input item provided is a date field
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `item` | [`FieldJson`](README.md#fieldjson) \| [`FieldsetJson`](README.md#fieldsetjson) | input item it could be [Fieldset](README.md#fieldsetjson) or [Field](README.md#fieldjson) |
+
+#### Returns
+
+`boolean`
+
+`true` if `item` is a form check box group, `false` otherwise
+
+___
+
+### isEmailInput
+
+▸ `Const` **isEmailInput**(`item`): `boolean`
+
+Checks if the input item provided is a form check box group field
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `item` | [`FieldJson`](README.md#fieldjson) \| [`FieldsetJson`](README.md#fieldsetjson) | input item it could be [Fieldset](README.md#fieldsetjson) or [Field](README.md#fieldjson) |
+
+#### Returns
+
+`boolean`
+
+`true` if `item` is a form check box group, `false` otherwise
+
+___
+
+### isEmpty
+
+▸ `Const` **isEmpty**(`value`): `boolean`
+
+Utility to check if the value is empty
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `any` | value |
+
+#### Returns
+
+`boolean`
+
+`true` if value is empty, `false` otherwise
+
+___
+
 ### isFile
 
 ▸ `Const` **isFile**(`item`): `boolean`
@@ -564,6 +701,22 @@ Checks if the input item provided is a form file attachment field
 `boolean`
 
 `true` if `item` is a form file attachment, `false` otherwise
+
+___
+
+### isRepeatable
+
+▸ `Const` **isRepeatable**(`obj`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `obj` | [`FieldJson`](README.md#fieldjson) \| [`FieldsetJson`](README.md#fieldsetjson) |
+
+#### Returns
+
+`boolean`
 
 ___
 
@@ -609,11 +762,55 @@ Creates a change event
 
 ___
 
+### registerFunctions
+
+▸ `Const` **registerFunctions**(`functions`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `functions` | `Object` |
+
+#### Returns
+
+`void`
+
+___
+
+### validateFormData
+
+▸ `Const` **validateFormData**(`formModel`, `data`): `Object`
+
+Validates Form model definition with the given data
+
+**`deprecated`** use validateFormData
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `formModel` | `any` | form model definition |
+| `data` | `any` | form data |
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `messages` | `any`[] |
+| `valid` | `boolean` |
+
+___
+
 ### validateFormInstance
 
 ▸ `Const` **validateFormInstance**(`formModel`, `data`): `boolean`
 
 Validates Form model definition with the given data
+
+**`deprecated`** use validateFormData
 
 #### Parameters
 

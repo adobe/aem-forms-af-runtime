@@ -27,8 +27,10 @@ Defines a generic container class which any form container should extend from.
 ### Accessors
 
 - [:type](Container.md#:type)
+- [activeChild](Container.md#activechild)
 - [dataRef](Container.md#dataref)
 - [description](Container.md#description)
+- [enabled](Container.md#enabled)
 - [fieldType](Container.md#fieldtype)
 - [form](Container.md#form)
 - [id](Container.md#id)
@@ -36,23 +38,36 @@ Defines a generic container class which any form container should extend from.
 - [isContainer](Container.md#iscontainer)
 - [items](Container.md#items)
 - [label](Container.md#label)
+- [lang](Container.md#lang)
 - [maxItems](Container.md#maxitems)
+- [minItems](Container.md#minitems)
 - [name](Container.md#name)
 - [parent](Container.md#parent)
 - [properties](Container.md#properties)
+- [qualifiedName](Container.md#qualifiedname)
+- [readOnly](Container.md#readonly)
+- [repeatable](Container.md#repeatable)
 - [ruleEngine](Container.md#ruleengine)
-- [rules](Container.md#rules)
 - [type](Container.md#type)
+- [uniqueItems](Container.md#uniqueitems)
 - [visible](Container.md#visible)
+
+### Constructors
+
+- [constructor](Container.md#constructor)
 
 ### Methods
 
 - [executeAction](Container.md#executeaction)
 - [executeExpression](Container.md#executeexpression)
+- [focus](Container.md#focus)
+- [getNonTransparentParent](Container.md#getnontransparentparent)
+- [getRules](Container.md#getrules)
 - [getState](Container.md#getstate)
 - [hasDynamicItems](Container.md#hasdynamicitems)
 - [indexOf](Container.md#indexof)
 - [isTransparent](Container.md#istransparent)
+- [notifyChildren](Container.md#notifychildren)
 - [validate](Container.md#validate)
 
 ### Properties
@@ -78,6 +93,36 @@ Custom widget type show to the user for capturing the data.
 #### Inherited from
 
 Scriptable.:type
+
+___
+
+### activeChild
+
+• `get` **activeChild**(): ``null`` \| [`BaseModel`](../interfaces/BaseModel.md)
+
+#### Returns
+
+``null`` \| [`BaseModel`](../interfaces/BaseModel.md)
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[activeChild](../interfaces/ContainerModel.md#activechild)
+
+• `set` **activeChild**(`c`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `c` | ``null`` \| [`BaseModel`](../interfaces/BaseModel.md) |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[activeChild](../interfaces/ContainerModel.md#activechild)
 
 ___
 
@@ -140,6 +185,40 @@ Extra description to be shown to the user to aid in form filling experience. It 
 #### Inherited from
 
 Scriptable.description
+
+___
+
+### enabled
+
+• `get` **enabled**(): `undefined` \| `boolean`
+
+Whether the field is enabled and takes part in rules, events etc.
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[enabled](../interfaces/ContainerModel.md#enabled)
+
+• `set` **enabled**(`e`): `void`
+
+Whether the field is enabled and takes part in rules, events etc.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `undefined` \| `boolean` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[enabled](../interfaces/ContainerModel.md#enabled)
 
 ___
 
@@ -295,7 +374,37 @@ Scriptable.label
 
 ___
 
+### lang
+
+• `get` **lang**(): `undefined` \| `string`
+
+language of the field
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[lang](../interfaces/ContainerModel.md#lang)
+
+#### Inherited from
+
+Scriptable.lang
+
+___
+
 ### maxItems
+
+• `get` **maxItems**(): `number`
+
+#### Returns
+
+`number`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[maxItems](../interfaces/ContainerModel.md#maxitems)
 
 • `set` **maxItems**(`m`): `void`
 
@@ -312,6 +421,20 @@ ___
 #### Implementation of
 
 [ContainerModel](../interfaces/ContainerModel.md).[maxItems](../interfaces/ContainerModel.md#maxitems)
+
+___
+
+### minItems
+
+• `get` **minItems**(): `number`
+
+#### Returns
+
+`number`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[minItems](../interfaces/ContainerModel.md#minitems)
 
 ___
 
@@ -397,6 +520,78 @@ Scriptable.properties
 
 ___
 
+### qualifiedName
+
+• `get` **qualifiedName**(): `any`
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[qualifiedName](../interfaces/ContainerModel.md#qualifiedname)
+
+#### Inherited from
+
+Scriptable.qualifiedName
+
+___
+
+### readOnly
+
+• `get` **readOnly**(): `any`
+
+Whether the field should be readOnly to end user or not.
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[readOnly](../interfaces/ContainerModel.md#readonly)
+
+• `set` **readOnly**(`e`): `void`
+
+Whether the field should be readOnly to end user or not.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `any` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[readOnly](../interfaces/ContainerModel.md#readonly)
+
+___
+
+### repeatable
+
+• `get` **repeatable**(): `any`
+
+Field is repeatable or not
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[repeatable](../interfaces/ContainerModel.md#repeatable)
+
+#### Inherited from
+
+Scriptable.repeatable
+
+___
+
 ### ruleEngine
 
 • `get` **ruleEngine**(): `RuleEngine`
@@ -415,26 +610,6 @@ Scriptable.ruleEngine
 
 ___
 
-### rules
-
-• `get` **rules**(): [`Items`](../README.md#items)<`string`\>
-
-Rules that modify the property of the object dynamically. The rules are evaluated whenever the dependency changes.
-
-#### Returns
-
-[`Items`](../README.md#items)<`string`\>
-
-#### Implementation of
-
-[ContainerModel](../interfaces/ContainerModel.md).[rules](../interfaces/ContainerModel.md#rules)
-
-#### Inherited from
-
-Scriptable.rules
-
-___
-
 ### type
 
 • `get` **type**(): `undefined` \| `string`
@@ -450,6 +625,24 @@ ___
 #### Inherited from
 
 Scriptable.type
+
+___
+
+### uniqueItems
+
+• `get` **uniqueItems**(): `undefined` \| `boolean`
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[uniqueItems](../interfaces/ContainerModel.md#uniqueitems)
+
+#### Inherited from
+
+Scriptable.uniqueItems
 
 ___
 
@@ -492,6 +685,32 @@ Whether the field should be visible to author or not.
 #### Inherited from
 
 Scriptable.visible
+
+## Constructors
+
+### constructor
+
+• **new Container**<`T`\>(`json`, `_options`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `json` | `T` |
+| `_options` | `Object` |
+| `_options.fieldFactory` | [`IFormFieldFactory`](../interfaces/IFormFieldFactory.md) |
+| `_options.form` | [`FormModel`](../interfaces/FormModel.md) |
+| `_options.parent` | [`ContainerModel`](../interfaces/ContainerModel.md) |
+
+#### Overrides
+
+Scriptable&lt;T\&gt;.constructor
 
 ## Methods
 
@@ -537,15 +756,63 @@ ___
 
 ___
 
-### getState
+### focus
 
-▸ **getState**(): `T` & { `:type`: `string` ; `id`: `string` ; `items`: ({ `:type`: `string` ; `accept?`: `string`[] ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `default?`: `any` ; `description?`: `string` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `enabled?`: `boolean` ; `enforceEnum?`: `boolean` ; `enum?`: `any`[] ; `enumNames?`: `string`[] ; `errorMessage?`: `string` ; `events?`: [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `fieldType?`: `string` ; `format?`: `string` ; `id`: `string` ; `label?`: [`Label`](../README.md#label) ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `name?`: `string` ; `pattern?`: `string` ; `placeholder?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `readOnly?`: `boolean` ; `required?`: `boolean` ; `rules?`: [`Items`](../README.md#items)<`string`\> ; `step?`: `number` ; `type?`: `string` ; `valid?`: `boolean` ; `validationExpression?`: `string` ; `value?`: `any` ; `visible?`: `boolean`  } \| { `:type?`: `string` ; `accept?`: `string`[] ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `description?`: `string` ; `enabled?`: `boolean` ; `enforceEnum?`: `boolean` ; `enum?`: `any`[] ; `enumNames?`: `string`[] ; `errorMessage?`: `string` ; `events?`: [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `fieldType?`: `string` ; `format?`: `string` ; `id`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[] & (`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  } \| `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & { `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `id`: `string` ; `items`: (`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  } \| `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & { `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { id: string; items: ((TranslationBaseJson & RulesJson & TranslationConstraintsJson & { accept?: string[] \| undefined; ... 15 more ...; validationExpression?: string \| undefined; } & { ...; } & TranslationFieldJson & { ...; } & { ...; }) \| (TranslationBaseJson & ... 5 more ... & ...))[]; })[]  })[] ; `label?`: [`Label`](../README.md#label) ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `name?`: `string` ; `pattern?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `required?`: `boolean` ; `rules?`: [`Items`](../README.md#items)<`string`\> ; `step?`: `number` ; `type?`: ``"object"`` \| ``"array"`` ; `validationExpression?`: `string` ; `visible?`: `boolean`  })[]  }
-
-Returns the current container state
+▸ **focus**(): `void`
 
 #### Returns
 
-`T` & { `:type`: `string` ; `id`: `string` ; `items`: ({ `:type`: `string` ; `accept?`: `string`[] ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `default?`: `any` ; `description?`: `string` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `enabled?`: `boolean` ; `enforceEnum?`: `boolean` ; `enum?`: `any`[] ; `enumNames?`: `string`[] ; `errorMessage?`: `string` ; `events?`: [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `fieldType?`: `string` ; `format?`: `string` ; `id`: `string` ; `label?`: [`Label`](../README.md#label) ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `name?`: `string` ; `pattern?`: `string` ; `placeholder?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `readOnly?`: `boolean` ; `required?`: `boolean` ; `rules?`: [`Items`](../README.md#items)<`string`\> ; `step?`: `number` ; `type?`: `string` ; `valid?`: `boolean` ; `validationExpression?`: `string` ; `value?`: `any` ; `visible?`: `boolean`  } \| { `:type?`: `string` ; `accept?`: `string`[] ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `description?`: `string` ; `enabled?`: `boolean` ; `enforceEnum?`: `boolean` ; `enum?`: `any`[] ; `enumNames?`: `string`[] ; `errorMessage?`: `string` ; `events?`: [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `fieldType?`: `string` ; `format?`: `string` ; `id`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[] & (`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  } \| `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & { `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `id`: `string` ; `items`: (`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  } \| `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & { `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { id: string; items: ((TranslationBaseJson & RulesJson & TranslationConstraintsJson & { accept?: string[] \| undefined; ... 15 more ...; validationExpression?: string \| undefined; } & { ...; } & TranslationFieldJson & { ...; } & { ...; }) \| (TranslationBaseJson & ... 5 more ... & ...))[]; })[]  })[] ; `label?`: [`Label`](../README.md#label) ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `name?`: `string` ; `pattern?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `required?`: `boolean` ; `rules?`: [`Items`](../README.md#items)<`string`\> ; `step?`: `number` ; `type?`: ``"object"`` \| ``"array"`` ; `validationExpression?`: `string` ; `visible?`: `boolean`  })[]  }
+`void`
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[focus](Scriptable.md#focus)
+
+___
+
+### getNonTransparentParent
+
+▸ **getNonTransparentParent**(): [`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Returns
+
+[`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[getNonTransparentParent](Scriptable.md#getnontransparentparent)
+
+___
+
+### getRules
+
+▸ **getRules**(): [`Items`](../README.md#items)<`string`\>
+
+#### Returns
+
+[`Items`](../README.md#items)<`string`\>
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[getRules](Scriptable.md#getrules)
+
+___
+
+### getState
+
+▸ **getState**(`isRepeatableChild?`): `T` & { `:type`: `string` ; `enabled`: `undefined` \| `boolean` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
+
+Returns the current container state
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `isRepeatableChild` | `boolean` | `false` |
+
+#### Returns
+
+`T` & { `:type`: `string` ; `enabled`: `undefined` \| `boolean` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
 
 #### Overrides
 
@@ -597,9 +864,29 @@ Transparent form fields are meant only for creation of view. They are also not p
 
 `boolean`
 
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[isTransparent](../interfaces/ContainerModel.md#istransparent)
+
 #### Inherited from
 
 [Scriptable](Scriptable.md).[isTransparent](Scriptable.md#istransparent)
+
+___
+
+### notifyChildren
+
+▸ **notifyChildren**(`action`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `action` | [`Action`](../interfaces/Action.md) |
+
+#### Returns
+
+`void`
 
 ___
 

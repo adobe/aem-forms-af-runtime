@@ -1,7 +1,5 @@
 # Class: Field
 
-Defines a form object field which implements [field model](../interfaces/FieldModel.md) interface
-
 ## Hierarchy
 
 - [`Scriptable`](Scriptable.md)<[`FieldJson`](../README.md#fieldjson)\>
@@ -24,11 +22,20 @@ Defines a form object field which implements [field model](../interfaces/FieldMo
 
 - [:type](Field.md#:type)
 - [dataRef](Field.md#dataref)
+- [default](Field.md#default)
 - [description](Field.md#description)
+- [displayFormat](Field.md#displayformat)
+- [displayValue](Field.md#displayvalue)
+- [editFormat](Field.md#editformat)
+- [editValue](Field.md#editvalue)
 - [emptyValue](Field.md#emptyvalue)
 - [enabled](Field.md#enabled)
+- [enforceEnum](Field.md#enforceenum)
 - [enum](Field.md#enum)
 - [enumNames](Field.md#enumnames)
+- [errorMessage](Field.md#errormessage)
+- [exclusiveMaximum](Field.md#exclusivemaximum)
+- [exclusiveMinimum](Field.md#exclusiveminimum)
 - [fieldType](Field.md#fieldtype)
 - [form](Field.md#form)
 - [format](Field.md#format)
@@ -36,16 +43,26 @@ Defines a form object field which implements [field model](../interfaces/FieldMo
 - [index](Field.md#index)
 - [isContainer](Field.md#iscontainer)
 - [label](Field.md#label)
+- [lang](Field.md#lang)
+- [maxLength](Field.md#maxlength)
 - [maximum](Field.md#maximum)
+- [minLength](Field.md#minlength)
 - [minimum](Field.md#minimum)
 - [name](Field.md#name)
 - [parent](Field.md#parent)
+- [pattern](Field.md#pattern)
+- [placeholder](Field.md#placeholder)
 - [properties](Field.md#properties)
+- [qualifiedName](Field.md#qualifiedname)
 - [readOnly](Field.md#readonly)
+- [repeatable](Field.md#repeatable)
 - [required](Field.md#required)
 - [ruleEngine](Field.md#ruleengine)
-- [rules](Field.md#rules)
+- [screenReaderText](Field.md#screenreadertext)
+- [step](Field.md#step)
+- [tooltip](Field.md#tooltip)
 - [type](Field.md#type)
+- [uniqueItems](Field.md#uniqueitems)
 - [valid](Field.md#valid)
 - [value](Field.md#value)
 - [visible](Field.md#visible)
@@ -55,10 +72,15 @@ Defines a form object field which implements [field model](../interfaces/FieldMo
 - [dispatch](Field.md#dispatch)
 - [executeAction](Field.md#executeaction)
 - [executeExpression](Field.md#executeexpression)
+- [focus](Field.md#focus)
 - [getErrorMessage](Field.md#geterrormessage)
+- [getNonTransparentParent](Field.md#getnontransparentparent)
+- [getRules](Field.md#getrules)
 - [getState](Field.md#getstate)
 - [importData](Field.md#importdata)
 - [isTransparent](Field.md#istransparent)
+- [markAsInvalid](Field.md#markasinvalid)
+- [ruleNodeReference](Field.md#rulenodereference)
 - [toString](Field.md#tostring)
 - [triggerValidationEvent](Field.md#triggervalidationevent)
 - [validate](Field.md#validate)
@@ -106,6 +128,22 @@ Scriptable.dataRef
 
 ___
 
+### default
+
+• `get` **default**(): `any`
+
+Default value of the Field.
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[default](../interfaces/FieldModel.md#default)
+
+___
+
 ### description
 
 • `get` **description**(): `undefined` \| `string`
@@ -145,6 +183,70 @@ Extra description to be shown to the user to aid in form filling experience. It 
 #### Inherited from
 
 Scriptable.description
+
+___
+
+### displayFormat
+
+• `get` **displayFormat**(): `undefined` \| `string`
+
+format in which user will see the value after update
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[displayFormat](../interfaces/FieldModel.md#displayformat)
+
+___
+
+### displayValue
+
+• `get` **displayValue**(): `any`
+
+value to be displayed to the user after update
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[displayValue](../interfaces/FieldModel.md#displayvalue)
+
+___
+
+### editFormat
+
+• `get` **editFormat**(): `undefined` \| `string`
+
+format in which user will edit the value
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[editFormat](../interfaces/FieldModel.md#editformat)
+
+___
+
+### editValue
+
+• `get` **editValue**(): `any`
+
+value to be displayed to the user for edit
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[editValue](../interfaces/FieldModel.md#editvalue)
 
 ___
 
@@ -192,6 +294,20 @@ Whether the field is enabled and takes part in rules, events etc.
 
 ___
 
+### enforceEnum
+
+• `get` **enforceEnum**(): `undefined` \| `boolean`
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[enforceEnum](../interfaces/FieldModel.md#enforceenum)
+
+___
+
 ### enum
 
 • `get` **enum**(): `undefined` \| `any`[]
@@ -224,11 +340,11 @@ ___
 
 ### enumNames
 
-• `get` **enumNames**(): `undefined` \| `string`[]
+• `get` **enumNames**(): `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Returns
 
-`undefined` \| `string`[]
+`undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Implementation of
 
@@ -240,7 +356,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `e` | `undefined` \| `string`[] |
+| `e` | `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[] |
 
 #### Returns
 
@@ -249,6 +365,76 @@ ___
 #### Implementation of
 
 [FieldModel](../interfaces/FieldModel.md).[enumNames](../interfaces/FieldModel.md#enumnames)
+
+___
+
+### errorMessage
+
+• `get` **errorMessage**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+___
+
+### exclusiveMaximum
+
+• `get` **exclusiveMaximum**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[exclusiveMaximum](../interfaces/FieldModel.md#exclusivemaximum)
+
+• `set` **exclusiveMaximum**(`eM`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eM` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[exclusiveMaximum](../interfaces/FieldModel.md#exclusivemaximum)
+
+___
+
+### exclusiveMinimum
+
+• `get` **exclusiveMinimum**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[exclusiveMinimum](../interfaces/FieldModel.md#exclusiveminimum)
+
+• `set` **exclusiveMinimum**(`eM`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `eM` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[exclusiveMinimum](../interfaces/FieldModel.md#exclusiveminimum)
 
 ___
 
@@ -288,13 +474,13 @@ ___
 
 ### format
 
-• `get` **format**(): `string`
+• `get` **format**(): `undefined` \| `string`
 
 returns the format constraint
 
 #### Returns
 
-`string`
+`undefined` \| `string`
 
 #### Implementation of
 
@@ -404,6 +590,40 @@ Scriptable.label
 
 ___
 
+### lang
+
+• `get` **lang**(): `undefined` \| `string`
+
+language of the field
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[lang](../interfaces/FieldModel.md#lang)
+
+#### Inherited from
+
+Scriptable.lang
+
+___
+
+### maxLength
+
+• `get` **maxLength**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[maxLength](../interfaces/FieldModel.md#maxlength)
+
+___
+
 ### maximum
 
 • `get` **maximum**(): `undefined` \| `number`
@@ -431,6 +651,20 @@ ___
 #### Implementation of
 
 [FieldModel](../interfaces/FieldModel.md).[maximum](../interfaces/FieldModel.md#maximum)
+
+___
+
+### minLength
+
+• `get` **minLength**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[minLength](../interfaces/FieldModel.md#minlength)
 
 ___
 
@@ -504,6 +738,36 @@ Scriptable.parent
 
 ___
 
+### pattern
+
+• `get` **pattern**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[pattern](../interfaces/FieldModel.md#pattern)
+
+___
+
+### placeholder
+
+• `get` **placeholder**(): `undefined` \| `string`
+
+The placeholder to show on the widget.
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[placeholder](../interfaces/FieldModel.md#placeholder)
+
+___
+
 ### properties
 
 • `get` **properties**(): `Object`
@@ -546,6 +810,24 @@ Scriptable.properties
 
 ___
 
+### qualifiedName
+
+• `get` **qualifiedName**(): `any`
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[qualifiedName](../interfaces/FieldModel.md#qualifiedname)
+
+#### Inherited from
+
+Scriptable.qualifiedName
+
+___
+
 ### readOnly
 
 • `get` **readOnly**(): `undefined` \| `boolean`
@@ -577,6 +859,26 @@ Whether the field should be readOnly to end user or not.
 #### Implementation of
 
 [FieldModel](../interfaces/FieldModel.md).[readOnly](../interfaces/FieldModel.md#readonly)
+
+___
+
+### repeatable
+
+• `get` **repeatable**(): `any`
+
+Field is repeatable or not
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[repeatable](../interfaces/FieldModel.md#repeatable)
+
+#### Inherited from
+
+Scriptable.repeatable
 
 ___
 
@@ -628,23 +930,37 @@ Scriptable.ruleEngine
 
 ___
 
-### rules
+### screenReaderText
 
-• `get` **rules**(): [`Items`](../README.md#items)<`string`\>
-
-Rules that modify the property of the object dynamically. The rules are evaluated whenever the dependency changes.
+• `get` **screenReaderText**(): `undefined` \| `string`
 
 #### Returns
 
-[`Items`](../README.md#items)<`string`\>
+`undefined` \| `string`
+
+___
+
+### step
+
+• `get` **step**(): `undefined` \| `number`
+
+#### Returns
+
+`undefined` \| `number`
 
 #### Implementation of
 
-[FieldModel](../interfaces/FieldModel.md).[rules](../interfaces/FieldModel.md#rules)
+[FieldModel](../interfaces/FieldModel.md).[step](../interfaces/FieldModel.md#step)
 
-#### Inherited from
+___
 
-Scriptable.rules
+### tooltip
+
+• `get` **tooltip**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
 
 ___
 
@@ -663,6 +979,24 @@ ___
 #### Inherited from
 
 Scriptable.type
+
+___
+
+### uniqueItems
+
+• `get` **uniqueItems**(): `undefined` \| `boolean`
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[uniqueItems](../interfaces/FieldModel.md#uniqueitems)
+
+#### Inherited from
+
+Scriptable.uniqueItems
 
 ___
 
@@ -832,6 +1166,20 @@ ___
 
 ___
 
+### focus
+
+▸ **focus**(): `void`
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[focus](Scriptable.md#focus)
+
+___
+
 ### getErrorMessage
 
 ▸ **getErrorMessage**(`constraint`): `string`
@@ -850,21 +1198,107 @@ Returns the error message for a given constraint
 
 ___
 
+### getNonTransparentParent
+
+▸ **getNonTransparentParent**(): [`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Returns
+
+[`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[getNonTransparentParent](Scriptable.md#getnontransparentparent)
+
+___
+
+### getRules
+
+▸ **getRules**(): [`Items`](../README.md#items)<`string`\>
+
+#### Returns
+
+[`Items`](../README.md#items)<`string`\>
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[getRules](Scriptable.md#getrules)
+
+___
+
 ### getState
 
-▸ **getState**(): `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  }
+▸ **getState**(): `Object`
 
 [state](../README.md#state) of the form object
 
 #### Returns
 
-`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `visible?`: `boolean`  } & `TranslationFieldJson` & { `default?`: `any` ; `emptyValue?`: ``""`` \| ``"undefined"`` \| ``"null"`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  } & { `:type`: `string` ; `id`: `string`  }
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `:type` | `string` |
+| `accept?` | `string`[] |
+| `altText?` | `string` |
+| `constraintMessages?` | [`ConstraintsMessages`](../README.md#constraintsmessages) |
+| `dataRef?` | ``null`` \| `string` |
+| `default?` | `any` |
+| `description?` | `string` |
+| `displayFormat` | `undefined` \| `string` |
+| `displayValue` | `any` |
+| `editFormat` | `undefined` \| `string` |
+| `editValue` | `any` |
+| `emptyValue?` | ``""`` \| ``"undefined"`` \| ``"null"`` |
+| `enabled` | `undefined` \| `boolean` |
+| `enforceEnum?` | `boolean` |
+| `enum?` | `any`[] |
+| `enumNames?` | `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `errorMessage?` | `string` |
+| `events` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> & {} |
+| `exclusiveMaximum?` | `number` |
+| `exclusiveMinimum?` | `number` |
+| `fieldType?` | `string` |
+| `format?` | `string` |
+| `id` | `string` |
+| `index` | `number` |
+| `label?` | [`Label`](../README.md#label) |
+| `lang?` | `string` |
+| `maxFileSize?` | `string` \| `number` |
+| `maxItems?` | `number` |
+| `maxLength?` | `number` |
+| `maxOccur?` | `number` |
+| `maximum?` | `number` |
+| `minItems?` | `number` |
+| `minLength?` | `number` |
+| `minOccur?` | `number` |
+| `minimum?` | `number` |
+| `name?` | `string` |
+| `parent` | `undefined` |
+| `pattern?` | `string` |
+| `placeholder?` | `string` |
+| `properties` | { [key: string]: `any`;  } |
+| `qualifiedName` | `any` |
+| `readOnly` | `undefined` \| `boolean` |
+| `repeatable` | `undefined` \| `boolean` |
+| `required?` | `boolean` |
+| `rules` | [`Items`](../README.md#items)<`string`\> & {} |
+| `screenReaderText?` | `string` |
+| `step?` | `number` |
+| `tooltip?` | `string` |
+| `type?` | `string` |
+| `uniqueItems?` | `boolean` |
+| `valid?` | `boolean` |
+| `validationExpression?` | `string` |
+| `value?` | `any` |
+| `viewType?` | `string` |
+| `visible?` | `boolean` |
 
 #### Implementation of
 
 [FieldModel](../interfaces/FieldModel.md).[getState](../interfaces/FieldModel.md#getstate)
 
-#### Inherited from
+#### Overrides
 
 [Scriptable](Scriptable.md).[getState](Scriptable.md#getstate)
 
@@ -907,6 +1341,40 @@ Transparent form fields are meant only for creation of view. They are also not p
 #### Inherited from
 
 [Scriptable](Scriptable.md).[isTransparent](Scriptable.md#istransparent)
+
+___
+
+### markAsInvalid
+
+▸ **markAsInvalid**(`message`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `message` | `string` |
+
+#### Returns
+
+`void`
+
+___
+
+### ruleNodeReference
+
+▸ **ruleNodeReference**(): `any`
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+FieldModel.ruleNodeReference
+
+#### Overrides
+
+Scriptable.ruleNodeReference
 
 ___
 

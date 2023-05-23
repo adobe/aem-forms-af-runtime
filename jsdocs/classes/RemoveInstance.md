@@ -1,45 +1,43 @@
-# Class: Change
+# Class: RemoveInstance
 
-Implementation of `change` event. The change event is triggered on the field whenever the value of the field is changed
+Implementation of `removeInstance` event. The event is triggered on a field to remove an instance of it.
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`Change`**
+  ↳ **`RemoveInstance`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](Change.md#constructor)
+- [constructor](RemoveInstance.md#constructor)
 
 ### Accessors
 
-- [isCustomEvent](Change.md#iscustomevent)
-- [metadata](Change.md#metadata)
-- [payload](Change.md#payload)
-- [target](Change.md#target)
-- [type](Change.md#type)
+- [isCustomEvent](RemoveInstance.md#iscustomevent)
+- [metadata](RemoveInstance.md#metadata)
+- [payload](RemoveInstance.md#payload)
+- [target](RemoveInstance.md#target)
+- [type](RemoveInstance.md#type)
 
 ### Methods
 
-- [toJson](Change.md#tojson)
-- [toString](Change.md#tostring)
-- [withAdditionalChange](Change.md#withadditionalchange)
+- [toJson](RemoveInstance.md#tojson)
+- [toString](RemoveInstance.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new Change**(`payload`, `dispatch?`)
+• **new RemoveInstance**(`payload?`)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `payload` | [`ChangePayload`](../README.md#changepayload) | `undefined` |
-| `dispatch` | `boolean` | `false` |
+| Name | Type |
+| :------ | :------ |
+| `payload?` | `number` |
 
 #### Overrides
 
@@ -148,19 +146,3 @@ ___
 #### Inherited from
 
 ActionImpl.toString
-
-___
-
-### withAdditionalChange
-
-▸ **withAdditionalChange**(`change`): [`Change`](Change.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `change` | [`Change`](Change.md) |
-
-#### Returns
-
-[`Change`](Change.md)

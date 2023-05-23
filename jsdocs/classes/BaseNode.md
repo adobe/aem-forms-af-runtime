@@ -31,11 +31,15 @@ Defines a generic base class which all objects of form runtime model should exte
 - [index](BaseNode.md#index)
 - [isContainer](BaseNode.md#iscontainer)
 - [label](BaseNode.md#label)
+- [lang](BaseNode.md#lang)
 - [name](BaseNode.md#name)
 - [parent](BaseNode.md#parent)
 - [properties](BaseNode.md#properties)
+- [qualifiedName](BaseNode.md#qualifiedname)
+- [repeatable](BaseNode.md#repeatable)
 - [ruleEngine](BaseNode.md#ruleengine)
 - [type](BaseNode.md#type)
+- [uniqueItems](BaseNode.md#uniqueitems)
 - [visible](BaseNode.md#visible)
 
 ### Methods
@@ -43,9 +47,12 @@ Defines a generic base class which all objects of form runtime model should exte
 - [defaultDataModel](BaseNode.md#defaultdatamodel)
 - [dispatch](BaseNode.md#dispatch)
 - [executeAction](BaseNode.md#executeaction)
+- [focus](BaseNode.md#focus)
+- [getNonTransparentParent](BaseNode.md#getnontransparentparent)
 - [getState](BaseNode.md#getstate)
 - [importData](BaseNode.md#importdata)
 - [isTransparent](BaseNode.md#istransparent)
+- [reset](BaseNode.md#reset)
 - [validate](BaseNode.md#validate)
 
 ### Properties
@@ -228,6 +235,22 @@ Label to be used for the field.
 
 ___
 
+### lang
+
+• `get` **lang**(): `undefined` \| `string`
+
+language of the field
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[lang](../interfaces/BaseModel.md#lang)
+
+___
+
 ### name
 
 • `get` **name**(): `undefined` \| `string`
@@ -294,6 +317,36 @@ Custom properties of the form field.
 
 ___
 
+### qualifiedName
+
+• `get` **qualifiedName**(): `any`
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[qualifiedName](../interfaces/BaseModel.md#qualifiedname)
+
+___
+
+### repeatable
+
+• `get` **repeatable**(): `any`
+
+Field is repeatable or not
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[repeatable](../interfaces/BaseModel.md#repeatable)
+
+___
+
 ### ruleEngine
 
 • `get` **ruleEngine**(): `RuleEngine`
@@ -315,6 +368,20 @@ ___
 #### Implementation of
 
 [BaseModel](../interfaces/BaseModel.md).[type](../interfaces/BaseModel.md#type)
+
+___
+
+### uniqueItems
+
+• `get` **uniqueItems**(): `undefined` \| `boolean`
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[uniqueItems](../interfaces/BaseModel.md#uniqueitems)
 
 ___
 
@@ -404,13 +471,39 @@ ___
 
 ___
 
-### getState
+### focus
 
-▸ **getState**(): `T` & { `:type`: `string` ; `id`: `string`  }
+▸ **focus**(): `void`
 
 #### Returns
 
-`T` & { `:type`: `string` ; `id`: `string`  }
+`void`
+
+___
+
+### getNonTransparentParent
+
+▸ **getNonTransparentParent**(): [`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Returns
+
+[`ContainerModel`](../interfaces/ContainerModel.md)
+
+___
+
+### getState
+
+▸ **getState**(`isRepeatableChild?`): `T` & { `:type`: `string` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `isRepeatableChild` | `boolean` | `false` |
+
+#### Returns
+
+`T` & { `:type`: `string` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
 
 ___
 
@@ -443,6 +536,22 @@ Transparent form fields are meant only for creation of view. They are also not p
 #### Returns
 
 `boolean`
+
+___
+
+### reset
+
+▸ `Abstract` **reset**(): `any`
+
+Resets the form model
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[reset](../interfaces/BaseModel.md#reset)
 
 ___
 

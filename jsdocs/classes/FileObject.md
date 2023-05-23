@@ -21,7 +21,12 @@ Defines a file object which implements the [file object interface](../interfaces
 
 ### Methods
 
+- [equals](FileObject.md#equals)
 - [toJSON](FileObject.md#tojson)
+
+### Accessors
+
+- [type](FileObject.md#type)
 
 ## Constructors
 
@@ -85,6 +90,22 @@ Size of the file binary as per iec specification.
 
 ## Methods
 
+### equals
+
+▸ **equals**(`obj`): `boolean`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `obj` | [`IFileObject`](../interfaces/IFileObject.md) |
+
+#### Returns
+
+`boolean`
+
+___
+
 ### toJSON
 
 ▸ **toJSON**(): `Object`
@@ -99,3 +120,13 @@ Size of the file binary as per iec specification.
 | `mediaType` | `string` |
 | `name` | `string` |
 | `size` | `number` |
+
+## Accessors
+
+### type
+
+• `get` **type**(): `string`
+
+#### Returns
+
+`string`

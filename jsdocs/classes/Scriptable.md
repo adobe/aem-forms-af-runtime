@@ -1,5 +1,8 @@
 # Class: Scriptable<T\>
 
+Defines scriptable aspects (ie rules, events) of form runtime model. Any form runtime object which requires
+execution of rules/events should extend from this class.
+
 ## Type parameters
 
 | Name | Type |
@@ -33,12 +36,15 @@
 - [index](Scriptable.md#index)
 - [isContainer](Scriptable.md#iscontainer)
 - [label](Scriptable.md#label)
+- [lang](Scriptable.md#lang)
 - [name](Scriptable.md#name)
 - [parent](Scriptable.md#parent)
 - [properties](Scriptable.md#properties)
+- [qualifiedName](Scriptable.md#qualifiedname)
+- [repeatable](Scriptable.md#repeatable)
 - [ruleEngine](Scriptable.md#ruleengine)
-- [rules](Scriptable.md#rules)
 - [type](Scriptable.md#type)
+- [uniqueItems](Scriptable.md#uniqueitems)
 - [visible](Scriptable.md#visible)
 
 ### Methods
@@ -47,9 +53,13 @@
 - [dispatch](Scriptable.md#dispatch)
 - [executeAction](Scriptable.md#executeaction)
 - [executeExpression](Scriptable.md#executeexpression)
+- [focus](Scriptable.md#focus)
+- [getNonTransparentParent](Scriptable.md#getnontransparentparent)
+- [getRules](Scriptable.md#getrules)
 - [getState](Scriptable.md#getstate)
 - [importData](Scriptable.md#importdata)
 - [isTransparent](Scriptable.md#istransparent)
+- [reset](Scriptable.md#reset)
 - [validate](Scriptable.md#validate)
 
 ### Properties
@@ -216,6 +226,20 @@ BaseNode.label
 
 ___
 
+### lang
+
+• `get` **lang**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+BaseNode.lang
+
+___
+
 ### name
 
 • `get` **name**(): `undefined` \| `string`
@@ -274,6 +298,34 @@ BaseNode.properties
 
 ___
 
+### qualifiedName
+
+• `get` **qualifiedName**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+BaseNode.qualifiedName
+
+___
+
+### repeatable
+
+• `get` **repeatable**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+BaseNode.repeatable
+
+___
+
 ### ruleEngine
 
 • `get` **ruleEngine**(): `RuleEngine`
@@ -292,22 +344,6 @@ BaseNode.ruleEngine
 
 ___
 
-### rules
-
-• `get` **rules**(): [`Items`](../README.md#items)<`string`\>
-
-Rules that modify the property of the object dynamically. The rules are evaluated whenever the dependency changes.
-
-#### Returns
-
-[`Items`](../README.md#items)<`string`\>
-
-#### Implementation of
-
-[ScriptableField](../interfaces/ScriptableField.md).[rules](../interfaces/ScriptableField.md#rules)
-
-___
-
 ### type
 
 • `get` **type**(): `undefined` \| `string`
@@ -319,6 +355,20 @@ ___
 #### Inherited from
 
 BaseNode.type
+
+___
+
+### uniqueItems
+
+• `get` **uniqueItems**(): `undefined` \| `boolean`
+
+#### Returns
+
+`undefined` \| `boolean`
+
+#### Inherited from
+
+BaseNode.uniqueItems
 
 ___
 
@@ -430,13 +480,57 @@ ___
 
 ___
 
-### getState
+### focus
 
-▸ **getState**(): `T` & { `:type`: `string` ; `id`: `string`  }
+▸ **focus**(): `void`
 
 #### Returns
 
-`T` & { `:type`: `string` ; `id`: `string`  }
+`void`
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[focus](BaseNode.md#focus)
+
+___
+
+### getNonTransparentParent
+
+▸ **getNonTransparentParent**(): [`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Returns
+
+[`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[getNonTransparentParent](BaseNode.md#getnontransparentparent)
+
+___
+
+### getRules
+
+▸ **getRules**(): [`Items`](../README.md#items)<`string`\>
+
+#### Returns
+
+[`Items`](../README.md#items)<`string`\>
+
+___
+
+### getState
+
+▸ **getState**(`isRepeatableChild?`): `T` & { `:type`: `string` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `isRepeatableChild` | `boolean` | `false` |
+
+#### Returns
+
+`T` & { `:type`: `string` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
 
 #### Inherited from
 
@@ -477,6 +571,22 @@ Transparent form fields are meant only for creation of view. They are also not p
 #### Inherited from
 
 [BaseNode](BaseNode.md).[isTransparent](BaseNode.md#istransparent)
+
+___
+
+### reset
+
+▸ `Abstract` **reset**(): `any`
+
+Resets the form model
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[reset](BaseNode.md#reset)
 
 ___
 

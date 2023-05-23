@@ -41,22 +41,28 @@ Defines common properties that each form field should have
 - [isContainer](BaseModel.md#iscontainer)
 - [items](BaseModel.md#items)
 - [label](BaseModel.md#label)
+- [lang](BaseModel.md#lang)
 - [maxFileSize](BaseModel.md#maxfilesize)
 - [maxItems](BaseModel.md#maxitems)
 - [maxLength](BaseModel.md#maxlength)
+- [maxOccur](BaseModel.md#maxoccur)
 - [maximum](BaseModel.md#maximum)
 - [minItems](BaseModel.md#minitems)
 - [minLength](BaseModel.md#minlength)
+- [minOccur](BaseModel.md#minoccur)
 - [minimum](BaseModel.md#minimum)
 - [name](BaseModel.md#name)
 - [parent](BaseModel.md#parent)
 - [pattern](BaseModel.md#pattern)
 - [placeholder](BaseModel.md#placeholder)
 - [properties](BaseModel.md#properties)
+- [qualifiedName](BaseModel.md#qualifiedname)
 - [readOnly](BaseModel.md#readonly)
+- [repeatable](BaseModel.md#repeatable)
 - [required](BaseModel.md#required)
 - [step](BaseModel.md#step)
 - [type](BaseModel.md#type)
+- [uniqueItems](BaseModel.md#uniqueitems)
 - [valid](BaseModel.md#valid)
 - [validationExpression](BaseModel.md#validationexpression)
 - [value](BaseModel.md#value)
@@ -64,6 +70,7 @@ Defines common properties that each form field should have
 
 ### Methods
 
+- [reset](BaseModel.md#reset)
 - [validate](BaseModel.md#validate)
 
 ## Properties
@@ -140,7 +147,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[]
+• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
 
 #### Inherited from
 
@@ -226,6 +233,14 @@ Label to be used for the field.
 
 ___
 
+### lang
+
+• `Optional` `Readonly` **lang**: `string`
+
+language of the field
+
+___
+
 ### maxFileSize
 
 • `Optional` **maxFileSize**: `string` \| `number`
@@ -256,6 +271,16 @@ ConstraintsJson.maxLength
 
 ___
 
+### maxOccur
+
+• `Optional` **maxOccur**: `number`
+
+#### Inherited from
+
+ConstraintsJson.maxOccur
+
+___
+
 ### maximum
 
 • `Optional` **maximum**: `number`
@@ -283,6 +308,16 @@ ___
 #### Inherited from
 
 ConstraintsJson.minLength
+
+___
+
+### minOccur
+
+• `Optional` **minOccur**: `number`
+
+#### Inherited from
+
+ConstraintsJson.minOccur
 
 ___
 
@@ -342,11 +377,25 @@ Custom properties of the form field.
 
 ___
 
+### qualifiedName
+
+• `Readonly` **qualifiedName**: `string`
+
+___
+
 ### readOnly
 
 • `Optional` **readOnly**: `boolean`
 
 Whether the field should be readOnly to end user or not.
+
+___
+
+### repeatable
+
+• `Optional` `Readonly` **repeatable**: `boolean`
+
+Field is repeatable or not
 
 ___
 
@@ -377,6 +426,16 @@ ___
 #### Inherited from
 
 ConstraintsJson.type
+
+___
+
+### uniqueItems
+
+• `Optional` **uniqueItems**: `boolean`
+
+#### Inherited from
+
+ConstraintsJson.uniqueItems
 
 ___
 
@@ -413,6 +472,18 @@ ___
 Whether the field should be visible to author or not.
 
 ## Methods
+
+### reset
+
+▸ **reset**(): `any`
+
+Resets the form model
+
+#### Returns
+
+`any`
+
+___
 
 ### validate
 
