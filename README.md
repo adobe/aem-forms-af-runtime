@@ -48,6 +48,6 @@ const json = {...}
 ```
 # Links
 1. [Story book](https://opensource.adobe.com/aem-forms-af-runtime/storybook)
-2. [JS API Docs](https://opensource.adobe.com/aem-forms-af-runtime/jsdocs)
+2. [JS API Docs](https://opensource.adobe.com/aem-forms-af-runtime/js-docs)
 3. [HTTP API Docs](https://opensource.adobe.com/aem-forms-af-runtime/api)
 4. [Adaptive Form Runtime packages](https://www.npmjs.com/org/aemforms)
