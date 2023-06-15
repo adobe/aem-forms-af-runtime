@@ -4,7 +4,7 @@ info:
   description:  |
     AEM Forms as a Cloud Service - Headless Forms HTTP APIs.
     # Introduction
-    Headless APIs let you get the Headless Adaptive Form definition, prefill the form, validate and submit it.
+    Headless APIs let you get the Headless Adaptive Form definition, prefill the form, generate document of record and submit the form.
   version: '1.0.0'
 servers:
   - url: '/adobe/forms/af'
@@ -38,7 +38,13 @@ paths:
       operationId: getForm
       tags:
         - Get Form Definition
-      description: Gets the definition of the given form. 
+      description: |
+        Gets the definition of the given form.
+
+        If you are using site components within forms, please refer to the [API Documentation](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/implementing/developing/full-stack/components-templates/json-exporter.html) for detailed information.
+        As an example, to access form definition for a form containing site components at path `/content/forms/af/registration` you can use the following URL to fetch form definition `/content/forms/af/registration/jcr:content/guideContainer.model.json`
+
+        Otherwise, feel free to explore the below API.
       parameters:
         - "$ref": "#/components/parameters/formId"
         - "$ref": "#/components/parameters/acceptLang"
