@@ -56,6 +56,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [type](Checkbox.md#type)
 - [uniqueItems](Checkbox.md#uniqueitems)
 - [valid](Checkbox.md#valid)
+- [validity](Checkbox.md#validity)
 - [value](Checkbox.md#value)
 - [visible](Checkbox.md#visible)
 
@@ -864,15 +865,29 @@ ___
 
 ### valid
 
-• `get` **valid**(): `undefined` \| `boolean`
+• `get` **valid**(): `any`
 
 #### Returns
 
-`undefined` \| `boolean`
+`any`
 
 #### Inherited from
 
 Field.valid
+
+___
+
+### validity
+
+• `get` **validity**(): `any`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+Field.validity
 
 ___
 
@@ -1126,6 +1141,8 @@ ___
 | `uniqueItems?` | `boolean` |
 | `valid?` | `boolean` |
 | `validationExpression?` | `string` |
+| `validationMessage?` | `string` |
+| `validity?` | `any` |
 | `value?` | `any` |
 | `viewType?` | `string` |
 | `visible?` | `boolean` |
@@ -1174,13 +1191,16 @@ ___
 
 ### markAsInvalid
 
-▸ **markAsInvalid**(`message`): `void`
+▸ **markAsInvalid**(`message`, `constraint?`): `void`
+
+API to mark a particular field as invalid
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `string` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `message` | `string` | `undefined` | error message |
+| `constraint` | ``null`` \| keyof [`ConstraintsMessages`](../README.md#constraintsmessages) | `null` | constraint type due to which field is marked invalid. It should be key of [ConstraintsMessages](../README.md#constraintsmessages) or null |
 
 #### Returns
 

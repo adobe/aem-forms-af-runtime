@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.43
+# @aemforms/af-core - v0.22.52
 
 ## Table of contents
 
@@ -45,6 +45,8 @@
 - [Reset](classes/Reset.md)
 - [Scriptable](classes/Scriptable.md)
 - [Submit](classes/Submit.md)
+- [SubmitFailure](classes/SubmitFailure.md)
+- [SubmitSuccess](classes/SubmitSuccess.md)
 - [Valid](classes/Valid.md)
 - [ValidationComplete](classes/ValidationComplete.md)
 - [ValidationError](classes/ValidationError.md)
@@ -71,9 +73,11 @@
 ### Variables
 
 - [CUSTOM\_PROPS\_KEY](README.md#custom_props_key)
+- [ConstraintType](README.md#constrainttype)
 - [FunctionRuntime](README.md#functionruntime)
 - [TRANSLATION\_ID](README.md#translation_id)
 - [TRANSLATION\_TOKEN](README.md#translation_token)
+- [constraintKeys](README.md#constraintkeys)
 - [constraintProps](README.md#constraintprops)
 - [translationProps](README.md#translationprops)
 
@@ -87,6 +91,7 @@
 - [exportDataSchema](README.md#exportdataschema)
 - [extractFileInfo](README.md#extractfileinfo)
 - [fetchForm](README.md#fetchform)
+- [getConstraintTypeMessages](README.md#getconstrainttypemessages)
 - [getFileSizeInBytes](README.md#getfilesizeinbytes)
 - [getOrElse](README.md#getorelse)
 - [getProperty](README.md#getproperty)
@@ -100,6 +105,7 @@
 - [jsonString](README.md#jsonstring)
 - [propertyChange](README.md#propertychange)
 - [registerFunctions](README.md#registerfunctions)
+- [setCustomDefaultConstraintTypeMessages](README.md#setcustomdefaultconstrainttypemessages)
 - [validateFormData](README.md#validateformdata)
 - [validateFormInstance](README.md#validateforminstance)
 
@@ -191,7 +197,7 @@ ___
 
 ### FieldJson
 
-Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `value?`: `any`  }
+Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `validationMessage?`: `string` ; `validity?`: `any` ; `value?`: `any`  }
 
 Type for `form field properties` based on `adaptive form specification`
 
@@ -313,6 +319,16 @@ Type for all properties which can be translated based on `adaptive form specific
 
 ___
 
+### ConstraintType
+
+• **ConstraintType**: `Readonly`<{ `ACCEPT_MISMATCH`: ``"acceptMismatch"`` = 'acceptMismatch'; `EXPRESSION_MISMATCH`: ``"expressionMismatch"`` = 'expressionMismatch'; `FILE_SIZE_MISMATCH`: ``"fileSizeMismatch"`` = 'fileSizeMismatch'; `FORMAT_MISMATCH`: ``"formatMismatch"`` = 'formatMismatch'; `MAX_ITEMS_MISMATCH`: ``"maxItemsMismatch"`` = 'maxItemsMismatch'; `MIN_ITEMS_MISMATCH`: ``"minItemsMismatch"`` = 'minItemsMismatch'; `PATTERN_MISMATCH`: ``"patternMismatch"`` = 'patternMismatch'; `RANGE_OVERFLOW`: ``"rangeOverflow"`` = 'rangeOverflow'; `RANGE_UNDERFLOW`: ``"rangeUnderflow"`` = 'rangeUnderflow'; `STEP_MISMATCH`: ``"stepMismatch"`` = 'stepMismatch'; `TOO_LONG`: ``"tooLong"`` = 'tooLong'; `TOO_SHORT`: ``"tooShort"`` = 'tooShort'; `TYPE_MISMATCH`: ``"typeMismatch"`` = 'typeMismatch'; `UNIQUE_ITEMS_MISMATCH`: ``"uniqueItemsMismatch"`` = 'uniqueItemsMismatch'; `VALUE_MISSING`: ``"valueMissing"`` = 'valueMissing' }\>
+
+ConstraintType is an object containing properties that represent the constraint types as per HTML5 specfication.
+Once can access these properties using dot notation (for example)
+(ConstraintType.PATTERN_MISMATCH, ConstraintType.TOO_SHORT, etc.).
+
+___
+
 ### FunctionRuntime
 
 • **FunctionRuntime**: `FunctionRuntimeImpl`
@@ -332,6 +348,15 @@ ___
 • **TRANSLATION\_TOKEN**: ``"##"``
 
 Token used while creating translation specific properties from `adaptive form specification`
+
+___
+
+### constraintKeys
+
+• **constraintKeys**: `Readonly`<{ `accept`: ``"acceptMismatch"`` = ConstraintType.ACCEPT\_MISMATCH; `format`: ``"formatMismatch"`` = ConstraintType.FORMAT\_MISMATCH; `maxFileSize`: ``"fileSizeMismatch"`` = ConstraintType.FILE\_SIZE\_MISMATCH; `maxItems`: ``"maxItemsMismatch"`` = ConstraintType.MAX\_ITEMS\_MISMATCH; `maxLength`: ``"tooLong"`` = ConstraintType.TOO\_LONG; `maximum`: ``"rangeOverflow"`` = ConstraintType.RANGE\_OVERFLOW; `minItems`: ``"minItemsMismatch"`` = ConstraintType.MIN\_ITEMS\_MISMATCH; `minLength`: ``"tooShort"`` = ConstraintType.TOO\_SHORT; `minimum`: ``"rangeUnderflow"`` = ConstraintType.RANGE\_UNDERFLOW; `pattern`: ``"patternMismatch"`` = ConstraintType.PATTERN\_MISMATCH; `required`: ``"valueMissing"`` = ConstraintType.VALUE\_MISSING; `step`: ``"stepMismatch"`` = ConstraintType.STEP\_MISMATCH; `type`: ``"typeMismatch"`` = ConstraintType.TYPE\_MISMATCH; `uniqueItems`: ``"uniqueItemsMismatch"`` = ConstraintType.UNIQUE\_ITEMS\_MISMATCH; `validationExpression`: ``"expressionMismatch"`` = ConstraintType.EXPRESSION\_MISMATCH }\>
+
+This map consists of key which are constraints based on `adaptive form specification and value
+which specifies constraint types as per HTML5 specification
 
 ___
 
@@ -515,6 +540,36 @@ Helper API to fetch form model definition from an AEM instance
 `Promise`<`string`\>
 
 promise which resolves to the form model definition
+
+___
+
+### getConstraintTypeMessages
+
+▸ `Const` **getConstraintTypeMessages**(): `Object`
+
+API to get the constraint type messages
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `acceptMismatch` | ``"The specified file type not supported."`` |
+| `expressionMismatch` | ``"Please enter a valid value."`` |
+| `fileSizeMismatch` | ``"File too large. Reduce size and try again."`` |
+| `formatMismatch` | ``"Specify the value in allowed format : ${0}."`` |
+| `maxItemsMismatch` | ``"Specify a number of items equal to or less than ${0}."`` |
+| `minItemsMismatch` | ``"Specify a number of items equal to or greater than ${0}."`` |
+| `patternMismatch` | ``"Please match the format requested."`` |
+| `rangeOverflow` | ``"Value must be less than or equal to ${0}."`` |
+| `rangeUnderflow` | ``"Value must be greater than or equal to ${0}."`` |
+| `stepMismatch` | ``"Please enter a valid value."`` |
+| `tooLong` | ``"Please shorten this text to ${0} characters or less."`` |
+| `tooShort` | ``"Please lengthen this text to ${0} characters or more."`` |
+| `typeMismatch` | ``"Please enter a valid value."`` |
+| `uniqueItemsMismatch` | ``"All the items must be unique."`` |
+| `valueMissing` | ``"Please fill in this field."`` |
 
 ___
 
@@ -778,13 +833,29 @@ ___
 
 ___
 
+### setCustomDefaultConstraintTypeMessages
+
+▸ `Const` **setCustomDefaultConstraintTypeMessages**(`messages`): `void`
+
+API to override the custom default constraint messages
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `messages` | `Record`<`string`, `string`\> | messages to override as per {@link defaultConstraintTypeMessages} As an example, ``` // Example usage: setCustomConstraintMessages({          'pattern': 'Custom pattern mismatch message.',          'minLength': 'Custom too short message.', }); ``` |
+
+#### Returns
+
+`void`
+
+___
+
 ### validateFormData
 
 ▸ `Const` **validateFormData**(`formModel`, `data`): `Object`
 
 Validates Form model definition with the given data
-
-**`deprecated`** use validateFormData
 
 #### Parameters
 

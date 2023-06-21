@@ -64,6 +64,7 @@
 - [type](Field.md#type)
 - [uniqueItems](Field.md#uniqueitems)
 - [valid](Field.md#valid)
+- [validity](Field.md#validity)
 - [value](Field.md#value)
 - [visible](Field.md#visible)
 
@@ -1002,17 +1003,27 @@ ___
 
 ### valid
 
-• `get` **valid**(): `undefined` \| `boolean`
+• `get` **valid**(): `any`
 
 The current validation state of the Field. The property is always computed after merging the Data Model with the Form
 
 #### Returns
 
-`undefined` \| `boolean`
+`any`
 
 #### Implementation of
 
 [FieldModel](../interfaces/FieldModel.md).[valid](../interfaces/FieldModel.md#valid)
+
+___
+
+### validity
+
+• `get` **validity**(): `any`
+
+#### Returns
+
+`any`
 
 ___
 
@@ -1290,6 +1301,8 @@ ___
 | `uniqueItems?` | `boolean` |
 | `valid?` | `boolean` |
 | `validationExpression?` | `string` |
+| `validationMessage?` | `string` |
+| `validity?` | `any` |
 | `value?` | `any` |
 | `viewType?` | `string` |
 | `visible?` | `boolean` |
@@ -1346,13 +1359,16 @@ ___
 
 ### markAsInvalid
 
-▸ **markAsInvalid**(`message`): `void`
+▸ **markAsInvalid**(`message`, `constraint?`): `void`
+
+API to mark a particular field as invalid
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `message` | `string` |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `message` | `string` | `undefined` | error message |
+| `constraint` | ``null`` \| keyof [`ConstraintsMessages`](../README.md#constraintsmessages) | `null` | constraint type due to which field is marked invalid. It should be key of [ConstraintsMessages](../README.md#constraintsmessages) or null |
 
 #### Returns
 
