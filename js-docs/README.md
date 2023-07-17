@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.52
+# @aemforms/af-core - v0.22.53
 
 ## Table of contents
 
@@ -15,6 +15,7 @@
 - [IFormFieldFactory](interfaces/IFormFieldFactory.md)
 - [IValidationError](interfaces/IValidationError.md)
 - [ScriptableField](interfaces/ScriptableField.md)
+- [SubmitMetaDataModel](interfaces/SubmitMetaDataModel.md)
 
 ### Classes
 
@@ -46,6 +47,7 @@
 - [Scriptable](classes/Scriptable.md)
 - [Submit](classes/Submit.md)
 - [SubmitFailure](classes/SubmitFailure.md)
+- [SubmitMetaData](classes/SubmitMetaData.md)
 - [SubmitSuccess](classes/SubmitSuccess.md)
 - [Valid](classes/Valid.md)
 - [ValidationComplete](classes/ValidationComplete.md)
@@ -95,6 +97,7 @@
 - [getFileSizeInBytes](README.md#getfilesizeinbytes)
 - [getOrElse](README.md#getorelse)
 - [getProperty](README.md#getproperty)
+- [isCaptcha](README.md#iscaptcha)
 - [isCheckbox](README.md#ischeckbox)
 - [isCheckboxGroup](README.md#ischeckboxgroup)
 - [isDateField](README.md#isdatefield)
@@ -636,6 +639,26 @@ Get the property value form the json
 #### Returns
 
 `P`
+
+___
+
+### isCaptcha
+
+▸ `Const` **isCaptcha**(`item`): `boolean`
+
+Checks if the input item provided is a captcha field
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `item` | [`FieldJson`](README.md#fieldjson) \| [`FieldsetJson`](README.md#fieldsetjson) | input item it could be [Fieldset](README.md#fieldsetjson) or [Field](README.md#fieldjson) |
+
+#### Returns
+
+`boolean`
+
+`true` if `item` is a form captcha, `false` otherwise
 
 ___
 

@@ -52,6 +52,7 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [executeAction](Form.md#executeaction)
 - [executeExpression](Form.md#executeexpression)
 - [exportData](Form.md#exportdata)
+- [exportSubmitMetaData](Form.md#exportsubmitmetadata)
 - [focus](Form.md#focus)
 - [getElement](Form.md#getelement)
 - [getNonTransparentParent](Form.md#getnontransparentparent)
@@ -847,6 +848,26 @@ Exports the form data
 #### Implementation of
 
 [FormModel](../interfaces/FormModel.md).[exportData](../interfaces/FormModel.md#exportdata)
+
+___
+
+### exportSubmitMetaData
+
+▸ **exportSubmitMetaData**(): [`SubmitMetaData`](SubmitMetaData.md)
+
+Retrieve submit meta data of form.
+
+**`function`** exportSubmitMetaData
+
+**`property`** {string} lang - The language of the form.
+
+**`property`** {Object} captchaInfo - The information about the CAPTCHA.
+
+#### Returns
+
+[`SubmitMetaData`](SubmitMetaData.md)
+
+- The submit meta data object.
 
 ___
 
