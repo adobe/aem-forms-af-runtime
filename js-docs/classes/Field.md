@@ -12,6 +12,10 @@
 
   ↳↳ [`FileUpload`](FileUpload.md)
 
+  ↳↳ [`EmailInput`](EmailInput.md)
+
+  ↳↳ [`Captcha`](Captcha.md)
+
 ## Implements
 
 - [`FieldModel`](../interfaces/FieldModel.md)

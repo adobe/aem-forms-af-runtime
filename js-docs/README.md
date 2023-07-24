@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.53
+# @aemforms/af-core - v0.22.54
 
 ## Table of contents
 
@@ -23,12 +23,14 @@
 - [AddItem](classes/AddItem.md)
 - [BaseNode](classes/BaseNode.md)
 - [Blur](classes/Blur.md)
+- [Captcha](classes/Captcha.md)
 - [Change](classes/Change.md)
 - [Checkbox](classes/Checkbox.md)
 - [CheckboxGroup](classes/CheckboxGroup.md)
 - [Click](classes/Click.md)
 - [Container](classes/Container.md)
 - [CustomEvent](classes/CustomEvent.md)
+- [EmailInput](classes/EmailInput.md)
 - [Field](classes/Field.md)
 - [FieldChanged](classes/FieldChanged.md)
 - [Fieldset](classes/Fieldset.md)
