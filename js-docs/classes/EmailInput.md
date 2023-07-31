@@ -339,6 +339,22 @@ ___
 
 Field.errorMessage
 
+• `set` **errorMessage**(`e`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Field.errorMessage
+
 ___
 
 ### exclusiveMaximum
@@ -884,6 +900,22 @@ ___
 #### Returns
 
 `any`
+
+#### Inherited from
+
+Field.valid
+
+• `set` **valid**(`e`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `any` |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 

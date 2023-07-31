@@ -447,6 +447,22 @@ ___
 
 Field.errorMessage
 
+• `set` **errorMessage**(`e`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Field.errorMessage
+
 ___
 
 ### exclusiveMaximum
@@ -1176,6 +1192,28 @@ The current validation state of the Field. The property is always computed after
 #### Returns
 
 `any`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[valid](../interfaces/FieldModel.md#valid)
+
+#### Inherited from
+
+Field.valid
+
+• `set` **valid**(`e`): `void`
+
+The current validation state of the Field. The property is always computed after merging the Data Model with the Form
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `e` | `any` |
+
+#### Returns
+
+`void`
 
 #### Implementation of
 
