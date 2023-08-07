@@ -1138,6 +1138,7 @@ ___
 | `:type` | `string` |
 | `accept?` | `string`[] |
 | `altText?` | `string` |
+| `appliedCssClassNames?` | `string` |
 | `constraintMessages?` | [`ConstraintsMessages`](../README.md#constraintsmessages) |
 | `dataRef?` | ``null`` \| `string` |
 | `default?` | `any` |
