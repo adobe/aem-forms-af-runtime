@@ -65,6 +65,7 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [isTransparent](Form.md#istransparent)
 - [isValid](Form.md#isvalid)
 - [notifyChildren](Form.md#notifychildren)
+- [resolveQualifiedName](Form.md#resolvequalifiedname)
 - [setFocus](Form.md#setfocus)
 - [validate](Form.md#validate)
 - [visit](Form.md#visit)
@@ -1095,6 +1096,34 @@ ___
 #### Inherited from
 
 [Container](Container.md).[notifyChildren](Container.md#notifychildren)
+
+___
+
+### resolveQualifiedName
+
+▸ **resolveQualifiedName**(`qualifiedName`): ``null`` \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+Resolves a form element by its qualified name.
+
+**`see`** [FieldModel](../interfaces/FieldModel.md)
+
+**`see`** [FieldsetModel](../interfaces/FieldsetModel.md)
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `qualifiedName` | `string` | The qualified name to resolve. |
+
+#### Returns
+
+``null`` \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+The resolved form element, or null if not found.
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[resolveQualifiedName](../interfaces/FormModel.md#resolvequalifiedname)
 
 ___
 

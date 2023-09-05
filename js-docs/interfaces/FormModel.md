@@ -80,6 +80,7 @@ Defines the interface for form model
 - [indexOf](FormModel.md#indexof)
 - [isTransparent](FormModel.md#istransparent)
 - [reset](FormModel.md#reset)
+- [resolveQualifiedName](FormModel.md#resolvequalifiedname)
 - [validate](FormModel.md#validate)
 - [visit](FormModel.md#visit)
 
@@ -778,6 +779,30 @@ Resets the form model
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[reset](ContainerModel.md#reset)
+
+___
+
+### resolveQualifiedName
+
+▸ **resolveQualifiedName**(`qualifiedName`): ``null`` \| [`FieldModel`](FieldModel.md) \| [`FieldsetModel`](FieldsetModel.md)
+
+Resolves a form element by its qualified name.
+
+**`see`** [FieldModel](FieldModel.md)
+
+**`see`** [FieldsetModel](FieldsetModel.md)
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `qualifiedName` | `string` | The qualified name to resolve. |
+
+#### Returns
+
+``null`` \| [`FieldModel`](FieldModel.md) \| [`FieldsetModel`](FieldsetModel.md)
+
+The resolved form element, or null if not found.
 
 ___
 
