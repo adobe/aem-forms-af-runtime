@@ -436,6 +436,22 @@ ___
 
 [ContainerModel](../interfaces/ContainerModel.md).[minItems](../interfaces/ContainerModel.md#minitems)
 
+• `set` **minItems**(`m`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `m` | `number` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[minItems](../interfaces/ContainerModel.md#minitems)
+
 ___
 
 ### name

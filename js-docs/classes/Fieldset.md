@@ -451,6 +451,26 @@ ___
 
 Container.minItems
 
+• `set` **minItems**(`m`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `m` | `number` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldsetModel](../interfaces/FieldsetModel.md).[minItems](../interfaces/FieldsetModel.md#minitems)
+
+#### Inherited from
+
+Container.minItems
+
 ___
 
 ### name

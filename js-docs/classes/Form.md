@@ -498,6 +498,26 @@ ___
 
 Container.minItems
 
+• `set` **minItems**(`m`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `m` | `number` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[minItems](../interfaces/FormModel.md#minitems)
+
+#### Inherited from
+
+Container.minItems
+
 ___
 
 ### name
