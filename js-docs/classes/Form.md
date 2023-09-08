@@ -1149,13 +1149,19 @@ ___
 
 ### setFocus
 
-▸ **setFocus**(`field`): `void`
+▸ **setFocus**(`field`, `focusOption`): `void`
+
+This function sets the focus to the field passed
+The field can be a panel or a form field.
+If a focusOption is specified along with a panel the navigation is restricted to that panel.
+If a focusOption is specified along with a field as input the navigation happens in the parent panel of that field.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `field` | [`BaseModel`](../interfaces/BaseModel.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `field` | [`BaseModel`](../interfaces/BaseModel.md) | can be a panel or a field. |
+| `focusOption` | [`FocusOption`](../enums/FocusOption.md) | t |
 
 #### Returns
 

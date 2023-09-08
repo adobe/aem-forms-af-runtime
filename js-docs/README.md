@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.64
+# @aemforms/af-core - v0.22.65
 
 ## Table of contents
 
@@ -84,6 +84,10 @@
 - [constraintKeys](README.md#constraintkeys)
 - [constraintProps](README.md#constraintprops)
 - [translationProps](README.md#translationprops)
+
+### Enumerations
+
+- [FocusOption](enums/FocusOption.md)
 
 ### Functions
 
