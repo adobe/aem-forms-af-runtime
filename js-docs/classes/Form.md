@@ -1161,7 +1161,7 @@ If a focusOption is specified along with a field as input the navigation happens
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `field` | [`BaseModel`](../interfaces/BaseModel.md) | can be a panel or a field. |
-| `focusOption` | [`FocusOption`](../enums/FocusOption.md) | t |
+| `focusOption` | [`FocusOption`](../enums/FocusOption.md) | should be an enum of type FocusOption |
 
 #### Returns
 
