@@ -936,7 +936,7 @@ Validates the given form field
 | `_options` | `Object` |
 | `_options.fieldFactory` | [`IFormFieldFactory`](../interfaces/IFormFieldFactory.md) |
 | `_options.form` | [`FormModel`](../interfaces/FormModel.md) |
-| `_options.mode` | ``"create"`` \| ``"restore"`` |
+| `_options.mode?` | ``"create"`` \| ``"restore"`` |
 | `_options.parent` | [`ContainerModel`](../interfaces/ContainerModel.md) |
 
 #### Overrides
