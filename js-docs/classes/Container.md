@@ -52,12 +52,9 @@ Defines a generic container class which any form container should extend from.
 - [uniqueItems](Container.md#uniqueitems)
 - [visible](Container.md#visible)
 
-### Constructors
-
-- [constructor](Container.md#constructor)
-
 ### Methods
 
+- [\_canHaveRepeatingChildren](Container.md#_canhaverepeatingchildren)
 - [executeAction](Container.md#executeaction)
 - [executeExpression](Container.md#executeexpression)
 - [focus](Container.md#focus)
@@ -69,6 +66,10 @@ Defines a generic container class which any form container should extend from.
 - [isTransparent](Container.md#istransparent)
 - [notifyChildren](Container.md#notifychildren)
 - [validate](Container.md#validate)
+
+### Constructors
+
+- [constructor](Container.md#constructor)
 
 ### Properties
 
@@ -702,33 +703,23 @@ Whether the field should be visible to author or not.
 
 Scriptable.visible
 
-## Constructors
+## Methods
 
-### constructor
+### \_canHaveRepeatingChildren
 
-• **new Container**<`T`\>(`json`, `_options`)
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `T` | extends `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } |
+▸ **_canHaveRepeatingChildren**(`mode?`): `boolean`
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `json` | `T` |
-| `_options` | `Object` |
-| `_options.fieldFactory` | [`IFormFieldFactory`](../interfaces/IFormFieldFactory.md) |
-| `_options.form` | [`FormModel`](../interfaces/FormModel.md) |
-| `_options.parent` | [`ContainerModel`](../interfaces/ContainerModel.md) |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `mode` | [`FormCreationMode`](../README.md#formcreationmode) | `'create'` |
 
-#### Overrides
+#### Returns
 
-Scriptable&lt;T\&gt;.constructor
+`boolean`
 
-## Methods
+___
 
 ### executeAction
 
@@ -816,7 +807,7 @@ ___
 
 ### getState
 
-▸ **getState**(`isRepeatableChild?`): `T` & { `:type`: `string` ; `enabled`: `undefined` \| `boolean` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
+▸ **getState**(`isRepeatableChild?`, `forRestore?`): `T` & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean`  }
 
 Returns the current container state
 
@@ -825,10 +816,11 @@ Returns the current container state
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `isRepeatableChild` | `boolean` | `false` |
+| `forRestore` | `boolean` | `false` |
 
 #### Returns
 
-`T` & { `:type`: `string` ; `enabled`: `undefined` \| `boolean` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
+`T` & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean`  }
 
 #### Overrides
 
@@ -923,6 +915,33 @@ Validates the given form field
 #### Overrides
 
 [Scriptable](Scriptable.md).[validate](Scriptable.md#validate)
+
+## Constructors
+
+### constructor
+
+• **new Container**<`T`\>(`json`, `_options`)
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | extends `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `json` | `T` |
+| `_options` | `Object` |
+| `_options.fieldFactory` | [`IFormFieldFactory`](../interfaces/IFormFieldFactory.md) |
+| `_options.form` | [`FormModel`](../interfaces/FormModel.md) |
+| `_options.mode` | ``"create"`` \| ``"restore"`` |
+| `_options.parent` | [`ContainerModel`](../interfaces/ContainerModel.md) |
+
+#### Overrides
+
+Scriptable&lt;T\&gt;.constructor
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.68
+# @aemforms/af-core - v0.22.69
 
 ## Table of contents
 
@@ -65,6 +65,7 @@
 - [EnumName](README.md#enumname)
 - [FieldJson](README.md#fieldjson)
 - [FieldsetJson](README.md#fieldsetjson)
+- [FormCreationMode](README.md#formcreationmode)
 - [FormJson](README.md#formjson)
 - [Items](README.md#items)
 - [Label](README.md#label)
@@ -114,6 +115,7 @@
 - [jsonString](README.md#jsonstring)
 - [propertyChange](README.md#propertychange)
 - [registerFunctions](README.md#registerfunctions)
+- [restoreFormInstance](README.md#restoreforminstance)
 - [setCustomDefaultConstraintTypeMessages](README.md#setcustomdefaultconstrainttypemessages)
 - [validateFormData](README.md#validateformdata)
 - [validateFormInstance](README.md#validateforminstance)
@@ -217,6 +219,12 @@ ___
 Ƭ **FieldsetJson**: [`ContainerJson`](README.md#containerjson) & { `readOnly?`: `boolean` ; `type?`: ``"array"`` \| ``"object"``  }
 
 Type for `form fieldset` based on `adaptive form specification`
+
+___
+
+### FormCreationMode
+
+Ƭ **FormCreationMode**: ``"create"`` \| ``"restore"``
 
 ___
 
@@ -859,6 +867,24 @@ ___
 #### Returns
 
 `void`
+
+___
+
+### restoreFormInstance
+
+▸ `Const` **restoreFormInstance**(`formModel`, `__namedParameters?`): [`FormModel`](interfaces/FormModel.md)
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `formModel` | `any` | `undefined` |
+| `__namedParameters` | `Object` | `defaultOptions` |
+| `__namedParameters.logLevel` | `LogLevel` | `undefined` |
+
+#### Returns
+
+[`FormModel`](interfaces/FormModel.md)
 
 ___
 

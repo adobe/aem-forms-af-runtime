@@ -493,17 +493,17 @@ ___
 
 ### getState
 
-▸ **getState**(`isRepeatableChild?`): `T` & { `:type`: `string` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
+▸ **getState**(`forRestore?`): `T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean`  }
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `isRepeatableChild` | `boolean` | `false` |
+| `forRestore` | `boolean` | `false` |
 
 #### Returns
 
-`T` & { `:type`: `string` ; `events`: {} = {}; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` ; `rules`: {} = {} }
+`T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean`  }
 
 ___
 

@@ -1140,9 +1140,16 @@ ___
 
 ### getState
 
-▸ **getState**(): `Object`
+▸ **getState**(`isRepeatableChild?`, `forRestore?`): `Object`
 
 [state](../README.md#state) of the form object
+
+#### Parameters
+
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `isRepeatableChild` | `boolean` | `false` |
+| `forRestore` | `boolean` | `false` |
 
 #### Returns
 
@@ -1151,9 +1158,13 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `:type` | `string` |
+| `_dependents` | `undefined` \| `string`[] |
 | `accept?` | `string`[] |
+| `allowedComponents` | `undefined` |
 | `altText?` | `string` |
 | `appliedCssClassNames?` | `string` |
+| `columnClassNames` | `undefined` |
+| `columnCount` | `undefined` |
 | `constraintMessages?` | [`ConstraintsMessages`](../README.md#constraintsmessages) |
 | `dataRef?` | ``null`` \| `string` |
 | `default?` | `any` |
@@ -1168,11 +1179,12 @@ ___
 | `enum?` | `any`[] |
 | `enumNames?` | `string`[] \| [`EnumName`](../README.md#enumname)[] |
 | `errorMessage?` | `string` |
-| `events` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> & {} |
+| `events?` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> |
 | `exclusiveMaximum?` | `number` |
 | `exclusiveMinimum?` | `number` |
 | `fieldType?` | `string` |
 | `format?` | `string` |
+| `gridClassNames` | `undefined` |
 | `id` | `string` |
 | `index` | `number` |
 | `label?` | [`Label`](../README.md#label) |
@@ -1195,7 +1207,7 @@ ___
 | `readOnly` | `undefined` \| `boolean` |
 | `repeatable` | `undefined` \| `boolean` |
 | `required?` | `boolean` |
-| `rules` | [`Items`](../README.md#items)<`string`\> & {} |
+| `rules?` | [`Items`](../README.md#items)<`string`\> |
 | `screenReaderText?` | `string` |
 | `step?` | `number` |
 | `tooltip?` | `string` |
