@@ -13,6 +13,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 ### Accessors
 
 - [:type](Checkbox.md#:type)
+- [checked](Checkbox.md#checked)
 - [dataRef](Checkbox.md#dataref)
 - [default](Checkbox.md#default)
 - [description](Checkbox.md#description)
@@ -92,6 +93,28 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 #### Inherited from
 
 Field.:type
+
+___
+
+### checked
+
+• `get` **checked**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+• `set` **checked**(`check`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `check` | `boolean` |
+
+#### Returns
+
+`void`
 
 ___
 
@@ -1134,6 +1157,7 @@ ___
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
 | `appliedCssClassNames?` | `string` |
+| `checked` | `boolean` |
 | `columnClassNames` | `undefined` |
 | `columnCount` | `undefined` |
 | `constraintMessages?` | [`ConstraintsMessages`](../README.md#constraintsmessages) |
@@ -1192,7 +1216,7 @@ ___
 | `viewType?` | `string` |
 | `visible?` | `boolean` |
 
-#### Inherited from
+#### Overrides
 
 [Field](Field.md).[getState](Field.md#getstate)
 

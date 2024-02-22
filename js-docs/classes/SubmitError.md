@@ -1,40 +1,35 @@
-# Class: SubmitFailure
-
-Implementation of `submitFailure` event. The submitFailure event is triggered on the Form.
-This event is triggered post submit in case of a failure
-
-**`deprecated`**
+# Class: SubmitError
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`SubmitFailure`**
+  ↳ **`SubmitError`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](SubmitFailure.md#constructor)
+- [constructor](SubmitError.md#constructor)
 
 ### Accessors
 
-- [isCustomEvent](SubmitFailure.md#iscustomevent)
-- [metadata](SubmitFailure.md#metadata)
-- [payload](SubmitFailure.md#payload)
-- [target](SubmitFailure.md#target)
-- [type](SubmitFailure.md#type)
+- [isCustomEvent](SubmitError.md#iscustomevent)
+- [metadata](SubmitError.md#metadata)
+- [payload](SubmitError.md#payload)
+- [target](SubmitError.md#target)
+- [type](SubmitError.md#type)
 
 ### Methods
 
-- [toJson](SubmitFailure.md#tojson)
-- [toString](SubmitFailure.md#tostring)
+- [toJson](SubmitError.md#tojson)
+- [toString](SubmitError.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new SubmitFailure**(`payload?`, `dispatch?`)
+• **new SubmitError**(`payload?`, `dispatch?`)
 
 #### Parameters
 

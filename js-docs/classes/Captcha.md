@@ -1163,6 +1163,7 @@ ___
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
 | `appliedCssClassNames?` | `string` |
+| `checked?` | `boolean` |
 | `columnClassNames` | `undefined` |
 | `columnCount` | `undefined` |
 | `constraintMessages?` | [`ConstraintsMessages`](../README.md#constraintsmessages) |

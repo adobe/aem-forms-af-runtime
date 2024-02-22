@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.73
+# @aemforms/af-core - v0.22.74
 
 ## Table of contents
 
@@ -48,6 +48,7 @@
 - [Reset](classes/Reset.md)
 - [Scriptable](classes/Scriptable.md)
 - [Submit](classes/Submit.md)
+- [SubmitError](classes/SubmitError.md)
 - [SubmitFailure](classes/SubmitFailure.md)
 - [SubmitMetaData](classes/SubmitMetaData.md)
 - [SubmitSuccess](classes/SubmitSuccess.md)
@@ -208,7 +209,7 @@ ___
 
 ### FieldJson
 
-Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `validationMessage?`: `string` ; `validity?`: `any` ; `value?`: `any`  }
+Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `checked?`: `boolean` ; `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `validationMessage?`: `string` ; `validity?`: `any` ; `value?`: `any`  }
 
 Type for `form field properties` based on `adaptive form specification`
 
@@ -872,13 +873,14 @@ ___
 
 ### restoreFormInstance
 
-▸ `Const` **restoreFormInstance**(`formModel`, `__namedParameters?`): [`FormModel`](interfaces/FormModel.md)
+▸ `Const` **restoreFormInstance**(`formModel`, `data?`, `__namedParameters?`): [`FormModel`](interfaces/FormModel.md)
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
 | `formModel` | `any` | `undefined` |
+| `data` | `any` | `null` |
 | `__namedParameters` | `Object` | `defaultOptions` |
 | `__namedParameters.logLevel` | `LogLevel` | `undefined` |
 
