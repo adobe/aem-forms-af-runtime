@@ -1206,7 +1206,7 @@ ___
 | `properties` | { [key: string]: `any`;  } |
 | `qualifiedName` | `any` |
 | `readOnly` | `undefined` \| `boolean` |
-| `repeatable` | `undefined` \| `boolean` |
+| `repeatable?` | `boolean` |
 | `required?` | `boolean` |
 | `rules?` | [`Items`](../README.md#items)<`string`\> |
 | `screenReaderText?` | `string` |

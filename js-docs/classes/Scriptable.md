@@ -520,7 +520,7 @@ ___
 
 ### getState
 
-▸ **getState**(`forRestore?`): `T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean`  }
+▸ **getState**(`forRestore?`): `T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 #### Parameters
 
@@ -530,7 +530,7 @@ ___
 
 #### Returns
 
-`T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean`  }
+`T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 #### Inherited from
 
