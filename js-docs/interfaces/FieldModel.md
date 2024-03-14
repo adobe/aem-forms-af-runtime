@@ -29,6 +29,7 @@ Defines properties that each form field should have
 - [description](FieldModel.md#description)
 - [displayFormat](FieldModel.md#displayformat)
 - [displayValue](FieldModel.md#displayvalue)
+- [displayValueExpression](FieldModel.md#displayvalueexpression)
 - [editFormat](FieldModel.md#editformat)
 - [editValue](FieldModel.md#editvalue)
 - [enabled](FieldModel.md#enabled)
@@ -152,6 +153,14 @@ ___
 • `Optional` `Readonly` **displayValue**: `string`
 
 value to be displayed to the user after update
+
+___
+
+### displayValueExpression
+
+• `Optional` `Readonly` **displayValueExpression**: `string`
+
+expression that when evaluated returns the displayValue of a field
 
 ___
 

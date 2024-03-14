@@ -23,6 +23,7 @@ Implementation of FileUpload runtime model which extends from [field](Field.md)
 - [description](FileUpload.md#description)
 - [displayFormat](FileUpload.md#displayformat)
 - [displayValue](FileUpload.md#displayvalue)
+- [displayValueExpression](FileUpload.md#displayvalueexpression)
 - [editFormat](FileUpload.md#editformat)
 - [editValue](FileUpload.md#editvalue)
 - [emptyValue](FileUpload.md#emptyvalue)
@@ -242,6 +243,26 @@ value to be displayed to the user after update
 #### Inherited from
 
 Field.displayValue
+
+___
+
+### displayValueExpression
+
+• `get` **displayValueExpression**(): `undefined` \| `string`
+
+expression that when evaluated returns the displayValue of a field
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[displayValueExpression](../interfaces/FieldModel.md#displayvalueexpression)
+
+#### Inherited from
+
+Field.displayValueExpression
 
 ___
 
@@ -1487,6 +1508,7 @@ ___
 | `description?` | `string` |
 | `displayFormat` | `undefined` \| `string` |
 | `displayValue` | `any` |
+| `displayValueExpression?` | `string` |
 | `editFormat` | `undefined` \| `string` |
 | `editValue` | `any` |
 | `emptyValue?` | ``""`` \| ``"undefined"`` \| ``"null"`` |

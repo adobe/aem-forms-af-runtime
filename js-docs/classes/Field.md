@@ -30,6 +30,7 @@
 - [description](Field.md#description)
 - [displayFormat](Field.md#displayformat)
 - [displayValue](Field.md#displayvalue)
+- [displayValueExpression](Field.md#displayvalueexpression)
 - [editFormat](Field.md#editformat)
 - [editValue](Field.md#editvalue)
 - [emptyValue](Field.md#emptyvalue)
@@ -220,6 +221,22 @@ value to be displayed to the user after update
 #### Implementation of
 
 [FieldModel](../interfaces/FieldModel.md).[displayValue](../interfaces/FieldModel.md#displayvalue)
+
+___
+
+### displayValueExpression
+
+• `get` **displayValueExpression**(): `undefined` \| `string`
+
+expression that when evaluated returns the displayValue of a field
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[displayValueExpression](../interfaces/FieldModel.md#displayvalueexpression)
 
 ___
 
@@ -1305,6 +1322,7 @@ ___
 | `description?` | `string` |
 | `displayFormat` | `undefined` \| `string` |
 | `displayValue` | `any` |
+| `displayValueExpression?` | `string` |
 | `editFormat` | `undefined` \| `string` |
 | `editValue` | `any` |
 | `emptyValue?` | ``""`` \| ``"undefined"`` \| ``"null"`` |

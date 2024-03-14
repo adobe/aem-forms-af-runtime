@@ -18,6 +18,7 @@ Implementation of CheckBoxGroup runtime model which extends from [field](Field.m
 - [description](CheckboxGroup.md#description)
 - [displayFormat](CheckboxGroup.md#displayformat)
 - [displayValue](CheckboxGroup.md#displayvalue)
+- [displayValueExpression](CheckboxGroup.md#displayvalueexpression)
 - [editFormat](CheckboxGroup.md#editformat)
 - [editValue](CheckboxGroup.md#editvalue)
 - [emptyValue](CheckboxGroup.md#emptyvalue)
@@ -178,6 +179,20 @@ ___
 #### Inherited from
 
 Field.displayValue
+
+___
+
+### displayValueExpression
+
+• `get` **displayValueExpression**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.displayValueExpression
 
 ___
 
@@ -1157,6 +1172,7 @@ ___
 | `description?` | `string` |
 | `displayFormat` | `undefined` \| `string` |
 | `displayValue` | `any` |
+| `displayValueExpression?` | `string` |
 | `editFormat` | `undefined` \| `string` |
 | `editValue` | `any` |
 | `emptyValue?` | ``""`` \| ``"undefined"`` \| ``"null"`` |

@@ -18,6 +18,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [description](EmailInput.md#description)
 - [displayFormat](EmailInput.md#displayformat)
 - [displayValue](EmailInput.md#displayvalue)
+- [displayValueExpression](EmailInput.md#displayvalueexpression)
 - [editFormat](EmailInput.md#editformat)
 - [editValue](EmailInput.md#editvalue)
 - [emptyValue](EmailInput.md#emptyvalue)
@@ -178,6 +179,20 @@ ___
 #### Inherited from
 
 Field.displayValue
+
+___
+
+### displayValueExpression
+
+• `get` **displayValueExpression**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.displayValueExpression
 
 ___
 
@@ -1157,6 +1172,7 @@ ___
 | `description?` | `string` |
 | `displayFormat` | `undefined` \| `string` |
 | `displayValue` | `any` |
+| `displayValueExpression?` | `string` |
 | `editFormat` | `undefined` \| `string` |
 | `editValue` | `any` |
 | `emptyValue?` | ``""`` \| ``"undefined"`` \| ``"null"`` |

@@ -18,6 +18,7 @@ Implementation of Captcha runtime model which extends from [field](Field.md) mod
 - [description](Captcha.md#description)
 - [displayFormat](Captcha.md#displayformat)
 - [displayValue](Captcha.md#displayvalue)
+- [displayValueExpression](Captcha.md#displayvalueexpression)
 - [editFormat](Captcha.md#editformat)
 - [editValue](Captcha.md#editvalue)
 - [emptyValue](Captcha.md#emptyvalue)
@@ -179,6 +180,20 @@ ___
 #### Inherited from
 
 Field.displayValue
+
+___
+
+### displayValueExpression
+
+• `get` **displayValueExpression**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Field.displayValueExpression
 
 ___
 
@@ -1172,6 +1187,7 @@ ___
 | `description?` | `string` |
 | `displayFormat` | `undefined` \| `string` |
 | `displayValue` | `any` |
+| `displayValueExpression?` | `string` |
 | `editFormat` | `undefined` \| `string` |
 | `editValue` | `any` |
 | `emptyValue?` | ``""`` \| ``"undefined"`` \| ``"null"`` |

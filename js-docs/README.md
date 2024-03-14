@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.75
+# @aemforms/af-core - v0.22.76
 
 ## Table of contents
 
@@ -209,7 +209,7 @@ ___
 
 ### FieldJson
 
-Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `checked?`: `boolean` ; `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `validationMessage?`: `string` ; `validity?`: `any` ; `value?`: `any`  }
+Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `checked?`: `boolean` ; `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `displayValueExpression?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `validationMessage?`: `string` ; `validity?`: `any` ; `value?`: `any`  }
 
 Type for `form field properties` based on `adaptive form specification`
 
