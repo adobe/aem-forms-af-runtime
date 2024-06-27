@@ -16,6 +16,7 @@ Implementation of `removeItem` event. The event is triggered on a panel to remov
 
 ### Accessors
 
+- [currentTarget](RemoveItem.md#currenttarget)
 - [isCustomEvent](RemoveItem.md#iscustomevent)
 - [metadata](RemoveItem.md#metadata)
 - [payload](RemoveItem.md#payload)
@@ -44,6 +45,20 @@ Implementation of `removeItem` event. The event is triggered on a panel to remov
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

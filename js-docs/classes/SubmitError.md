@@ -14,6 +14,7 @@
 
 ### Accessors
 
+- [currentTarget](SubmitError.md#currenttarget)
 - [isCustomEvent](SubmitError.md#iscustomevent)
 - [metadata](SubmitError.md#metadata)
 - [payload](SubmitError.md#payload)
@@ -43,6 +44,20 @@
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

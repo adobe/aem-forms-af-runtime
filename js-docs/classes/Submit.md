@@ -17,6 +17,7 @@ To trigger the submit event, submit function needs to be invoked or one can invo
 
 ### Accessors
 
+- [currentTarget](Submit.md#currenttarget)
 - [isCustomEvent](Submit.md#iscustomevent)
 - [metadata](Submit.md#metadata)
 - [payload](Submit.md#payload)
@@ -46,6 +47,20 @@ To trigger the submit event, submit function needs to be invoked or one can invo
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

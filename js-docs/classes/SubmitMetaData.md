@@ -4,6 +4,10 @@
 
 - [`SubmitMetaDataModel`](../interfaces/SubmitMetaDataModel.md)
 
+## Indexable
+
+▪ [key: `string`]: `any`
+
 ## Table of contents
 
 ### Properties
@@ -19,7 +23,7 @@
 
 ### captchaInfo
 
-• **captchaInfo**: `Record`<`string`, `any`\>
+• **captchaInfo**: `Record`<`string`, `string`\>
 
 CaptchaInfo of the mandatory captcha
 
@@ -43,11 +47,10 @@ Runtime locale of the form
 
 ### constructor
 
-• **new SubmitMetaData**(`lang?`, `captchaInfo`)
+• **new SubmitMetaData**(`options?`)
 
 #### Parameters
 
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `lang` | `string` | `''` |
-| `captchaInfo` | `Record`<`string`, `any`\> | `undefined` |
+| Name | Type |
+| :------ | :------ |
+| `options` | `Record`<`string`, `any`\> |

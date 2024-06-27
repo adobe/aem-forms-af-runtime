@@ -7,6 +7,7 @@ Defines common properties that each action/event should have
 
 ### Properties
 
+- [currentTarget](Action.md#currenttarget)
 - [isCustomEvent](Action.md#iscustomevent)
 - [metadata](Action.md#metadata)
 - [originalAction](Action.md#originalaction)
@@ -15,6 +16,12 @@ Defines common properties that each action/event should have
 - [type](Action.md#type)
 
 ## Properties
+
+### currentTarget
+
+• `Readonly` **currentTarget**: [`FormModel`](FormModel.md) \| [`FieldModel`](FieldModel.md) \| [`FieldsetModel`](FieldsetModel.md)
+
+___
 
 ### isCustomEvent
 

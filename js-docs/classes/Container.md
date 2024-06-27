@@ -55,9 +55,11 @@ Defines a generic container class which any form container should extend from.
 ### Methods
 
 - [\_canHaveRepeatingChildren](Container.md#_canhaverepeatingchildren)
+- [change](Container.md#change)
 - [executeAction](Container.md#executeaction)
 - [executeExpression](Container.md#executeexpression)
 - [focus](Container.md#focus)
+- [getDependents](Container.md#getdependents)
 - [getNonTransparentParent](Container.md#getnontransparentparent)
 - [getRules](Container.md#getrules)
 - [getState](Container.md#getstate)
@@ -67,13 +69,14 @@ Defines a generic container class which any form container should extend from.
 - [notifyChildren](Container.md#notifychildren)
 - [validate](Container.md#validate)
 
+### Properties
+
+- [\_eventSource](Container.md#_eventsource)
+- [value](Container.md#value)
+
 ### Constructors
 
 - [constructor](Container.md#constructor)
-
-### Properties
-
-- [value](Container.md#value)
 
 ## Accessors
 
@@ -721,6 +724,27 @@ Scriptable.visible
 
 ___
 
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[change](Scriptable.md#change)
+
+___
+
 ### executeAction
 
 ▸ **executeAction**(`action`): `void`
@@ -774,6 +798,20 @@ ___
 #### Inherited from
 
 [Scriptable](Scriptable.md).[focus](Scriptable.md#focus)
+
+___
+
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[getDependents](Scriptable.md#getdependents)
 
 ___
 
@@ -916,6 +954,36 @@ Validates the given form field
 
 [Scriptable](Scriptable.md).[validate](Scriptable.md#validate)
 
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[_eventSource](../interfaces/ContainerModel.md#_eventsource)
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[_eventSource](Scriptable.md#_eventsource)
+
+___
+
+### value
+
+• `Abstract` **value**: [`Primitives`](../README.md#primitives)
+
+The current value of the Field. The property is serialized in the Data Model.
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[value](../interfaces/ContainerModel.md#value)
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[value](Scriptable.md#value)
+
 ## Constructors
 
 ### constructor
@@ -926,7 +994,7 @@ Validates the given form field
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } |
+| `T` | extends `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `buttonType?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } |
 
 #### Parameters
 
@@ -942,19 +1010,3 @@ Validates the given form field
 #### Overrides
 
 Scriptable&lt;T\&gt;.constructor
-
-## Properties
-
-### value
-
-• `Abstract` **value**: [`Primitives`](../README.md#primitives)
-
-The current value of the Field. The property is serialized in the Data Model.
-
-#### Implementation of
-
-[ContainerModel](../interfaces/ContainerModel.md).[value](../interfaces/ContainerModel.md#value)
-
-#### Inherited from
-
-[Scriptable](Scriptable.md).[value](Scriptable.md#value)

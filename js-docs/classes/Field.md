@@ -73,12 +73,18 @@
 - [value](Field.md#value)
 - [visible](Field.md#visible)
 
+### Properties
+
+- [\_eventSource](Field.md#_eventsource)
+
 ### Methods
 
+- [change](Field.md#change)
 - [dispatch](Field.md#dispatch)
 - [executeAction](Field.md#executeaction)
 - [executeExpression](Field.md#executeexpression)
 - [focus](Field.md#focus)
+- [getDependents](Field.md#getdependents)
 - [getErrorMessage](Field.md#geterrormessage)
 - [getNonTransparentParent](Field.md#getnontransparentparent)
 - [getRules](Field.md#getrules)
@@ -362,11 +368,11 @@ ___
 
 ### enumNames
 
-• `get` **enumNames**(): `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `get` **enumNames**(): `undefined` \| `string`[]
 
 #### Returns
 
-`undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+`undefined` \| `string`[]
 
 #### Implementation of
 
@@ -378,7 +384,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `e` | `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `e` | `undefined` \| `string`[] |
 
 #### Returns
 
@@ -1160,7 +1166,42 @@ Whether the field should be visible to author or not.
 
 Scriptable.visible
 
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[_eventSource](../interfaces/FieldModel.md#_eventsource)
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[_eventSource](Scriptable.md#_eventsource)
+
 ## Methods
+
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[change](Scriptable.md#change)
+
+___
 
 ### dispatch
 
@@ -1242,6 +1283,20 @@ ___
 
 ___
 
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[getDependents](Scriptable.md#getdependents)
+
+___
+
 ### getErrorMessage
 
 ▸ **getErrorMessage**(`constraint`): `string`
@@ -1313,6 +1368,7 @@ ___
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
 | `appliedCssClassNames?` | `string` |
+| `buttonType?` | `string` |
 | `checked?` | `boolean` |
 | `columnClassNames` | `undefined` |
 | `columnCount` | `undefined` |
@@ -1329,7 +1385,7 @@ ___
 | `enabled` | `undefined` \| `boolean` |
 | `enforceEnum?` | `boolean` |
 | `enum?` | `any`[] |
-| `enumNames?` | `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `enumNames?` | `string`[] |
 | `errorMessage?` | `string` |
 | `events?` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> |
 | `exclusiveMaximum?` | `number` |

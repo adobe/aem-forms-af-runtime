@@ -46,9 +46,11 @@ Defines a field set class which extends from [container](Container.md)
 ### Methods
 
 - [\_canHaveRepeatingChildren](Fieldset.md#_canhaverepeatingchildren)
+- [change](Fieldset.md#change)
 - [executeAction](Fieldset.md#executeaction)
 - [executeExpression](Fieldset.md#executeexpression)
 - [focus](Fieldset.md#focus)
+- [getDependents](Fieldset.md#getdependents)
 - [getNonTransparentParent](Fieldset.md#getnontransparentparent)
 - [getRules](Fieldset.md#getrules)
 - [getState](Fieldset.md#getstate)
@@ -57,6 +59,10 @@ Defines a field set class which extends from [container](Container.md)
 - [isTransparent](Fieldset.md#istransparent)
 - [notifyChildren](Fieldset.md#notifychildren)
 - [validate](Fieldset.md#validate)
+
+### Properties
+
+- [\_eventSource](Fieldset.md#_eventsource)
 
 ## Accessors
 
@@ -772,6 +778,27 @@ Container.visible
 
 ___
 
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Container](Container.md).[change](Container.md#change)
+
+___
+
 ### executeAction
 
 ▸ **executeAction**(`action`): `void`
@@ -828,6 +855,20 @@ ___
 
 ___
 
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[Container](Container.md).[getDependents](Container.md#getdependents)
+
+___
+
 ### getNonTransparentParent
 
 ▸ **getNonTransparentParent**(): [`ContainerModel`](../interfaces/ContainerModel.md)
@@ -858,7 +899,7 @@ ___
 
 ### getState
 
-▸ **getState**(`isRepeatableChild?`, `forRestore?`): `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `readOnly?`: `boolean` ; `type?`: ``"object"`` \| ``"array"``  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+▸ **getState**(`isRepeatableChild?`, `forRestore?`): `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `buttonType?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `readOnly?`: `boolean` ; `type?`: ``"object"`` \| ``"array"``  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 Returns the current container state
 
@@ -871,7 +912,7 @@ Returns the current container state
 
 #### Returns
 
-`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `readOnly?`: `boolean` ; `type?`: ``"object"`` \| ``"array"``  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `buttonType?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `readOnly?`: `boolean` ; `type?`: ``"object"`` \| ``"array"``  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 #### Implementation of
 
@@ -982,3 +1023,17 @@ Validates the given form field
 #### Inherited from
 
 [Container](Container.md).[validate](Container.md#validate)
+
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Implementation of
+
+[FieldsetModel](../interfaces/FieldsetModel.md).[_eventSource](../interfaces/FieldsetModel.md#_eventsource)
+
+#### Inherited from
+
+[Container](Container.md).[_eventSource](Container.md#_eventsource)

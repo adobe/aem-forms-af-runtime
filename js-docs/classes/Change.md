@@ -16,6 +16,7 @@ Implementation of `change` event. The change event is triggered on the field whe
 
 ### Accessors
 
+- [currentTarget](Change.md#currenttarget)
 - [isCustomEvent](Change.md#iscustomevent)
 - [metadata](Change.md#metadata)
 - [payload](Change.md#payload)
@@ -46,6 +47,20 @@ Implementation of `change` event. The change event is triggered on the field whe
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

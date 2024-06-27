@@ -16,6 +16,7 @@ Implementation of `blur` event. The event is triggered when the element loses fo
 
 ### Accessors
 
+- [currentTarget](Blur.md#currenttarget)
 - [isCustomEvent](Blur.md#iscustomevent)
 - [metadata](Blur.md#metadata)
 - [payload](Blur.md#payload)
@@ -45,6 +46,20 @@ Implementation of `blur` event. The event is triggered when the element loses fo
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

@@ -8,11 +8,18 @@ Implementation of Captcha runtime model which extends from [field](Field.md) mod
 
   ↳ **`Captcha`**
 
+## Implements
+
+- [`CaptchaModel`](../interfaces/CaptchaModel.md)
+
 ## Table of contents
 
 ### Accessors
 
 - [:type](Captcha.md#:type)
+- [captchaDisplayMode](Captcha.md#captchadisplaymode)
+- [captchaProvider](Captcha.md#captchaprovider)
+- [captchaSiteKey](Captcha.md#captchasitekey)
 - [dataRef](Captcha.md#dataref)
 - [default](Captcha.md#default)
 - [description](Captcha.md#description)
@@ -61,13 +68,20 @@ Implementation of Captcha runtime model which extends from [field](Field.md) mod
 - [value](Captcha.md#value)
 - [visible](Captcha.md#visible)
 
+### Properties
+
+- [\_eventSource](Captcha.md#_eventsource)
+
 ### Methods
 
+- [change](Captcha.md#change)
+- [custom\_setProperty](Captcha.md#custom_setproperty)
 - [dispatch](Captcha.md#dispatch)
 - [executeAction](Captcha.md#executeaction)
 - [executeExpression](Captcha.md#executeexpression)
 - [focus](Captcha.md#focus)
 - [getDataNode](Captcha.md#getdatanode)
+- [getDependents](Captcha.md#getdependents)
 - [getErrorMessage](Captcha.md#geterrormessage)
 - [getNonTransparentParent](Captcha.md#getnontransparentparent)
 - [getRules](Captcha.md#getrules)
@@ -81,15 +95,25 @@ Implementation of Captcha runtime model which extends from [field](Field.md) mod
 - [validate](Captcha.md#validate)
 - [valueOf](Captcha.md#valueof)
 
+### Constructors
+
+- [constructor](Captcha.md#constructor)
+
 ## Accessors
 
 ### :type
 
 • `get` **:type**(): `string`
 
+Custom widget type show to the user for capturing the data.
+
 #### Returns
 
 `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[:type](../interfaces/CaptchaModel.md#:type)
 
 #### Inherited from
 
@@ -97,13 +121,67 @@ Field.:type
 
 ___
 
+### captchaDisplayMode
+
+• `get` **captchaDisplayMode**(): `undefined` \| [`CaptchaDisplayMode`](../enums/CaptchaDisplayMode.md)
+
+Display mode of the captcha. This property can be one of the [CaptchaDisplayMode](../enums/CaptchaDisplayMode.md) enum values.
+
+#### Returns
+
+`undefined` \| [`CaptchaDisplayMode`](../enums/CaptchaDisplayMode.md)
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[captchaDisplayMode](../interfaces/CaptchaModel.md#captchadisplaymode)
+
+___
+
+### captchaProvider
+
+• `get` **captchaProvider**(): `undefined` \| `string`
+
+Field to identify the provider of the captcha service.
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[captchaProvider](../interfaces/CaptchaModel.md#captchaprovider)
+
+___
+
+### captchaSiteKey
+
+• `get` **captchaSiteKey**(): `undefined` \| `string`
+
+Field to identify the siteKey for captcha, which is used for captcha's rendition.
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[captchaSiteKey](../interfaces/CaptchaModel.md#captchasitekey)
+
+___
+
 ### dataRef
 
 • `get` **dataRef**(): `undefined` \| ``null`` \| `string`
 
+To map the field’s value to a property in the data model.
+
 #### Returns
 
 `undefined` \| ``null`` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[dataRef](../interfaces/CaptchaModel.md#dataref)
 
 #### Inherited from
 
@@ -115,9 +193,15 @@ ___
 
 • `get` **default**(): `any`
 
+Default value of the Field.
+
 #### Returns
 
 `any`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[default](../interfaces/CaptchaModel.md#default)
 
 #### Inherited from
 
@@ -129,15 +213,23 @@ ___
 
 • `get` **description**(): `undefined` \| `string`
 
+Extra description to be shown to the user to aid in form filling experience. It can be rich text.
+
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[description](../interfaces/CaptchaModel.md#description)
 
 #### Inherited from
 
 Field.description
 
 • `set` **description**(`d`): `void`
+
+Extra description to be shown to the user to aid in form filling experience. It can be rich text.
 
 #### Parameters
 
@@ -149,6 +241,10 @@ Field.description
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[description](../interfaces/CaptchaModel.md#description)
+
 #### Inherited from
 
 Field.description
@@ -159,9 +255,15 @@ ___
 
 • `get` **displayFormat**(): `undefined` \| `string`
 
+format in which user will see the value after update
+
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[displayFormat](../interfaces/CaptchaModel.md#displayformat)
 
 #### Inherited from
 
@@ -173,9 +275,15 @@ ___
 
 • `get` **displayValue**(): `any`
 
+value to be displayed to the user after update
+
 #### Returns
 
 `any`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[displayValue](../interfaces/CaptchaModel.md#displayvalue)
 
 #### Inherited from
 
@@ -187,9 +295,15 @@ ___
 
 • `get` **displayValueExpression**(): `undefined` \| `string`
 
+expression that when evaluated returns the displayValue of a field
+
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[displayValueExpression](../interfaces/CaptchaModel.md#displayvalueexpression)
 
 #### Inherited from
 
@@ -201,9 +315,15 @@ ___
 
 • `get` **editFormat**(): `undefined` \| `string`
 
+format in which user will edit the value
+
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[editFormat](../interfaces/CaptchaModel.md#editformat)
 
 #### Inherited from
 
@@ -215,9 +335,15 @@ ___
 
 • `get` **editValue**(): `any`
 
+value to be displayed to the user for edit
+
 #### Returns
 
 `any`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[editValue](../interfaces/CaptchaModel.md#editvalue)
 
 #### Inherited from
 
@@ -243,15 +369,23 @@ ___
 
 • `get` **enabled**(): `undefined` \| `boolean`
 
+Whether the field is enabled and takes part in rules, events etc.
+
 #### Returns
 
 `undefined` \| `boolean`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[enabled](../interfaces/CaptchaModel.md#enabled)
 
 #### Inherited from
 
 Field.enabled
 
 • `set` **enabled**(`e`): `void`
+
+Whether the field is enabled and takes part in rules, events etc.
 
 #### Parameters
 
@@ -262,6 +396,10 @@ Field.enabled
 #### Returns
 
 `void`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[enabled](../interfaces/CaptchaModel.md#enabled)
 
 #### Inherited from
 
@@ -277,6 +415,10 @@ ___
 
 `undefined` \| `boolean`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[enforceEnum](../interfaces/CaptchaModel.md#enforceenum)
+
 #### Inherited from
 
 Field.enforceEnum
@@ -290,6 +432,10 @@ ___
 #### Returns
 
 `undefined` \| `any`[]
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[enum](../interfaces/CaptchaModel.md#enum)
 
 #### Inherited from
 
@@ -307,6 +453,10 @@ Field.enum
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[enum](../interfaces/CaptchaModel.md#enum)
+
 #### Inherited from
 
 Field.enum
@@ -315,11 +465,15 @@ ___
 
 ### enumNames
 
-• `get` **enumNames**(): `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `get` **enumNames**(): `undefined` \| `string`[]
 
 #### Returns
 
-`undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+`undefined` \| `string`[]
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[enumNames](../interfaces/CaptchaModel.md#enumnames)
 
 #### Inherited from
 
@@ -331,11 +485,15 @@ Field.enumNames
 
 | Name | Type |
 | :------ | :------ |
-| `e` | `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `e` | `undefined` \| `string`[] |
 
 #### Returns
 
 `void`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[enumNames](../interfaces/CaptchaModel.md#enumnames)
 
 #### Inherited from
 
@@ -381,6 +539,10 @@ ___
 
 `undefined` \| `number`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[exclusiveMaximum](../interfaces/CaptchaModel.md#exclusivemaximum)
+
 #### Inherited from
 
 Field.exclusiveMaximum
@@ -397,6 +559,10 @@ Field.exclusiveMaximum
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[exclusiveMaximum](../interfaces/CaptchaModel.md#exclusivemaximum)
+
 #### Inherited from
 
 Field.exclusiveMaximum
@@ -410,6 +576,10 @@ ___
 #### Returns
 
 `undefined` \| `number`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[exclusiveMinimum](../interfaces/CaptchaModel.md#exclusiveminimum)
 
 #### Inherited from
 
@@ -427,6 +597,10 @@ Field.exclusiveMinimum
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[exclusiveMinimum](../interfaces/CaptchaModel.md#exclusiveminimum)
+
 #### Inherited from
 
 Field.exclusiveMinimum
@@ -437,9 +611,15 @@ ___
 
 • `get` **fieldType**(): `string`
 
+Type of field to capture the user data.
+
 #### Returns
 
 `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[fieldType](../interfaces/CaptchaModel.md#fieldtype)
 
 #### Inherited from
 
@@ -471,6 +651,10 @@ returns the format constraint
 
 `undefined` \| `string`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[format](../interfaces/CaptchaModel.md#format)
+
 #### Inherited from
 
 Field.format
@@ -481,9 +665,15 @@ ___
 
 • `get` **id**(): `string`
 
+Unique id of the form field.
+
 #### Returns
 
 `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[id](../interfaces/CaptchaModel.md#id)
 
 #### Inherited from
 
@@ -495,9 +685,15 @@ ___
 
 • `get` **index**(): `number`
 
+The index of the Field within its parent.
+
 #### Returns
 
 `number`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[index](../interfaces/CaptchaModel.md#index)
 
 #### Inherited from
 
@@ -509,9 +705,15 @@ ___
 
 • `get` **isContainer**(): `boolean`
 
+Whether the form field is container or not
+
 #### Returns
 
 `boolean`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[isContainer](../interfaces/CaptchaModel.md#iscontainer)
 
 #### Inherited from
 
@@ -523,15 +725,23 @@ ___
 
 • `get` **label**(): `undefined` \| [`Label`](../README.md#label)
 
+Label to be used for the field.
+
 #### Returns
 
 `undefined` \| [`Label`](../README.md#label)
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[label](../interfaces/CaptchaModel.md#label)
 
 #### Inherited from
 
 Field.label
 
 • `set` **label**(`l`): `void`
+
+Label to be used for the field.
 
 #### Parameters
 
@@ -543,6 +753,10 @@ Field.label
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[label](../interfaces/CaptchaModel.md#label)
+
 #### Inherited from
 
 Field.label
@@ -553,9 +767,15 @@ ___
 
 • `get` **lang**(): `undefined` \| `string`
 
+language of the field
+
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[lang](../interfaces/CaptchaModel.md#lang)
 
 #### Inherited from
 
@@ -571,6 +791,10 @@ ___
 
 `undefined` \| `number`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[maxLength](../interfaces/CaptchaModel.md#maxlength)
+
 #### Inherited from
 
 Field.maxLength
@@ -584,6 +808,10 @@ ___
 #### Returns
 
 `undefined` \| `number`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[maximum](../interfaces/CaptchaModel.md#maximum)
 
 #### Inherited from
 
@@ -601,6 +829,10 @@ Field.maximum
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[maximum](../interfaces/CaptchaModel.md#maximum)
+
 #### Inherited from
 
 Field.maximum
@@ -615,6 +847,10 @@ ___
 
 `undefined` \| `number`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[minLength](../interfaces/CaptchaModel.md#minlength)
+
 #### Inherited from
 
 Field.minLength
@@ -628,6 +864,10 @@ ___
 #### Returns
 
 `undefined` \| `number`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[minimum](../interfaces/CaptchaModel.md#minimum)
 
 #### Inherited from
 
@@ -645,6 +885,10 @@ Field.minimum
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[minimum](../interfaces/CaptchaModel.md#minimum)
+
 #### Inherited from
 
 Field.minimum
@@ -655,9 +899,15 @@ ___
 
 • `get` **name**(): `undefined` \| `string`
 
+Name of the form field.
+
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[name](../interfaces/CaptchaModel.md#name)
 
 #### Inherited from
 
@@ -669,9 +919,15 @@ ___
 
 • `get` **parent**(): [`ContainerModel`](../interfaces/ContainerModel.md)
 
+Parent of the current field
+
 #### Returns
 
 [`ContainerModel`](../interfaces/ContainerModel.md)
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[parent](../interfaces/CaptchaModel.md#parent)
 
 #### Inherited from
 
@@ -687,6 +943,10 @@ ___
 
 `undefined` \| `string`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[pattern](../interfaces/CaptchaModel.md#pattern)
+
 #### Inherited from
 
 Field.pattern
@@ -697,9 +957,15 @@ ___
 
 • `get` **placeholder**(): `undefined` \| `string`
 
+The placeholder to show on the widget.
+
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[placeholder](../interfaces/CaptchaModel.md#placeholder)
 
 #### Inherited from
 
@@ -711,15 +977,23 @@ ___
 
 • `get` **properties**(): `Object`
 
+Custom properties of the form field.
+
 #### Returns
 
 `Object`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[properties](../interfaces/CaptchaModel.md#properties)
 
 #### Inherited from
 
 Field.properties
 
 • `set` **properties**(`p`): `void`
+
+Custom properties of the form field.
 
 #### Parameters
 
@@ -730,6 +1004,10 @@ Field.properties
 #### Returns
 
 `void`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[properties](../interfaces/CaptchaModel.md#properties)
 
 #### Inherited from
 
@@ -745,6 +1023,10 @@ ___
 
 `any`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[qualifiedName](../interfaces/CaptchaModel.md#qualifiedname)
+
 #### Inherited from
 
 Field.qualifiedName
@@ -755,15 +1037,23 @@ ___
 
 • `get` **readOnly**(): `undefined` \| `boolean`
 
+Whether the field should be readOnly to end user or not.
+
 #### Returns
 
 `undefined` \| `boolean`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[readOnly](../interfaces/CaptchaModel.md#readonly)
 
 #### Inherited from
 
 Field.readOnly
 
 • `set` **readOnly**(`e`): `void`
+
+Whether the field should be readOnly to end user or not.
 
 #### Parameters
 
@@ -775,6 +1065,10 @@ Field.readOnly
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[readOnly](../interfaces/CaptchaModel.md#readonly)
+
 #### Inherited from
 
 Field.readOnly
@@ -785,9 +1079,15 @@ ___
 
 • `get` **repeatable**(): `any`
 
+Field is repeatable or not
+
 #### Returns
 
 `any`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[repeatable](../interfaces/CaptchaModel.md#repeatable)
 
 #### Inherited from
 
@@ -802,6 +1102,10 @@ ___
 #### Returns
 
 `boolean`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[required](../interfaces/CaptchaModel.md#required)
 
 #### Inherited from
 
@@ -819,6 +1123,10 @@ Field.required
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[required](../interfaces/CaptchaModel.md#required)
+
 #### Inherited from
 
 Field.required
@@ -832,6 +1140,10 @@ ___
 #### Returns
 
 `RuleEngine`
+
+#### Implementation of
+
+CaptchaModel.ruleEngine
 
 #### Inherited from
 
@@ -861,6 +1173,10 @@ ___
 
 `undefined` \| `number`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[step](../interfaces/CaptchaModel.md#step)
+
 #### Inherited from
 
 Field.step
@@ -889,6 +1205,10 @@ ___
 
 `undefined` \| `string`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[type](../interfaces/CaptchaModel.md#type)
+
 #### Inherited from
 
 Field.type
@@ -903,6 +1223,10 @@ ___
 
 `undefined` \| `boolean`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[uniqueItems](../interfaces/CaptchaModel.md#uniqueitems)
+
 #### Inherited from
 
 Field.uniqueItems
@@ -913,15 +1237,23 @@ ___
 
 • `get` **valid**(): `any`
 
+The current validation state of the Field. The property is always computed after merging the Data Model with the Form
+
 #### Returns
 
 `any`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[valid](../interfaces/CaptchaModel.md#valid)
 
 #### Inherited from
 
 Field.valid
 
 • `set` **valid**(`e`): `void`
+
+The current validation state of the Field. The property is always computed after merging the Data Model with the Form
 
 #### Parameters
 
@@ -932,6 +1264,10 @@ Field.valid
 #### Returns
 
 `void`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[valid](../interfaces/CaptchaModel.md#valid)
 
 #### Inherited from
 
@@ -957,15 +1293,23 @@ ___
 
 • `get` **value**(): `any`
 
+The current value of the Field. The property is serialized in the Data Model.
+
 #### Returns
 
 `any`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[value](../interfaces/CaptchaModel.md#value)
 
 #### Inherited from
 
 Field.value
 
 • `set` **value**(`v`): `void`
+
+The current value of the Field. The property is serialized in the Data Model.
 
 #### Parameters
 
@@ -977,6 +1321,10 @@ Field.value
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[value](../interfaces/CaptchaModel.md#value)
+
 #### Inherited from
 
 Field.value
@@ -987,15 +1335,23 @@ ___
 
 • `get` **visible**(): `undefined` \| `boolean`
 
+Whether the field should be visible to author or not.
+
 #### Returns
 
 `undefined` \| `boolean`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[visible](../interfaces/CaptchaModel.md#visible)
 
 #### Inherited from
 
 Field.visible
 
 • `set` **visible**(`v`): `void`
+
+Whether the field should be visible to author or not.
 
 #### Parameters
 
@@ -1007,11 +1363,66 @@ Field.visible
 
 `void`
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[visible](../interfaces/CaptchaModel.md#visible)
+
 #### Inherited from
 
 Field.visible
 
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[_eventSource](../interfaces/CaptchaModel.md#_eventsource)
+
+#### Inherited from
+
+[Field](Field.md).[_eventSource](Field.md#_eventsource)
+
 ## Methods
+
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Field](Field.md).[change](Field.md#change)
+
+___
+
+### custom\_setProperty
+
+▸ **custom_setProperty**(`action`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `action` | [`Action`](../interfaces/Action.md) |
+
+#### Returns
+
+`void`
+
+___
 
 ### dispatch
 
@@ -1026,6 +1437,10 @@ Field.visible
 #### Returns
 
 `void`
+
+#### Implementation of
+
+CaptchaModel.dispatch
 
 #### Inherited from
 
@@ -1100,6 +1515,20 @@ ___
 #### Overrides
 
 Field.getDataNode
+
+___
+
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[Field](Field.md).[getDependents](Field.md#getdependents)
 
 ___
 
@@ -1178,6 +1607,7 @@ ___
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
 | `appliedCssClassNames?` | `string` |
+| `buttonType?` | `string` |
 | `checked?` | `boolean` |
 | `columnClassNames` | `undefined` |
 | `columnCount` | `undefined` |
@@ -1194,7 +1624,7 @@ ___
 | `enabled` | `undefined` \| `boolean` |
 | `enforceEnum?` | `boolean` |
 | `enum?` | `any`[] |
-| `enumNames?` | `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `enumNames?` | `string`[] |
 | `errorMessage?` | `string` |
 | `events?` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> |
 | `exclusiveMaximum?` | `number` |
@@ -1238,6 +1668,10 @@ ___
 | `viewType?` | `string` |
 | `visible?` | `boolean` |
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[getState](../interfaces/CaptchaModel.md#getstate)
+
 #### Inherited from
 
 [Field](Field.md).[getState](Field.md#getstate)
@@ -1257,6 +1691,10 @@ ___
 #### Returns
 
 `void`
+
+#### Implementation of
+
+CaptchaModel.importData
 
 #### Inherited from
 
@@ -1311,6 +1749,10 @@ ___
 
 `any`
 
+#### Implementation of
+
+CaptchaModel.ruleNodeReference
+
 #### Inherited from
 
 [Field](Field.md).[ruleNodeReference](Field.md#rulenodereference)
@@ -1361,6 +1803,10 @@ Validates the current form object
 
 [`ValidationError`](ValidationError.md)[]
 
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[validate](../interfaces/CaptchaModel.md#validate)
+
 #### Inherited from
 
 [Field](Field.md).[validate](Field.md#validate)
@@ -1378,3 +1824,23 @@ ___
 #### Inherited from
 
 [Field](Field.md).[valueOf](Field.md#valueof)
+
+## Constructors
+
+### constructor
+
+• **new Captcha**(`params`, `_options`)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `params` | [`CaptchaJson`](../README.md#captchajson) |
+| `_options` | `Object` |
+| `_options.form` | [`FormModel`](../interfaces/FormModel.md) |
+| `_options.mode?` | ``"create"`` \| ``"restore"`` |
+| `_options.parent` | [`ContainerModel`](../interfaces/ContainerModel.md) |
+
+#### Overrides
+
+Field.constructor

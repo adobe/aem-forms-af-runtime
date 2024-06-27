@@ -67,12 +67,18 @@ Implementation of FileUpload runtime model which extends from [field](Field.md)
 - [value](FileUpload.md#value)
 - [visible](FileUpload.md#visible)
 
+### Properties
+
+- [\_eventSource](FileUpload.md#_eventsource)
+
 ### Methods
 
+- [change](FileUpload.md#change)
 - [dispatch](FileUpload.md#dispatch)
 - [executeAction](FileUpload.md#executeaction)
 - [executeExpression](FileUpload.md#executeexpression)
 - [focus](FileUpload.md#focus)
+- [getDependents](FileUpload.md#getdependents)
 - [getErrorMessage](FileUpload.md#geterrormessage)
 - [getNonTransparentParent](FileUpload.md#getnontransparentparent)
 - [getRules](FileUpload.md#getrules)
@@ -81,6 +87,7 @@ Implementation of FileUpload runtime model which extends from [field](Field.md)
 - [isTransparent](FileUpload.md#istransparent)
 - [markAsInvalid](FileUpload.md#markasinvalid)
 - [ruleNodeReference](FileUpload.md#rulenodereference)
+- [serialize](FileUpload.md#serialize)
 - [toString](FileUpload.md#tostring)
 - [triggerValidationEvent](FileUpload.md#triggervalidationevent)
 - [validate](FileUpload.md#validate)
@@ -420,11 +427,11 @@ ___
 
 ### enumNames
 
-• `get` **enumNames**(): `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `get` **enumNames**(): `undefined` \| `string`[]
 
 #### Returns
 
-`undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+`undefined` \| `string`[]
 
 #### Implementation of
 
@@ -440,7 +447,7 @@ Field.enumNames
 
 | Name | Type |
 | :------ | :------ |
-| `e` | `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `e` | `undefined` \| `string`[] |
 
 #### Returns
 
@@ -1342,7 +1349,42 @@ Whether the field should be visible to author or not.
 
 Field.visible
 
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[_eventSource](../interfaces/FieldModel.md#_eventsource)
+
+#### Inherited from
+
+[Field](Field.md).[_eventSource](Field.md#_eventsource)
+
 ## Methods
+
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Field](Field.md).[change](Field.md#change)
+
+___
 
 ### dispatch
 
@@ -1424,6 +1466,20 @@ ___
 
 ___
 
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[Field](Field.md).[getDependents](Field.md#getdependents)
+
+___
+
 ### getErrorMessage
 
 ▸ **getErrorMessage**(`constraint`): `string`
@@ -1499,6 +1555,7 @@ ___
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
 | `appliedCssClassNames?` | `string` |
+| `buttonType?` | `string` |
 | `checked?` | `boolean` |
 | `columnClassNames` | `undefined` |
 | `columnCount` | `undefined` |
@@ -1515,7 +1572,7 @@ ___
 | `enabled` | `undefined` \| `boolean` |
 | `enforceEnum?` | `boolean` |
 | `enum?` | `any`[] |
-| `enumNames?` | `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `enumNames?` | `string`[] |
 | `errorMessage?` | `string` |
 | `events?` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> |
 | `exclusiveMaximum?` | `number` |
@@ -1647,6 +1704,16 @@ FieldModel.ruleNodeReference
 #### Inherited from
 
 [Field](Field.md).[ruleNodeReference](Field.md#rulenodereference)
+
+___
+
+### serialize
+
+▸ **serialize**(): `Promise`<``null`` \| `unknown`[]\>
+
+#### Returns
+
+`Promise`<``null`` \| `unknown`[]\>
 
 ___
 

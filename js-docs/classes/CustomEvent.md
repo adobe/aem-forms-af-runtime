@@ -16,6 +16,7 @@ Implementation of `custom event`.
 
 ### Accessors
 
+- [currentTarget](CustomEvent.md#currenttarget)
 - [isCustomEvent](CustomEvent.md#iscustomevent)
 - [metadata](CustomEvent.md#metadata)
 - [payload](CustomEvent.md#payload)
@@ -46,6 +47,20 @@ Implementation of `custom event`.
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

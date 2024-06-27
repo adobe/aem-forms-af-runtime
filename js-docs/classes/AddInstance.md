@@ -16,6 +16,7 @@ Implementation of `addInstance` event. The event is triggered on a field to add 
 
 ### Accessors
 
+- [currentTarget](AddInstance.md#currenttarget)
 - [isCustomEvent](AddInstance.md#iscustomevent)
 - [metadata](AddInstance.md#metadata)
 - [payload](AddInstance.md#payload)
@@ -44,6 +45,20 @@ Implementation of `addInstance` event. The event is triggered on a field to add 
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

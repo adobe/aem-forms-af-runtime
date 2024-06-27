@@ -20,6 +20,7 @@ Defines properties that each field set should have
 ### Properties
 
 - [:type](FieldsetModel.md#:type)
+- [\_eventSource](FieldsetModel.md#_eventsource)
 - [accept](FieldsetModel.md#accept)
 - [activeChild](FieldsetModel.md#activechild)
 - [dataRef](FieldsetModel.md#dataref)
@@ -86,6 +87,16 @@ Custom widget type show to the user for capturing the data.
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[:type](ContainerModel.md#:type)
+
+___
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md)
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[_eventSource](ContainerModel.md#_eventsource)
 
 ___
 
@@ -179,7 +190,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `Optional` **enumNames**: `string`[]
 
 #### Inherited from
 

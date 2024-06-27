@@ -16,6 +16,7 @@ Implementation of `removeInstance` event. The event is triggered on a field to r
 
 ### Accessors
 
+- [currentTarget](RemoveInstance.md#currenttarget)
 - [isCustomEvent](RemoveInstance.md#iscustomevent)
 - [metadata](RemoveInstance.md#metadata)
 - [payload](RemoveInstance.md#payload)
@@ -44,6 +45,20 @@ Implementation of `removeInstance` event. The event is triggered on a field to r
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

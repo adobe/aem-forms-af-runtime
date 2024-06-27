@@ -47,13 +47,20 @@ execution of rules/events should extend from this class.
 - [uniqueItems](Scriptable.md#uniqueitems)
 - [visible](Scriptable.md#visible)
 
+### Properties
+
+- [\_eventSource](Scriptable.md#_eventsource)
+- [value](Scriptable.md#value)
+
 ### Methods
 
+- [change](Scriptable.md#change)
 - [defaultDataModel](Scriptable.md#defaultdatamodel)
 - [dispatch](Scriptable.md#dispatch)
 - [executeAction](Scriptable.md#executeaction)
 - [executeExpression](Scriptable.md#executeexpression)
 - [focus](Scriptable.md#focus)
+- [getDependents](Scriptable.md#getdependents)
 - [getNonTransparentParent](Scriptable.md#getnontransparentparent)
 - [getRules](Scriptable.md#getrules)
 - [getState](Scriptable.md#getstate)
@@ -61,10 +68,6 @@ execution of rules/events should extend from this class.
 - [isTransparent](Scriptable.md#istransparent)
 - [reset](Scriptable.md#reset)
 - [validate](Scriptable.md#validate)
-
-### Properties
-
-- [value](Scriptable.md#value)
 
 ## Accessors
 
@@ -400,7 +403,46 @@ BaseNode.visible
 
 BaseNode.visible
 
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[_eventSource](BaseNode.md#_eventsource)
+
+___
+
+### value
+
+• `Abstract` **value**: [`Primitives`](../README.md#primitives)
+
+The current value of the Field. The property is serialized in the Data Model.
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[value](BaseNode.md#value)
+
 ## Methods
+
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+___
 
 ### defaultDataModel
 
@@ -491,6 +533,20 @@ ___
 #### Inherited from
 
 [BaseNode](BaseNode.md).[focus](BaseNode.md#focus)
+
+___
+
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[getDependents](BaseNode.md#getdependents)
 
 ___
 
@@ -603,15 +659,3 @@ Validates the given form field
 #### Inherited from
 
 [BaseNode](BaseNode.md).[validate](BaseNode.md#validate)
-
-## Properties
-
-### value
-
-• `Abstract` **value**: [`Primitives`](../README.md#primitives)
-
-The current value of the Field. The property is serialized in the Data Model.
-
-#### Inherited from
-
-[BaseNode](BaseNode.md).[value](BaseNode.md#value)

@@ -61,12 +61,18 @@ Implementation of CheckBoxGroup runtime model which extends from [field](Field.m
 - [value](CheckboxGroup.md#value)
 - [visible](CheckboxGroup.md#visible)
 
+### Properties
+
+- [\_eventSource](CheckboxGroup.md#_eventsource)
+
 ### Methods
 
+- [change](CheckboxGroup.md#change)
 - [dispatch](CheckboxGroup.md#dispatch)
 - [executeAction](CheckboxGroup.md#executeaction)
 - [executeExpression](CheckboxGroup.md#executeexpression)
 - [focus](CheckboxGroup.md#focus)
+- [getDependents](CheckboxGroup.md#getdependents)
 - [getErrorMessage](CheckboxGroup.md#geterrormessage)
 - [getNonTransparentParent](CheckboxGroup.md#getnontransparentparent)
 - [getRules](CheckboxGroup.md#getrules)
@@ -314,11 +320,11 @@ ___
 
 ### enumNames
 
-• `get` **enumNames**(): `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `get` **enumNames**(): `undefined` \| `string`[]
 
 #### Returns
 
-`undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[]
+`undefined` \| `string`[]
 
 #### Inherited from
 
@@ -330,7 +336,7 @@ Field.enumNames
 
 | Name | Type |
 | :------ | :------ |
-| `e` | `undefined` \| `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `e` | `undefined` \| `string`[] |
 
 #### Returns
 
@@ -1010,7 +1016,38 @@ Field.visible
 
 Field.visible
 
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Inherited from
+
+[Field](Field.md).[_eventSource](Field.md#_eventsource)
+
 ## Methods
+
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Field](Field.md).[change](Field.md#change)
+
+___
 
 ### dispatch
 
@@ -1085,6 +1122,20 @@ ___
 #### Inherited from
 
 [Field](Field.md).[focus](Field.md#focus)
+
+___
+
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[Field](Field.md).[getDependents](Field.md#getdependents)
 
 ___
 
@@ -1163,6 +1214,7 @@ ___
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
 | `appliedCssClassNames?` | `string` |
+| `buttonType?` | `string` |
 | `checked?` | `boolean` |
 | `columnClassNames` | `undefined` |
 | `columnCount` | `undefined` |
@@ -1179,7 +1231,7 @@ ___
 | `enabled` | `undefined` \| `boolean` |
 | `enforceEnum?` | `boolean` |
 | `enum?` | `any`[] |
-| `enumNames?` | `string`[] \| [`EnumName`](../README.md#enumname)[] |
+| `enumNames?` | `string`[] |
 | `errorMessage?` | `string` |
 | `events?` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> |
 | `exclusiveMaximum?` | `number` |

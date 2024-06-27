@@ -14,6 +14,7 @@
 
 ### Accessors
 
+- [currentTarget](Focus.md#currenttarget)
 - [isCustomEvent](Focus.md#iscustomevent)
 - [metadata](Focus.md#metadata)
 - [payload](Focus.md#payload)
@@ -36,6 +37,20 @@
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

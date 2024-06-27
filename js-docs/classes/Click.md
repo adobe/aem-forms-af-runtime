@@ -16,6 +16,7 @@ Implementation of `click` event. The event is triggered when user clicks on an e
 
 ### Accessors
 
+- [currentTarget](Click.md#currenttarget)
 - [isCustomEvent](Click.md#iscustomevent)
 - [metadata](Click.md#metadata)
 - [payload](Click.md#payload)
@@ -45,6 +46,20 @@ Implementation of `click` event. The event is triggered when user clicks on an e
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

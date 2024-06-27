@@ -19,8 +19,11 @@ Defines the interface for form model
 ### Properties
 
 - [:type](FormModel.md#:type)
+- [\_eventSource](FormModel.md#_eventsource)
 - [accept](FormModel.md#accept)
 - [activeChild](FormModel.md#activechild)
+- [activeField](FormModel.md#activefield)
+- [changeEventBehaviour](FormModel.md#changeeventbehaviour)
 - [data](FormModel.md#data)
 - [dataRef](FormModel.md#dataref)
 - [default](FormModel.md#default)
@@ -61,6 +64,7 @@ Defines the interface for form model
 - [repeatable](FormModel.md#repeatable)
 - [required](FormModel.md#required)
 - [rules](FormModel.md#rules)
+- [specVersion](FormModel.md#specversion)
 - [step](FormModel.md#step)
 - [title](FormModel.md#title)
 - [type](FormModel.md#type)
@@ -98,6 +102,16 @@ Custom widget type show to the user for capturing the data.
 
 ___
 
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md)
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[_eventSource](ContainerModel.md#_eventsource)
+
+___
+
 ### accept
 
 • `Optional` **accept**: `string`[]
@@ -115,6 +129,18 @@ ___
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[activeChild](ContainerModel.md#activechild)
+
+___
+
+### activeField
+
+• **activeField**: [`FieldModel`](FieldModel.md)
+
+___
+
+### changeEventBehaviour
+
+• `Readonly` **changeEventBehaviour**: ``"deps"`` \| ``"self"``
 
 ___
 
@@ -196,7 +222,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `Optional` **enumNames**: `string`[]
 
 #### Inherited from
 
@@ -557,6 +583,12 @@ Rules that modify the property of the object dynamically. The rules are evaluate
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[rules](ContainerModel.md#rules)
+
+___
+
+### specVersion
+
+• `Readonly` **specVersion**: `Version`
 
 ___
 

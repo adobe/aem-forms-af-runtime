@@ -17,6 +17,7 @@ To trigger the reset event, reset function needs to be invoked or one can invoke
 
 ### Accessors
 
+- [currentTarget](Reset.md#currenttarget)
 - [isCustomEvent](Reset.md#iscustomevent)
 - [metadata](Reset.md#metadata)
 - [payload](Reset.md#payload)
@@ -46,6 +47,20 @@ To trigger the reset event, reset function needs to be invoked or one can invoke
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

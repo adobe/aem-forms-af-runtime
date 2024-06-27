@@ -16,6 +16,7 @@ Implementation of `valid` event. The valid event is triggered whenever the field
 
 ### Accessors
 
+- [currentTarget](Valid.md#currenttarget)
 - [isCustomEvent](Valid.md#iscustomevent)
 - [metadata](Valid.md#metadata)
 - [payload](Valid.md#payload)
@@ -44,6 +45,20 @@ Implementation of `valid` event. The valid event is triggered whenever the field
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

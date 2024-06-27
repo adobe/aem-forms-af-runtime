@@ -24,6 +24,7 @@ Defines common properties that each form field should have
 ### Properties
 
 - [:type](BaseModel.md#:type)
+- [\_eventSource](BaseModel.md#_eventsource)
 - [accept](BaseModel.md#accept)
 - [dataRef](BaseModel.md#dataref)
 - [default](BaseModel.md#default)
@@ -80,6 +81,12 @@ Defines common properties that each form field should have
 • `Readonly` **:type**: `string`
 
 Custom widget type show to the user for capturing the data.
+
+___
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md)
 
 ___
 
@@ -147,7 +154,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `Optional` **enumNames**: `string`[]
 
 #### Inherited from
 

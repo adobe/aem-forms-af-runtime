@@ -16,6 +16,7 @@ Implementation of `fieldChanged` event. The field changed event is triggered on 
 
 ### Accessors
 
+- [currentTarget](FieldChanged.md#currenttarget)
 - [isCustomEvent](FieldChanged.md#iscustomevent)
 - [metadata](FieldChanged.md#metadata)
 - [payload](FieldChanged.md#payload)
@@ -31,20 +32,35 @@ Implementation of `fieldChanged` event. The field changed event is triggered on 
 
 ### constructor
 
-• **new FieldChanged**(`changes`, `field`)
+• **new FieldChanged**(`changes`, `field`, `eventSource?`)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `changes` | [`ChangePayload`](../README.md#changepayload) |
-| `field` | [`BaseJson`](../README.md#basejson) |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `changes` | [`ChangePayload`](../README.md#changepayload) | `undefined` |
+| `field` | [`BaseJson`](../README.md#basejson) | `undefined` |
+| `eventSource` | [`EventSource`](../enums/EventSource.md) | `EventSource.CODE` |
 
 #### Overrides
 
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

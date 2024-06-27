@@ -1,41 +1,39 @@
-# Class: SubmitFailure
+# Class: Save
 
-Implementation of `submitFailure` event. The submitFailure event is triggered on the Form.
-This event is triggered post submit in case of a failure
-
-**`deprecated`**
+Implementation of `save` event. The save event is triggered on the Form.
+To trigger the save event, save function needs to be invoked or one can invoke dispatchEvent API.
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`SubmitFailure`**
+  ↳ **`Save`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](SubmitFailure.md#constructor)
+- [constructor](Save.md#constructor)
 
 ### Accessors
 
-- [currentTarget](SubmitFailure.md#currenttarget)
-- [isCustomEvent](SubmitFailure.md#iscustomevent)
-- [metadata](SubmitFailure.md#metadata)
-- [payload](SubmitFailure.md#payload)
-- [target](SubmitFailure.md#target)
-- [type](SubmitFailure.md#type)
+- [currentTarget](Save.md#currenttarget)
+- [isCustomEvent](Save.md#iscustomevent)
+- [metadata](Save.md#metadata)
+- [payload](Save.md#payload)
+- [target](Save.md#target)
+- [type](Save.md#type)
 
 ### Methods
 
-- [toJson](SubmitFailure.md#tojson)
-- [toString](SubmitFailure.md#tostring)
+- [toJson](Save.md#tojson)
+- [toString](Save.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new SubmitFailure**(`payload?`, `dispatch?`)
+• **new Save**(`payload?`, `dispatch?`)
 
 #### Parameters
 

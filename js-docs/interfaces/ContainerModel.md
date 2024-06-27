@@ -24,6 +24,7 @@ Defines properties that each container should have
 ### Properties
 
 - [:type](ContainerModel.md#:type)
+- [\_eventSource](ContainerModel.md#_eventsource)
 - [accept](ContainerModel.md#accept)
 - [activeChild](ContainerModel.md#activechild)
 - [dataRef](ContainerModel.md#dataref)
@@ -89,6 +90,16 @@ Custom widget type show to the user for capturing the data.
 #### Inherited from
 
 [BaseModel](BaseModel.md).[:type](BaseModel.md#:type)
+
+___
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md)
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[_eventSource](BaseModel.md#_eventsource)
 
 ___
 
@@ -178,7 +189,7 @@ ___
 
 ### enumNames
 
-• `Optional` **enumNames**: `string`[] \| [`EnumName`](../README.md#enumname)[]
+• `Optional` **enumNames**: `string`[]
 
 #### Inherited from
 

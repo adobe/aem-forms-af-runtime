@@ -130,3 +130,15 @@ ___
 #### Returns
 
 `string`
+
+• `set` **type**(`type`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `type` | `string` |
+
+#### Returns
+
+`void`

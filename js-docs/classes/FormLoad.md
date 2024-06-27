@@ -16,6 +16,7 @@ Implementation of `load` event. The event is when the form initialization is com
 
 ### Accessors
 
+- [currentTarget](FormLoad.md#currenttarget)
 - [isCustomEvent](FormLoad.md#iscustomevent)
 - [metadata](FormLoad.md#metadata)
 - [payload](FormLoad.md#payload)
@@ -38,6 +39,20 @@ Implementation of `load` event. The event is when the form initialization is com
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

@@ -16,6 +16,7 @@ Implementation of `invalid` event. The invalid event is triggered when a Fieldâ€
 
 ### Accessors
 
+- [currentTarget](Invalid.md#currenttarget)
 - [isCustomEvent](Invalid.md#iscustomevent)
 - [metadata](Invalid.md#metadata)
 - [payload](Invalid.md#payload)
@@ -44,6 +45,20 @@ Implementation of `invalid` event. The invalid event is triggered when a Fieldâ€
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+â€¢ `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

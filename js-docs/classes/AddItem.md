@@ -16,6 +16,7 @@ Implementation of `addItem` event. The event is triggered on a panel to add a ne
 
 ### Accessors
 
+- [currentTarget](AddItem.md#currenttarget)
 - [isCustomEvent](AddItem.md#iscustomevent)
 - [metadata](AddItem.md#metadata)
 - [payload](AddItem.md#payload)
@@ -44,6 +45,20 @@ Implementation of `addItem` event. The event is triggered on a panel to add a ne
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

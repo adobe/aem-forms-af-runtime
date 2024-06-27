@@ -42,22 +42,24 @@ Defines a generic base class which all objects of form runtime model should exte
 - [uniqueItems](BaseNode.md#uniqueitems)
 - [visible](BaseNode.md#visible)
 
+### Properties
+
+- [\_eventSource](BaseNode.md#_eventsource)
+- [value](BaseNode.md#value)
+
 ### Methods
 
 - [defaultDataModel](BaseNode.md#defaultdatamodel)
 - [dispatch](BaseNode.md#dispatch)
 - [executeAction](BaseNode.md#executeaction)
 - [focus](BaseNode.md#focus)
+- [getDependents](BaseNode.md#getdependents)
 - [getNonTransparentParent](BaseNode.md#getnontransparentparent)
 - [getState](BaseNode.md#getstate)
 - [importData](BaseNode.md#importdata)
 - [isTransparent](BaseNode.md#istransparent)
 - [reset](BaseNode.md#reset)
 - [validate](BaseNode.md#validate)
-
-### Properties
-
-- [value](BaseNode.md#value)
 
 ## Accessors
 
@@ -417,6 +419,28 @@ Whether the field should be visible to author or not.
 
 [BaseModel](../interfaces/BaseModel.md).[visible](../interfaces/BaseModel.md#visible)
 
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[_eventSource](../interfaces/BaseModel.md#_eventsource)
+
+___
+
+### value
+
+• `Abstract` **value**: [`Primitives`](../README.md#primitives)
+
+The current value of the Field. The property is serialized in the Data Model.
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[value](../interfaces/BaseModel.md#value)
+
 ## Methods
 
 ### defaultDataModel
@@ -478,6 +502,16 @@ ___
 #### Returns
 
 `void`
+
+___
+
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
 
 ___
 
@@ -568,15 +602,3 @@ Validates the given form field
 #### Implementation of
 
 [BaseModel](../interfaces/BaseModel.md).[validate](../interfaces/BaseModel.md#validate)
-
-## Properties
-
-### value
-
-• `Abstract` **value**: [`Primitives`](../README.md#primitives)
-
-The current value of the Field. The property is serialized in the Data Model.
-
-#### Implementation of
-
-[BaseModel](../interfaces/BaseModel.md).[value](../interfaces/BaseModel.md#value)

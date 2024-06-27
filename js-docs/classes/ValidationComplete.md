@@ -25,6 +25,7 @@ function onValidationComplete(event) {
 
 ### Accessors
 
+- [currentTarget](ValidationComplete.md#currenttarget)
 - [isCustomEvent](ValidationComplete.md#iscustomevent)
 - [metadata](ValidationComplete.md#metadata)
 - [payload](ValidationComplete.md#payload)
@@ -54,6 +55,20 @@ function onValidationComplete(event) {
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

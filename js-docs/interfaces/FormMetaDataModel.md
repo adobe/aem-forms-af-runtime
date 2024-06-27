@@ -25,6 +25,6 @@ ___
 
 ### version
 
-• `Readonly` **version**: `string`
+• `Optional` `Readonly` **version**: `string`
 
 Version of the adaptive form specification

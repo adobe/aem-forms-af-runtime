@@ -16,6 +16,7 @@ Implementation of `initialize` event. The event is triggered on all the fields w
 
 ### Accessors
 
+- [currentTarget](Initialize.md#currenttarget)
 - [isCustomEvent](Initialize.md#iscustomevent)
 - [metadata](Initialize.md#metadata)
 - [payload](Initialize.md#payload)
@@ -45,6 +46,20 @@ Implementation of `initialize` event. The event is triggered on all the fields w
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

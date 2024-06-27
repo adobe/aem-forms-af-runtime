@@ -17,6 +17,7 @@ This event is triggered post submit on successful submission
 
 ### Accessors
 
+- [currentTarget](SubmitSuccess.md#currenttarget)
 - [isCustomEvent](SubmitSuccess.md#iscustomevent)
 - [metadata](SubmitSuccess.md#metadata)
 - [payload](SubmitSuccess.md#payload)
@@ -46,6 +47,20 @@ This event is triggered post submit on successful submission
 ActionImpl.constructor
 
 ## Accessors
+
+### currentTarget
+
+• `get` **currentTarget**(): [`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Returns
+
+[`FormModel`](../interfaces/FormModel.md) \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md)
+
+#### Inherited from
+
+ActionImpl.currentTarget
+
+___
 
 ### isCustomEvent
 

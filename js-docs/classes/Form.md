@@ -19,6 +19,9 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [:type](Form.md#:type)
 - [action](Form.md#action)
 - [activeChild](Form.md#activechild)
+- [activeField](Form.md#activefield)
+- [captcha](Form.md#captcha)
+- [changeEventBehaviour](Form.md#changeeventbehaviour)
 - [dataRef](Form.md#dataref)
 - [description](Form.md#description)
 - [enabled](Form.md#enabled)
@@ -41,6 +44,7 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [readOnly](Form.md#readonly)
 - [repeatable](Form.md#repeatable)
 - [ruleEngine](Form.md#ruleengine)
+- [specVersion](Form.md#specversion)
 - [title](Form.md#title)
 - [type](Form.md#type)
 - [uniqueItems](Form.md#uniqueitems)
@@ -50,11 +54,14 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 ### Methods
 
 - [\_canHaveRepeatingChildren](Form.md#_canhaverepeatingchildren)
+- [\_findActiveField](Form.md#_findactivefield)
+- [change](Form.md#change)
 - [executeAction](Form.md#executeaction)
 - [executeExpression](Form.md#executeexpression)
 - [exportData](Form.md#exportdata)
 - [exportSubmitMetaData](Form.md#exportsubmitmetadata)
 - [focus](Form.md#focus)
+- [getDependents](Form.md#getdependents)
 - [getElement](Form.md#getelement)
 - [getNonTransparentParent](Form.md#getnontransparentparent)
 - [getRules](Form.md#getrules)
@@ -67,9 +74,14 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [isValid](Form.md#isvalid)
 - [notifyChildren](Form.md#notifychildren)
 - [resolveQualifiedName](Form.md#resolvequalifiedname)
+- [setAdditionalSubmitMetadata](Form.md#setadditionalsubmitmetadata)
 - [setFocus](Form.md#setfocus)
 - [validate](Form.md#validate)
 - [visit](Form.md#visit)
+
+### Properties
+
+- [\_eventSource](Form.md#_eventsource)
 
 ## Accessors
 
@@ -138,6 +150,48 @@ Container.activeChild
 #### Inherited from
 
 Container.activeChild
+
+___
+
+### activeField
+
+• `get` **activeField**(): [`FieldModel`](../interfaces/FieldModel.md)
+
+Retrieves the active field in the form.
+
+#### Returns
+
+[`FieldModel`](../interfaces/FieldModel.md)
+
+The active field.
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[activeField](../interfaces/FormModel.md#activefield)
+
+___
+
+### captcha
+
+• `get` **captcha**(): ``null`` \| [`FieldModel`](../interfaces/FieldModel.md)
+
+#### Returns
+
+``null`` \| [`FieldModel`](../interfaces/FieldModel.md)
+
+___
+
+### changeEventBehaviour
+
+• `get` **changeEventBehaviour**(): ``"deps"`` \| ``"self"``
+
+#### Returns
+
+``"deps"`` \| ``"self"``
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[changeEventBehaviour](../interfaces/FormModel.md#changeeventbehaviour)
 
 ___
 
@@ -701,6 +755,20 @@ Container.ruleEngine
 
 ___
 
+### specVersion
+
+• `get` **specVersion**(): `Version`
+
+#### Returns
+
+`Version`
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[specVersion](../interfaces/FormModel.md#specversion)
+
+___
+
 ### title
 
 • `get` **title**(): `string`
@@ -835,6 +903,43 @@ Container.visible
 
 ___
 
+### \_findActiveField
+
+▸ **_findActiveField**(`field`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `field` | ``null`` \| [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md) |
+
+#### Returns
+
+`any`
+
+___
+
+### change
+
+▸ **change**(`event`, `context`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `event` | [`Action`](../interfaces/Action.md) |
+| `context` | `any` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Container](Container.md).[change](Container.md#change)
+
+___
+
 ### executeAction
 
 ▸ **executeAction**(`action`): `void`
@@ -927,6 +1032,20 @@ ___
 
 ___
 
+### getDependents
+
+▸ **getDependents**(): `string`[]
+
+#### Returns
+
+`string`[]
+
+#### Inherited from
+
+[Container](Container.md).[getDependents](Container.md#getdependents)
+
+___
+
 ### getElement
 
 ▸ **getElement**(`id`): [`FieldModel`](../interfaces/FieldModel.md) \| [`FieldsetModel`](../interfaces/FieldsetModel.md) \| [`Form`](Form.md)
@@ -979,7 +1098,7 @@ ___
 
 ### getState
 
-▸ **getState**(`forRestore?`): `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `action?`: `string` ; `adaptiveForm?`: `string` ; `data?`: `any` ; `lang?`: `string` ; `metadata?`: [`MetaDataJson`](../README.md#metadatajson) ; `title?`: `string`  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+▸ **getState**(`forRestore?`): `TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `buttonType?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `action?`: `string` ; `adaptiveform?`: `string` ; `data?`: `any` ; `lang?`: `string` ; `metadata?`: [`MetaDataJson`](../README.md#metadatajson) ; `title?`: `string`  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 Returns the current state of the form
 
@@ -998,7 +1117,7 @@ const attachments = form.getState().attachments
 
 #### Returns
 
-`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `action?`: `string` ; `adaptiveForm?`: `string` ; `data?`: `any` ; `lang?`: `string` ; `metadata?`: [`MetaDataJson`](../README.md#metadatajson) ; `title?`: `string`  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+`TranslationBaseJson` & [`RulesJson`](../README.md#rulesjson) & `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `string` \| `number` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  } & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `buttonType?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](../README.md#constraintsmessages) ; `dataRef?`: ``null`` \| `string` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](../README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  } & { `activeChild?`: `string` ; `initialItems?`: `number` ; `items`: ([`FieldJson`](../README.md#fieldjson) \| [`ContainerJson`](../README.md#containerjson))[]  } & { `action?`: `string` ; `adaptiveform?`: `string` ; `data?`: `any` ; `lang?`: `string` ; `metadata?`: [`MetaDataJson`](../README.md#metadatajson) ; `title?`: `string`  } & { `:items`: `undefined` = undefined; `:itemsOrder`: `undefined` = undefined; `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `enabled`: `undefined` \| `boolean` ; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `items`: `any`[] ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `readOnly`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 #### Implementation of
 
@@ -1174,6 +1293,22 @@ The resolved form element, or null if not found.
 
 ___
 
+### setAdditionalSubmitMetadata
+
+▸ **setAdditionalSubmitMetadata**(`metadata`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `metadata` | `Record`<`string`, `any`\> |
+
+#### Returns
+
+`void`
+
+___
+
 ### setFocus
 
 ▸ **setFocus**(`field`, `focusOption`): `void`
@@ -1235,3 +1370,17 @@ visits each element in the form
 #### Implementation of
 
 [FormModel](../interfaces/FormModel.md).[visit](../interfaces/FormModel.md#visit)
+
+## Properties
+
+### \_eventSource
+
+• **\_eventSource**: [`EventSource`](../enums/EventSource.md) = `EventSource.CODE`
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[_eventSource](../interfaces/FormModel.md#_eventsource)
+
+#### Inherited from
+
+[Container](Container.md).[_eventSource](Container.md#_eventsource)

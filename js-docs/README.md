@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.76
+# @aemforms/af-core - v0.22.93
 
 ## Table of contents
 
@@ -6,6 +6,7 @@
 
 - [Action](interfaces/Action.md)
 - [BaseModel](interfaces/BaseModel.md)
+- [CaptchaModel](interfaces/CaptchaModel.md)
 - [ContainerModel](interfaces/ContainerModel.md)
 - [FieldModel](interfaces/FieldModel.md)
 - [FieldsetModel](interfaces/FieldsetModel.md)
@@ -46,6 +47,7 @@
 - [RemoveInstance](classes/RemoveInstance.md)
 - [RemoveItem](classes/RemoveItem.md)
 - [Reset](classes/Reset.md)
+- [Save](classes/Save.md)
 - [Scriptable](classes/Scriptable.md)
 - [Submit](classes/Submit.md)
 - [SubmitError](classes/SubmitError.md)
@@ -59,11 +61,11 @@
 ### Type aliases
 
 - [BaseJson](README.md#basejson)
+- [CaptchaJson](README.md#captchajson)
 - [ChangePayload](README.md#changepayload)
 - [ConstraintsJson](README.md#constraintsjson)
 - [ConstraintsMessages](README.md#constraintsmessages)
 - [ContainerJson](README.md#containerjson)
-- [EnumName](README.md#enumname)
 - [FieldJson](README.md#fieldjson)
 - [FieldsetJson](README.md#fieldsetjson)
 - [FormCreationMode](README.md#formcreationmode)
@@ -85,17 +87,19 @@
 - [TRANSLATION\_TOKEN](README.md#translation_token)
 - [constraintKeys](README.md#constraintkeys)
 - [constraintProps](README.md#constraintprops)
+- [createFormInstance](README.md#createforminstance)
 - [translationProps](README.md#translationprops)
 
 ### Enumerations
 
+- [CaptchaDisplayMode](enums/CaptchaDisplayMode.md)
+- [EventSource](enums/EventSource.md)
 - [FocusOption](enums/FocusOption.md)
 
 ### Functions
 
 - [checkIfConstraintsArePresent](README.md#checkifconstraintsarepresent)
 - [checkIfKeyAdded](README.md#checkifkeyadded)
-- [createFormInstance](README.md#createforminstance)
 - [createTranslationObject](README.md#createtranslationobject)
 - [defaultFieldTypes](README.md#defaultfieldtypes)
 - [exportDataSchema](README.md#exportdataschema)
@@ -105,6 +109,7 @@
 - [getFileSizeInBytes](README.md#getfilesizeinbytes)
 - [getOrElse](README.md#getorelse)
 - [getProperty](README.md#getproperty)
+- [isButton](README.md#isbutton)
 - [isCaptcha](README.md#iscaptcha)
 - [isCheckbox](README.md#ischeckbox)
 - [isCheckboxGroup](README.md#ischeckboxgroup)
@@ -121,13 +126,25 @@
 - [validateFormData](README.md#validateformdata)
 - [validateFormInstance](README.md#validateforminstance)
 
+### Namespaces
+
+- [createFormInstance](modules/createFormInstance.md)
+
 ## Type aliases
 
 ### BaseJson
 
-Ƭ **BaseJson**: `TranslationBaseJson` & [`RulesJson`](README.md#rulesjson) & [`ConstraintsJson`](README.md#constraintsjson) & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](README.md#constraintsmessages) ; `dataRef?`: `string` \| ``null`` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  }
+Ƭ **BaseJson**: `TranslationBaseJson` & [`RulesJson`](README.md#rulesjson) & [`ConstraintsJson`](README.md#constraintsjson) & { `:type?`: `string` ; `altText?`: `string` ; `appliedCssClassNames?`: `string` ; `buttonType?`: `string` ; `constraintMessages?`: [`ConstraintsMessages`](README.md#constraintsmessages) ; `dataRef?`: `string` \| ``null`` ; `enabled?`: `boolean` ; `errorMessage?`: `string` ; `fieldType?`: `string` ; `label?`: [`Label`](README.md#label) ; `lang?`: `string` ; `name?`: `string` ; `properties?`: { [key: string]: `any`;  } ; `repeatable?`: `boolean` ; `screenReaderText?`: `string` ; `tooltip?`: `string` ; `viewType?`: `string` ; `visible?`: `boolean`  }
 
 Type for `generic form properties` based on `adaptive form specification`
+
+___
+
+### CaptchaJson
+
+Ƭ **CaptchaJson**: [`FieldJson`](README.md#fieldjson) & { `captchaDisplayMode?`: [`CaptchaDisplayMode`](enums/CaptchaDisplayMode.md) ; `captchaProvider?`: `string` ; `siteKey?`: `string`  }
+
+Type for `form captcha field properties` based on `adaptive form specification`
 
 ___
 
@@ -142,6 +159,7 @@ Payload of change event
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `changes` | { `currentValue`: `any` ; `prevValue?`: `any` ; `propertyName`: `string`  }[] | List of changes |
+| `eventSource?` | [`EventSource`](enums/EventSource.md) | To identify the source(code/ui) of the event |
 
 ___
 
@@ -192,21 +210,6 @@ Type for `form container properties` based on `adaptive form specification`
 
 ___
 
-### EnumName
-
-Ƭ **EnumName**: `Object`
-
-Type for `enumNames` based on `adaptive form specification`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `richText?` | `boolean` |
-| `value` | `string` |
-
-___
-
 ### FieldJson
 
 Ƭ **FieldJson**: [`BaseJson`](README.md#basejson) & `TranslationFieldJson` & { `checked?`: `boolean` ; `default?`: `any` ; `displayFormat?`: `string` ; `displayValue?`: `string` ; `displayValueExpression?`: `string` ; `editFormat?`: `string` ; `editValue?`: `string` ; `emptyValue?`: ``"null"`` \| ``"undefined"`` \| ``""`` ; `readOnly?`: `boolean` ; `valid?`: `boolean` ; `validationMessage?`: `string` ; `validity?`: `any` ; `value?`: `any`  }
@@ -231,7 +234,7 @@ ___
 
 ### FormJson
 
-Ƭ **FormJson**: [`ContainerJson`](README.md#containerjson) & { `action?`: `string` ; `adaptiveForm?`: `string` ; `data?`: `any` ; `lang?`: `string` ; `metadata?`: [`MetaDataJson`](README.md#metadatajson) ; `title?`: `string`  }
+Ƭ **FormJson**: [`ContainerJson`](README.md#containerjson) & { `action?`: `string` ; `adaptiveform?`: `string` ; `data?`: `any` ; `lang?`: `string` ; `metadata?`: [`MetaDataJson`](README.md#metadatajson) ; `title?`: `string`  }
 
 Type for `form model` based on `adaptive form specification`
 
@@ -386,6 +389,39 @@ Constant for all properties which are constraints based on `adaptive form specif
 
 ___
 
+### createFormInstance
+
+• **createFormInstance**: `Object`
+
+#### Call signature
+
+▸ (`formModel`, `callback?`, `logLevel?`, `fModel?`): [`FormModel`](interfaces/FormModel.md)
+
+Creates form instance using form model definition as per `adaptive form specification`
+
+##### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `formModel` | `any` | `undefined` | form model definition |
+| `callback?` | (`f`: [`FormModel`](interfaces/FormModel.md)) => `any` | `undefined` | a callback that recieves the FormModel instance that gets executed before any event in the Form is executed |
+| `logLevel` | `LogLevel` | `'error'` | Logging Level for the form. Setting it off will disable the logging |
+| `fModel` | `any` | `undefined` | existing form model, this is additional optimization to prevent creation of form instance |
+
+##### Returns
+
+[`FormModel`](interfaces/FormModel.md)
+
+[form model](interfaces/FormModel.md)
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `currentVersion` | `Version` |
+
+___
+
 ### translationProps
 
 • **translationProps**: `string`[]
@@ -431,29 +467,6 @@ Checks if the key got added in current object
 #### Returns
 
 `boolean`
-
-___
-
-### createFormInstance
-
-▸ `Const` **createFormInstance**(`formModel`, `callback?`, `logLevel?`, `fModel?`): [`FormModel`](interfaces/FormModel.md)
-
-Creates form instance using form model definition as per `adaptive form specification`
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `formModel` | `any` | `undefined` | form model definition |
-| `callback?` | (`f`: [`FormModel`](interfaces/FormModel.md)) => `any` | `undefined` | a callback that recieves the FormModel instance that gets executed before any event in the Form is executed |
-| `logLevel` | `LogLevel` | `'error'` | Logging Level for the form. Setting it off will disable the logging |
-| `fModel` | `any` | `undefined` | existing form model, this is additional optimization to prevent creation of form instance |
-
-#### Returns
-
-[`FormModel`](interfaces/FormModel.md)
-
-[form model](interfaces/FormModel.md)
 
 ___
 
@@ -654,6 +667,26 @@ Get the property value form the json
 #### Returns
 
 `P`
+
+___
+
+### isButton
+
+▸ `Const` **isButton**(`item`): `boolean`
+
+Checks if the input item provided is a button field
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `item` | [`FieldJson`](README.md#fieldjson) \| [`FieldsetJson`](README.md#fieldsetjson) | input item it could be [Fieldset](README.md#fieldsetjson) or [Field](README.md#fieldjson) |
+
+#### Returns
+
+`boolean`
+
+`true` if `item` is a form button, `false` otherwise
 
 ___
 
