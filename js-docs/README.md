@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.94
+# @aemforms/af-core - v0.22.95
 
 ## Table of contents
 
@@ -54,6 +54,7 @@
 - [SubmitFailure](classes/SubmitFailure.md)
 - [SubmitMetaData](classes/SubmitMetaData.md)
 - [SubmitSuccess](classes/SubmitSuccess.md)
+- [UIChange](classes/UIChange.md)
 - [Valid](classes/Valid.md)
 - [ValidationComplete](classes/ValidationComplete.md)
 - [ValidationError](classes/ValidationError.md)
@@ -77,6 +78,7 @@
 - [RulesJson](README.md#rulesjson)
 - [State](README.md#state)
 - [TranslationJson](README.md#translationjson)
+- [UIChangePayload](README.md#uichangepayload)
 
 ### Variables
 
@@ -331,6 +333,22 @@ ___
 Ƭ **TranslationJson**: `TranslationBaseJson` & `TranslationFieldJson` & `TranslationConstraintsJson`
 
 Type for all properties which can be translated based on `adaptive form specification`
+
+___
+
+### UIChangePayload
+
+Ƭ **UIChangePayload**: `Object`
+
+Payload of UI change event. This payload is designed to encapsulate the details of changes initiated through UI interactions.
+It includes the new value of the element and the checked state that triggered the UI change event.
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `checked?` | `boolean` | The checked state of the element after the UI change. |
+| `value?` | `any` | The new value of the element after the UI change. |
 
 ## Variables
 
