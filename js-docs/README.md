@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.95
+# @aemforms/af-core - v0.22.96
 
 ## Table of contents
 
@@ -360,7 +360,7 @@ ___
 
 ### ConstraintType
 
-• **ConstraintType**: `Readonly`<{ `ACCEPT_MISMATCH`: ``"acceptMismatch"`` = 'acceptMismatch'; `EXPRESSION_MISMATCH`: ``"expressionMismatch"`` = 'expressionMismatch'; `FILE_SIZE_MISMATCH`: ``"fileSizeMismatch"`` = 'fileSizeMismatch'; `FORMAT_MISMATCH`: ``"formatMismatch"`` = 'formatMismatch'; `MAX_ITEMS_MISMATCH`: ``"maxItemsMismatch"`` = 'maxItemsMismatch'; `MIN_ITEMS_MISMATCH`: ``"minItemsMismatch"`` = 'minItemsMismatch'; `PATTERN_MISMATCH`: ``"patternMismatch"`` = 'patternMismatch'; `RANGE_OVERFLOW`: ``"rangeOverflow"`` = 'rangeOverflow'; `RANGE_UNDERFLOW`: ``"rangeUnderflow"`` = 'rangeUnderflow'; `STEP_MISMATCH`: ``"stepMismatch"`` = 'stepMismatch'; `TOO_LONG`: ``"tooLong"`` = 'tooLong'; `TOO_SHORT`: ``"tooShort"`` = 'tooShort'; `TYPE_MISMATCH`: ``"typeMismatch"`` = 'typeMismatch'; `UNIQUE_ITEMS_MISMATCH`: ``"uniqueItemsMismatch"`` = 'uniqueItemsMismatch'; `VALUE_MISSING`: ``"valueMissing"`` = 'valueMissing' }\>
+• **ConstraintType**: `Readonly`<{ `ACCEPT_MISMATCH`: ``"acceptMismatch"`` = 'acceptMismatch'; `EXCLUSIVE_MAXIMUM_MISMATCH`: ``"exclusiveMaximumMismatch"`` = 'exclusiveMaximumMismatch'; `EXCLUSIVE_MINIMUM_MISMATCH`: ``"exclusiveMinimumMismatch"`` = 'exclusiveMinimumMismatch'; `EXPRESSION_MISMATCH`: ``"expressionMismatch"`` = 'expressionMismatch'; `FILE_SIZE_MISMATCH`: ``"fileSizeMismatch"`` = 'fileSizeMismatch'; `FORMAT_MISMATCH`: ``"formatMismatch"`` = 'formatMismatch'; `MAX_ITEMS_MISMATCH`: ``"maxItemsMismatch"`` = 'maxItemsMismatch'; `MIN_ITEMS_MISMATCH`: ``"minItemsMismatch"`` = 'minItemsMismatch'; `PATTERN_MISMATCH`: ``"patternMismatch"`` = 'patternMismatch'; `RANGE_OVERFLOW`: ``"rangeOverflow"`` = 'rangeOverflow'; `RANGE_UNDERFLOW`: ``"rangeUnderflow"`` = 'rangeUnderflow'; `STEP_MISMATCH`: ``"stepMismatch"`` = 'stepMismatch'; `TOO_LONG`: ``"tooLong"`` = 'tooLong'; `TOO_SHORT`: ``"tooShort"`` = 'tooShort'; `TYPE_MISMATCH`: ``"typeMismatch"`` = 'typeMismatch'; `UNIQUE_ITEMS_MISMATCH`: ``"uniqueItemsMismatch"`` = 'uniqueItemsMismatch'; `VALUE_MISSING`: ``"valueMissing"`` = 'valueMissing' }\>
 
 ConstraintType is an object containing properties that represent the constraint types as per HTML5 specfication.
 Once can access these properties using dot notation (for example)
@@ -392,7 +392,7 @@ ___
 
 ### constraintKeys
 
-• **constraintKeys**: `Readonly`<{ `accept`: ``"acceptMismatch"`` = ConstraintType.ACCEPT\_MISMATCH; `format`: ``"formatMismatch"`` = ConstraintType.FORMAT\_MISMATCH; `maxFileSize`: ``"fileSizeMismatch"`` = ConstraintType.FILE\_SIZE\_MISMATCH; `maxItems`: ``"maxItemsMismatch"`` = ConstraintType.MAX\_ITEMS\_MISMATCH; `maxLength`: ``"tooLong"`` = ConstraintType.TOO\_LONG; `maximum`: ``"rangeOverflow"`` = ConstraintType.RANGE\_OVERFLOW; `minItems`: ``"minItemsMismatch"`` = ConstraintType.MIN\_ITEMS\_MISMATCH; `minLength`: ``"tooShort"`` = ConstraintType.TOO\_SHORT; `minimum`: ``"rangeUnderflow"`` = ConstraintType.RANGE\_UNDERFLOW; `pattern`: ``"patternMismatch"`` = ConstraintType.PATTERN\_MISMATCH; `required`: ``"valueMissing"`` = ConstraintType.VALUE\_MISSING; `step`: ``"stepMismatch"`` = ConstraintType.STEP\_MISMATCH; `type`: ``"typeMismatch"`` = ConstraintType.TYPE\_MISMATCH; `uniqueItems`: ``"uniqueItemsMismatch"`` = ConstraintType.UNIQUE\_ITEMS\_MISMATCH; `validationExpression`: ``"expressionMismatch"`` = ConstraintType.EXPRESSION\_MISMATCH }\>
+• **constraintKeys**: `Readonly`<{ `accept`: ``"acceptMismatch"`` = ConstraintType.ACCEPT\_MISMATCH; `exclusiveMaximum`: ``"exclusiveMaximumMismatch"`` = ConstraintType.EXCLUSIVE\_MAXIMUM\_MISMATCH; `exclusiveMinimum`: ``"exclusiveMinimumMismatch"`` = ConstraintType.EXCLUSIVE\_MINIMUM\_MISMATCH; `format`: ``"formatMismatch"`` = ConstraintType.FORMAT\_MISMATCH; `maxFileSize`: ``"fileSizeMismatch"`` = ConstraintType.FILE\_SIZE\_MISMATCH; `maxItems`: ``"maxItemsMismatch"`` = ConstraintType.MAX\_ITEMS\_MISMATCH; `maxLength`: ``"tooLong"`` = ConstraintType.TOO\_LONG; `maximum`: ``"rangeOverflow"`` = ConstraintType.RANGE\_OVERFLOW; `minItems`: ``"minItemsMismatch"`` = ConstraintType.MIN\_ITEMS\_MISMATCH; `minLength`: ``"tooShort"`` = ConstraintType.TOO\_SHORT; `minimum`: ``"rangeUnderflow"`` = ConstraintType.RANGE\_UNDERFLOW; `pattern`: ``"patternMismatch"`` = ConstraintType.PATTERN\_MISMATCH; `required`: ``"valueMissing"`` = ConstraintType.VALUE\_MISSING; `step`: ``"stepMismatch"`` = ConstraintType.STEP\_MISMATCH; `type`: ``"typeMismatch"`` = ConstraintType.TYPE\_MISMATCH; `uniqueItems`: ``"uniqueItemsMismatch"`` = ConstraintType.UNIQUE\_ITEMS\_MISMATCH; `validationExpression`: ``"expressionMismatch"`` = ConstraintType.EXPRESSION\_MISMATCH }\>
 
 This map consists of key which are constraints based on `adaptive form specification and value
 which specifies constraint types as per HTML5 specification
@@ -605,6 +605,8 @@ API to get the constraint type messages
 | Name | Type |
 | :------ | :------ |
 | `acceptMismatch` | ``"The specified file type not supported."`` |
+| `exclusiveMaximumMismatch` | ``"Value must be less than ${0}."`` |
+| `exclusiveMinimumMismatch` | ``"Value must be greater than ${0}."`` |
 | `expressionMismatch` | ``"Please enter a valid value."`` |
 | `fileSizeMismatch` | ``"File too large. Reduce size and try again."`` |
 | `formatMismatch` | ``"Specify the value in allowed format : ${0}."`` |
