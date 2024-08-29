@@ -48,6 +48,7 @@ Defines a generic container class which any form container should extend from.
 - [readOnly](Container.md#readonly)
 - [repeatable](Container.md#repeatable)
 - [ruleEngine](Container.md#ruleengine)
+- [screenReaderText](Container.md#screenreadertext)
 - [type](Container.md#type)
 - [uniqueItems](Container.md#uniqueitems)
 - [visible](Container.md#visible)
@@ -627,6 +628,20 @@ ContainerModel.ruleEngine
 #### Inherited from
 
 Scriptable.ruleEngine
+
+___
+
+### screenReaderText
+
+• `get` **screenReaderText**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Scriptable.screenReaderText
 
 ___
 

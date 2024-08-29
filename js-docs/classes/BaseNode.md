@@ -38,6 +38,7 @@ Defines a generic base class which all objects of form runtime model should exte
 - [qualifiedName](BaseNode.md#qualifiedname)
 - [repeatable](BaseNode.md#repeatable)
 - [ruleEngine](BaseNode.md#ruleengine)
+- [screenReaderText](BaseNode.md#screenreadertext)
 - [type](BaseNode.md#type)
 - [uniqueItems](BaseNode.md#uniqueitems)
 - [visible](BaseNode.md#visible)
@@ -356,6 +357,16 @@ ___
 #### Returns
 
 `RuleEngine`
+
+___
+
+### screenReaderText
+
+• `get` **screenReaderText**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
 
 ___
 

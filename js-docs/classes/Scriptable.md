@@ -43,6 +43,7 @@ execution of rules/events should extend from this class.
 - [qualifiedName](Scriptable.md#qualifiedname)
 - [repeatable](Scriptable.md#repeatable)
 - [ruleEngine](Scriptable.md#ruleengine)
+- [screenReaderText](Scriptable.md#screenreadertext)
 - [type](Scriptable.md#type)
 - [uniqueItems](Scriptable.md#uniqueitems)
 - [visible](Scriptable.md#visible)
@@ -344,6 +345,20 @@ ScriptableField.ruleEngine
 #### Inherited from
 
 BaseNode.ruleEngine
+
+___
+
+### screenReaderText
+
+• `get` **screenReaderText**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+BaseNode.screenReaderText
 
 ___
 

@@ -38,6 +38,7 @@ Defines a field set class which extends from [container](Container.md)
 - [readOnly](Fieldset.md#readonly)
 - [repeatable](Fieldset.md#repeatable)
 - [ruleEngine](Fieldset.md#ruleengine)
+- [screenReaderText](Fieldset.md#screenreadertext)
 - [type](Fieldset.md#type)
 - [uniqueItems](Fieldset.md#uniqueitems)
 - [value](Fieldset.md#value)
@@ -657,6 +658,20 @@ FieldsetModel.ruleEngine
 #### Inherited from
 
 Container.ruleEngine
+
+___
+
+### screenReaderText
+
+• `get` **screenReaderText**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Container.screenReaderText
 
 ___
 

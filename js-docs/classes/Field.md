@@ -978,6 +978,10 @@ ___
 
 `undefined` \| `string`
 
+#### Inherited from
+
+Scriptable.screenReaderText
+
 ___
 
 ### step

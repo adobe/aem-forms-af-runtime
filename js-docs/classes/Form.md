@@ -44,6 +44,7 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [readOnly](Form.md#readonly)
 - [repeatable](Form.md#repeatable)
 - [ruleEngine](Form.md#ruleengine)
+- [screenReaderText](Form.md#screenreadertext)
 - [specVersion](Form.md#specversion)
 - [title](Form.md#title)
 - [type](Form.md#type)
@@ -752,6 +753,20 @@ FormModel.ruleEngine
 #### Overrides
 
 Container.ruleEngine
+
+___
+
+### screenReaderText
+
+• `get` **screenReaderText**(): `undefined` \| `string`
+
+#### Returns
+
+`undefined` \| `string`
+
+#### Inherited from
+
+Container.screenReaderText
 
 ___
 
