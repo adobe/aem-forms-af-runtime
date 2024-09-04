@@ -81,6 +81,7 @@ Defines properties that each form field should have
 
 - [getState](FieldModel.md#getstate)
 - [reset](FieldModel.md#reset)
+- [syncDataAndFormModel](FieldModel.md#syncdataandformmodel)
 - [validate](FieldModel.md#validate)
 
 ## Properties
@@ -682,6 +683,26 @@ Resets the form model
 #### Inherited from
 
 [BaseModel](BaseModel.md).[reset](BaseModel.md#reset)
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[syncDataAndFormModel](BaseModel.md#syncdataandformmodel)
 
 ___
 

@@ -85,6 +85,7 @@ Defines the interface for form model
 - [isTransparent](FormModel.md#istransparent)
 - [reset](FormModel.md#reset)
 - [resolveQualifiedName](FormModel.md#resolvequalifiedname)
+- [syncDataAndFormModel](FormModel.md#syncdataandformmodel)
 - [validate](FormModel.md#validate)
 - [visit](FormModel.md#visit)
 
@@ -754,9 +755,9 @@ Imports the given form data
 
 `any`
 
-#### Overrides
+#### Inherited from
 
-ContainerModel.importData
+[ContainerModel](ContainerModel.md).[importData](ContainerModel.md#importdata)
 
 ___
 
@@ -835,6 +836,26 @@ Resolves a form element by its qualified name.
 ``null`` \| [`FieldModel`](FieldModel.md) \| [`FieldsetModel`](FieldsetModel.md)
 
 The resolved form element, or null if not found.
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[syncDataAndFormModel](ContainerModel.md#syncdataandformmodel)
 
 ___
 

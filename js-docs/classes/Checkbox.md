@@ -78,10 +78,10 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [getNonTransparentParent](Checkbox.md#getnontransparentparent)
 - [getRules](Checkbox.md#getrules)
 - [getState](Checkbox.md#getstate)
-- [importData](Checkbox.md#importdata)
 - [isTransparent](Checkbox.md#istransparent)
 - [markAsInvalid](Checkbox.md#markasinvalid)
 - [ruleNodeReference](Checkbox.md#rulenodereference)
+- [syncDataAndFormModel](Checkbox.md#syncdataandformmodel)
 - [toString](Checkbox.md#tostring)
 - [triggerValidationEvent](Checkbox.md#triggervalidationevent)
 - [validate](Checkbox.md#validate)
@@ -1290,26 +1290,6 @@ ___
 
 ___
 
-### importData
-
-▸ **importData**(`contextualDataModel`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `contextualDataModel` | `default` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Field](Field.md).[importData](Field.md#importdata)
-
-___
-
 ### isTransparent
 
 ▸ **isTransparent**(): `boolean`
@@ -1360,6 +1340,26 @@ ___
 #### Inherited from
 
 [Field](Field.md).[ruleNodeReference](Field.md#rulenodereference)
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`dataNode`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dataNode` | `default` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Field](Field.md).[syncDataAndFormModel](Field.md#syncdataandformmodel)
 
 ___
 

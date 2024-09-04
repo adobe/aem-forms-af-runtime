@@ -86,10 +86,10 @@ Implementation of Captcha runtime model which extends from [field](Field.md) mod
 - [getNonTransparentParent](Captcha.md#getnontransparentparent)
 - [getRules](Captcha.md#getrules)
 - [getState](Captcha.md#getstate)
-- [importData](Captcha.md#importdata)
 - [isTransparent](Captcha.md#istransparent)
 - [markAsInvalid](Captcha.md#markasinvalid)
 - [ruleNodeReference](Captcha.md#rulenodereference)
+- [syncDataAndFormModel](Captcha.md#syncdataandformmodel)
 - [toString](Captcha.md#tostring)
 - [triggerValidationEvent](Captcha.md#triggervalidationevent)
 - [validate](Captcha.md#validate)
@@ -1678,30 +1678,6 @@ ___
 
 ___
 
-### importData
-
-▸ **importData**(`contextualDataModel`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `contextualDataModel` | `default` |
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-CaptchaModel.importData
-
-#### Inherited from
-
-[Field](Field.md).[importData](Field.md#importdata)
-
-___
-
 ### isTransparent
 
 ▸ **isTransparent**(): `boolean`
@@ -1756,6 +1732,30 @@ CaptchaModel.ruleNodeReference
 #### Inherited from
 
 [Field](Field.md).[ruleNodeReference](Field.md#rulenodereference)
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`dataNode`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dataNode` | `default` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[syncDataAndFormModel](../interfaces/CaptchaModel.md#syncdataandformmodel)
+
+#### Inherited from
+
+[Field](Field.md).[syncDataAndFormModel](Field.md#syncdataandformmodel)
 
 ___
 

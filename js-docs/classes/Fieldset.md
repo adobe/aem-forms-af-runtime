@@ -56,6 +56,7 @@ Defines a field set class which extends from [container](Container.md)
 - [getRules](Fieldset.md#getrules)
 - [getState](Fieldset.md#getstate)
 - [hasDynamicItems](Fieldset.md#hasdynamicitems)
+- [importData](Fieldset.md#importdata)
 - [indexOf](Fieldset.md#indexof)
 - [isTransparent](Fieldset.md#istransparent)
 - [notifyChildren](Fieldset.md#notifychildren)
@@ -713,13 +714,13 @@ ___
 
 ### value
 
-• `get` **value**(): ``null``
+• `get` **value**(): `any`
 
 The current value of the Field. The property is serialized in the Data Model.
 
 #### Returns
 
-``null``
+`any`
 
 #### Implementation of
 
@@ -952,6 +953,32 @@ returns whether the items in the Panel can repeat or not
 #### Inherited from
 
 [Container](Container.md).[hasDynamicItems](Container.md#hasdynamicitems)
+
+___
+
+### importData
+
+▸ **importData**(`dataModel`): `void`
+
+Imports the given form data
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dataModel` | `any` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldsetModel](../interfaces/FieldsetModel.md).[importData](../interfaces/FieldsetModel.md#importdata)
+
+#### Inherited from
+
+[Container](Container.md).[importData](Container.md#importdata)
 
 ___
 

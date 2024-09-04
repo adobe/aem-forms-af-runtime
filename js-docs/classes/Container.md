@@ -65,6 +65,7 @@ Defines a generic container class which any form container should extend from.
 - [getRules](Container.md#getrules)
 - [getState](Container.md#getstate)
 - [hasDynamicItems](Container.md#hasdynamicitems)
+- [importData](Container.md#importdata)
 - [indexOf](Container.md#indexof)
 - [isTransparent](Container.md#istransparent)
 - [notifyChildren](Container.md#notifychildren)
@@ -890,6 +891,28 @@ returns whether the items in the Panel can repeat or not
 #### Returns
 
 `boolean`
+
+___
+
+### importData
+
+▸ **importData**(`dataModel`): `void`
+
+Imports the given form data
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dataModel` | `any` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[importData](../interfaces/ContainerModel.md#importdata)
 
 ___
 

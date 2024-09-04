@@ -57,9 +57,9 @@ Defines a generic base class which all objects of form runtime model should exte
 - [getDependents](BaseNode.md#getdependents)
 - [getNonTransparentParent](BaseNode.md#getnontransparentparent)
 - [getState](BaseNode.md#getstate)
-- [importData](BaseNode.md#importdata)
 - [isTransparent](BaseNode.md#istransparent)
 - [reset](BaseNode.md#reset)
+- [syncDataAndFormModel](BaseNode.md#syncdataandformmodel)
 - [validate](BaseNode.md#validate)
 
 ## Accessors
@@ -552,26 +552,6 @@ ___
 
 ___
 
-### importData
-
-▸ `Abstract` **importData**(`a`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `a` | `default` |
-
-#### Returns
-
-`any`
-
-#### Implementation of
-
-BaseModel.importData
-
-___
-
 ### isTransparent
 
 ▸ **isTransparent**(): `boolean`
@@ -597,6 +577,26 @@ Resets the form model
 #### Implementation of
 
 [BaseModel](../interfaces/BaseModel.md).[reset](../interfaces/BaseModel.md#reset)
+
+___
+
+### syncDataAndFormModel
+
+▸ `Abstract` **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[syncDataAndFormModel](../interfaces/BaseModel.md#syncdataandformmodel)
 
 ___
 

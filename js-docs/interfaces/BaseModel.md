@@ -72,6 +72,7 @@ Defines common properties that each form field should have
 ### Methods
 
 - [reset](BaseModel.md#reset)
+- [syncDataAndFormModel](BaseModel.md#syncdataandformmodel)
 - [validate](BaseModel.md#validate)
 
 ## Properties
@@ -485,6 +486,22 @@ Whether the field should be visible to author or not.
 ▸ **reset**(): `any`
 
 Resets the form model
+
+#### Returns
+
+`any`
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
 
 #### Returns
 

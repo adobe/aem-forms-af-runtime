@@ -65,9 +65,9 @@ execution of rules/events should extend from this class.
 - [getNonTransparentParent](Scriptable.md#getnontransparentparent)
 - [getRules](Scriptable.md#getrules)
 - [getState](Scriptable.md#getstate)
-- [importData](Scriptable.md#importdata)
 - [isTransparent](Scriptable.md#istransparent)
 - [reset](Scriptable.md#reset)
+- [syncDataAndFormModel](Scriptable.md#syncdataandformmodel)
 - [validate](Scriptable.md#validate)
 
 ## Accessors
@@ -609,26 +609,6 @@ ___
 
 ___
 
-### importData
-
-▸ `Abstract` **importData**(`a`): `any`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `a` | `default` |
-
-#### Returns
-
-`any`
-
-#### Inherited from
-
-[BaseNode](BaseNode.md).[importData](BaseNode.md#importdata)
-
-___
-
 ### isTransparent
 
 ▸ **isTransparent**(): `boolean`
@@ -658,6 +638,26 @@ Resets the form model
 #### Inherited from
 
 [BaseNode](BaseNode.md).[reset](BaseNode.md#reset)
+
+___
+
+### syncDataAndFormModel
+
+▸ `Abstract` **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[syncDataAndFormModel](BaseNode.md#syncdataandformmodel)
 
 ___
 

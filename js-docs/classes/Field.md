@@ -89,10 +89,10 @@
 - [getNonTransparentParent](Field.md#getnontransparentparent)
 - [getRules](Field.md#getrules)
 - [getState](Field.md#getstate)
-- [importData](Field.md#importdata)
 - [isTransparent](Field.md#istransparent)
 - [markAsInvalid](Field.md#markasinvalid)
 - [ruleNodeReference](Field.md#rulenodereference)
+- [syncDataAndFormModel](Field.md#syncdataandformmodel)
 - [toString](Field.md#tostring)
 - [triggerValidationEvent](Field.md#triggervalidationevent)
 - [validate](Field.md#validate)
@@ -1443,30 +1443,6 @@ ___
 
 ___
 
-### importData
-
-▸ **importData**(`contextualDataModel`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `contextualDataModel` | `default` |
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-FieldModel.importData
-
-#### Overrides
-
-[Scriptable](Scriptable.md).[importData](Scriptable.md#importdata)
-
-___
-
 ### isTransparent
 
 ▸ **isTransparent**(): `boolean`
@@ -1517,6 +1493,30 @@ FieldModel.ruleNodeReference
 #### Overrides
 
 Scriptable.ruleNodeReference
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`dataNode`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dataNode` | `default` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[syncDataAndFormModel](../interfaces/FieldModel.md#syncdataandformmodel)
+
+#### Overrides
+
+[Scriptable](Scriptable.md).[syncDataAndFormModel](Scriptable.md#syncdataandformmodel)
 
 ___
 

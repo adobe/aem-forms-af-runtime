@@ -77,10 +77,10 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [getNonTransparentParent](EmailInput.md#getnontransparentparent)
 - [getRules](EmailInput.md#getrules)
 - [getState](EmailInput.md#getstate)
-- [importData](EmailInput.md#importdata)
 - [isTransparent](EmailInput.md#istransparent)
 - [markAsInvalid](EmailInput.md#markasinvalid)
 - [ruleNodeReference](EmailInput.md#rulenodereference)
+- [syncDataAndFormModel](EmailInput.md#syncdataandformmodel)
 - [toString](EmailInput.md#tostring)
 - [triggerValidationEvent](EmailInput.md#triggervalidationevent)
 - [validate](EmailInput.md#validate)
@@ -1281,26 +1281,6 @@ ___
 
 ___
 
-### importData
-
-▸ **importData**(`contextualDataModel`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `contextualDataModel` | `default` |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Field](Field.md).[importData](Field.md#importdata)
-
-___
-
 ### isTransparent
 
 ▸ **isTransparent**(): `boolean`
@@ -1351,6 +1331,26 @@ ___
 #### Inherited from
 
 [Field](Field.md).[ruleNodeReference](Field.md#rulenodereference)
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`dataNode`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dataNode` | `default` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Field](Field.md).[syncDataAndFormModel](Field.md#syncdataandformmodel)
 
 ___
 

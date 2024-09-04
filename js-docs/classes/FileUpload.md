@@ -83,11 +83,11 @@ Implementation of FileUpload runtime model which extends from [field](Field.md)
 - [getNonTransparentParent](FileUpload.md#getnontransparentparent)
 - [getRules](FileUpload.md#getrules)
 - [getState](FileUpload.md#getstate)
-- [importData](FileUpload.md#importdata)
 - [isTransparent](FileUpload.md#istransparent)
 - [markAsInvalid](FileUpload.md#markasinvalid)
 - [ruleNodeReference](FileUpload.md#rulenodereference)
 - [serialize](FileUpload.md#serialize)
+- [syncDataAndFormModel](FileUpload.md#syncdataandformmodel)
 - [toString](FileUpload.md#tostring)
 - [triggerValidationEvent](FileUpload.md#triggervalidationevent)
 - [validate](FileUpload.md#validate)
@@ -1626,30 +1626,6 @@ ___
 
 ___
 
-### importData
-
-▸ **importData**(`dataModel`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `dataModel` | `default` |
-
-#### Returns
-
-`void`
-
-#### Implementation of
-
-FieldModel.importData
-
-#### Overrides
-
-[Field](Field.md).[importData](Field.md#importdata)
-
-___
-
 ### isTransparent
 
 ▸ **isTransparent**(): `boolean`
@@ -1714,6 +1690,30 @@ ___
 #### Returns
 
 `Promise`<``null`` \| `unknown`[]\>
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`dataNode`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `dataNode` | `default` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[syncDataAndFormModel](../interfaces/FieldModel.md#syncdataandformmodel)
+
+#### Overrides
+
+[Field](Field.md).[syncDataAndFormModel](Field.md#syncdataandformmodel)
 
 ___
 

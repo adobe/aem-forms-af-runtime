@@ -71,9 +71,11 @@ Defines properties that each field set should have
 ### Methods
 
 - [getState](FieldsetModel.md#getstate)
+- [importData](FieldsetModel.md#importdata)
 - [indexOf](FieldsetModel.md#indexof)
 - [isTransparent](FieldsetModel.md#istransparent)
 - [reset](FieldsetModel.md#reset)
+- [syncDataAndFormModel](FieldsetModel.md#syncdataandformmodel)
 - [validate](FieldsetModel.md#validate)
 
 ## Properties
@@ -632,6 +634,28 @@ WithState.getState
 
 ___
 
+### importData
+
+▸ **importData**(`data`): `any`
+
+Imports the given form data
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `any` | form data |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[importData](ContainerModel.md#importdata)
+
+___
+
 ### indexOf
 
 ▸ **indexOf**(`f`): `number`
@@ -683,6 +707,26 @@ Resets the form model
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[reset](ContainerModel.md#reset)
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[syncDataAndFormModel](ContainerModel.md#syncdataandformmodel)
 
 ___
 

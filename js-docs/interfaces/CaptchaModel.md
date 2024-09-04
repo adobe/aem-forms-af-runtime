@@ -77,6 +77,7 @@ Defines properties that each form's captcha should have
 
 - [getState](CaptchaModel.md#getstate)
 - [reset](CaptchaModel.md#reset)
+- [syncDataAndFormModel](CaptchaModel.md#syncdataandformmodel)
 - [validate](CaptchaModel.md#validate)
 
 ## Properties
@@ -722,6 +723,26 @@ Resets the form model
 #### Inherited from
 
 [FieldModel](FieldModel.md).[reset](FieldModel.md#reset)
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[FieldModel](FieldModel.md).[syncDataAndFormModel](FieldModel.md#syncdataandformmodel)
 
 ___
 

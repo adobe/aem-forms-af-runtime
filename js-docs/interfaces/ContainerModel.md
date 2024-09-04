@@ -74,9 +74,11 @@ Defines properties that each container should have
 
 ### Methods
 
+- [importData](ContainerModel.md#importdata)
 - [indexOf](ContainerModel.md#indexof)
 - [isTransparent](ContainerModel.md#istransparent)
 - [reset](ContainerModel.md#reset)
+- [syncDataAndFormModel](ContainerModel.md#syncdataandformmodel)
 - [validate](ContainerModel.md#validate)
 
 ## Properties
@@ -615,6 +617,24 @@ Whether the field should be visible to author or not.
 
 ## Methods
 
+### importData
+
+▸ **importData**(`data`): `any`
+
+Imports the given form data
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `data` | `any` | form data |
+
+#### Returns
+
+`any`
+
+___
+
 ### indexOf
 
 ▸ **indexOf**(`f`): `number`
@@ -658,6 +678,26 @@ Resets the form model
 #### Inherited from
 
 [BaseModel](BaseModel.md).[reset](BaseModel.md#reset)
+
+___
+
+### syncDataAndFormModel
+
+▸ **syncDataAndFormModel**(`a?`): `any`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `a?` | `default` \| `default` |
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[syncDataAndFormModel](BaseModel.md#syncdataandformmodel)
 
 ___
 
