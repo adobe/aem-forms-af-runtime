@@ -38,7 +38,7 @@ Implementation of `addItem` event. The event is triggered on a panel to add a ne
 
 | Name | Type |
 | :------ | :------ |
-| `payload?` | `number` |
+| `payload?` | `number` \| [`AddItemPayload`](../README.md#additempayload) |
 
 #### Overrides
 

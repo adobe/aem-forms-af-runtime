@@ -38,7 +38,7 @@ Implementation of `addInstance` event. The event is triggered on a field to add 
 
 | Name | Type |
 | :------ | :------ |
-| `payload?` | `number` |
+| `payload?` | `number` \| [`AddItemPayload`](../README.md#additempayload) |
 
 #### Overrides
 
