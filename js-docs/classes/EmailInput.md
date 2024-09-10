@@ -32,6 +32,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [fieldType](EmailInput.md#fieldtype)
 - [form](EmailInput.md#form)
 - [format](EmailInput.md#format)
+- [fragment](EmailInput.md#fragment)
 - [id](EmailInput.md#id)
 - [index](EmailInput.md#index)
 - [isContainer](EmailInput.md#iscontainer)
@@ -479,6 +480,20 @@ returns the format constraint
 #### Inherited from
 
 Field.format
+
+___
+
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+Field.fragment
 
 ___
 

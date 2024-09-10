@@ -44,6 +44,7 @@ Defines properties that each form field should have
 - [exclusiveMinimum](FieldModel.md#exclusiveminimum)
 - [fieldType](FieldModel.md#fieldtype)
 - [format](FieldModel.md#format)
+- [fragment](FieldModel.md#fragment)
 - [id](FieldModel.md#id)
 - [index](FieldModel.md#index)
 - [isContainer](FieldModel.md#iscontainer)
@@ -291,6 +292,16 @@ ___
 #### Inherited from
 
 [BaseModel](BaseModel.md).[format](BaseModel.md#format)
+
+___
+
+### fragment
+
+• `Readonly` **fragment**: `string`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[fragment](BaseModel.md#fragment)
 
 ___
 

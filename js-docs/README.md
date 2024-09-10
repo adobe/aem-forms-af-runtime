@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.102
+# @aemforms/af-core - v0.22.103
 
 ## Table of contents
 
@@ -61,7 +61,6 @@
 
 ### Type aliases
 
-- [AddItemPayload](README.md#additempayload)
 - [BaseJson](README.md#basejson)
 - [CaptchaJson](README.md#captchajson)
 - [ChangePayload](README.md#changepayload)
@@ -134,25 +133,6 @@
 - [createFormInstance](modules/createFormInstance.md)
 
 ## Type aliases
-
-### AddItemPayload
-
-Ƭ **AddItemPayload**: `Object`
-
-Payload for adding an item.
-
-**`property`** {number} index - The index at which the item should be added.
-
-**`property`** {Object.<string, any>} data - The data of the item to be added.
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `data` | `Record`<`string`, `any`\> |
-| `index` | `number` |
-
-___
 
 ### BaseJson
 

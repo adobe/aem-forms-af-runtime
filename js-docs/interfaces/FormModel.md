@@ -37,9 +37,11 @@ Defines the interface for form model
 - [exclusiveMinimum](FormModel.md#exclusiveminimum)
 - [fieldType](FormModel.md#fieldtype)
 - [format](FormModel.md#format)
+- [fragment](FormModel.md#fragment)
 - [id](FormModel.md#id)
 - [index](FormModel.md#index)
 - [isContainer](FormModel.md#iscontainer)
+- [isFragment](FormModel.md#isfragment)
 - [items](FormModel.md#items)
 - [label](FormModel.md#label)
 - [lang](FormModel.md#lang)
@@ -289,6 +291,16 @@ ___
 
 ___
 
+### fragment
+
+• `Readonly` **fragment**: `string`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[fragment](ContainerModel.md#fragment)
+
+___
+
 ### id
 
 • `Readonly` **id**: `string`
@@ -322,6 +334,16 @@ Whether the form field is container or not
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[isContainer](ContainerModel.md#iscontainer)
+
+___
+
+### isFragment
+
+• **isFragment**: `boolean`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[isFragment](ContainerModel.md#isfragment)
 
 ___
 

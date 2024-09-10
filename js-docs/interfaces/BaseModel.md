@@ -37,6 +37,7 @@ Defines common properties that each form field should have
 - [exclusiveMinimum](BaseModel.md#exclusiveminimum)
 - [fieldType](BaseModel.md#fieldtype)
 - [format](BaseModel.md#format)
+- [fragment](BaseModel.md#fragment)
 - [id](BaseModel.md#id)
 - [index](BaseModel.md#index)
 - [isContainer](BaseModel.md#iscontainer)
@@ -198,6 +199,12 @@ ___
 #### Inherited from
 
 ConstraintsJson.format
+
+___
+
+### fragment
+
+• `Readonly` **fragment**: `string`
 
 ___
 

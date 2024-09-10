@@ -27,6 +27,7 @@ Defines a generic base class which all objects of form runtime model should exte
 - [description](BaseNode.md#description)
 - [fieldType](BaseNode.md#fieldtype)
 - [form](BaseNode.md#form)
+- [fragment](BaseNode.md#fragment)
 - [id](BaseNode.md#id)
 - [index](BaseNode.md#index)
 - [isContainer](BaseNode.md#iscontainer)
@@ -153,6 +154,20 @@ ___
 #### Returns
 
 [`FormModel`](../interfaces/FormModel.md)
+
+___
+
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Implementation of
+
+[BaseModel](../interfaces/BaseModel.md).[fragment](../interfaces/BaseModel.md#fragment)
 
 ___
 

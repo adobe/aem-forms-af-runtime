@@ -33,6 +33,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [fieldType](Checkbox.md#fieldtype)
 - [form](Checkbox.md#form)
 - [format](Checkbox.md#format)
+- [fragment](Checkbox.md#fragment)
 - [id](Checkbox.md#id)
 - [index](Checkbox.md#index)
 - [isContainer](Checkbox.md#iscontainer)
@@ -488,6 +489,20 @@ returns the format constraint
 #### Inherited from
 
 Field.format
+
+___
+
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+Field.fragment
 
 ___
 

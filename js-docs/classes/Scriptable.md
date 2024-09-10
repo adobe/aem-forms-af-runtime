@@ -32,6 +32,7 @@ execution of rules/events should extend from this class.
 - [description](Scriptable.md#description)
 - [fieldType](Scriptable.md#fieldtype)
 - [form](Scriptable.md#form)
+- [fragment](Scriptable.md#fragment)
 - [id](Scriptable.md#id)
 - [index](Scriptable.md#index)
 - [isContainer](Scriptable.md#iscontainer)
@@ -155,6 +156,20 @@ ___
 #### Inherited from
 
 BaseNode.form
+
+___
+
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Inherited from
+
+BaseNode.fragment
 
 ___
 

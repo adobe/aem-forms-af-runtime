@@ -40,6 +40,7 @@ Defines properties that each form's captcha should have
 - [exclusiveMinimum](CaptchaModel.md#exclusiveminimum)
 - [fieldType](CaptchaModel.md#fieldtype)
 - [format](CaptchaModel.md#format)
+- [fragment](CaptchaModel.md#fragment)
 - [id](CaptchaModel.md#id)
 - [index](CaptchaModel.md#index)
 - [isContainer](CaptchaModel.md#iscontainer)
@@ -331,6 +332,16 @@ ___
 #### Inherited from
 
 [FieldModel](FieldModel.md).[format](FieldModel.md#format)
+
+___
+
+### fragment
+
+• `Readonly` **fragment**: `string`
+
+#### Inherited from
+
+[FieldModel](FieldModel.md).[fragment](FieldModel.md#fragment)
 
 ___
 

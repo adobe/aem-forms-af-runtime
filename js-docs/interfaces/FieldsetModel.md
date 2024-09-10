@@ -35,9 +35,11 @@ Defines properties that each field set should have
 - [exclusiveMinimum](FieldsetModel.md#exclusiveminimum)
 - [fieldType](FieldsetModel.md#fieldtype)
 - [format](FieldsetModel.md#format)
+- [fragment](FieldsetModel.md#fragment)
 - [id](FieldsetModel.md#id)
 - [index](FieldsetModel.md#index)
 - [isContainer](FieldsetModel.md#iscontainer)
+- [isFragment](FieldsetModel.md#isfragment)
 - [items](FieldsetModel.md#items)
 - [label](FieldsetModel.md#label)
 - [lang](FieldsetModel.md#lang)
@@ -258,6 +260,16 @@ ___
 
 ___
 
+### fragment
+
+• `Readonly` **fragment**: `string`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[fragment](ContainerModel.md#fragment)
+
+___
+
 ### id
 
 • `Readonly` **id**: `string`
@@ -291,6 +303,16 @@ Whether the form field is container or not
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[isContainer](ContainerModel.md#iscontainer)
+
+___
+
+### isFragment
+
+• **isFragment**: `boolean`
+
+#### Inherited from
+
+[ContainerModel](ContainerModel.md).[isFragment](ContainerModel.md#isfragment)
 
 ___
 

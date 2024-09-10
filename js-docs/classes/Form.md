@@ -27,9 +27,11 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [enabled](Form.md#enabled)
 - [fieldType](Form.md#fieldtype)
 - [form](Form.md#form)
+- [fragment](Form.md#fragment)
 - [id](Form.md#id)
 - [index](Form.md#index)
 - [isContainer](Form.md#iscontainer)
+- [isFragment](Form.md#isfragment)
 - [items](Form.md#items)
 - [label](Form.md#label)
 - [lang](Form.md#lang)
@@ -334,6 +336,24 @@ Container.form
 
 ___
 
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[fragment](../interfaces/FormModel.md#fragment)
+
+#### Inherited from
+
+Container.fragment
+
+___
+
 ### id
 
 • `get` **id**(): `string`
@@ -391,6 +411,24 @@ Whether the form field is container or not
 #### Inherited from
 
 Container.isContainer
+
+___
+
+### isFragment
+
+• `get` **isFragment**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[isFragment](../interfaces/FormModel.md#isfragment)
+
+#### Overrides
+
+Container.isFragment
 
 ___
 

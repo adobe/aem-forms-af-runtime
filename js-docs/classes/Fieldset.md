@@ -23,9 +23,11 @@ Defines a field set class which extends from [container](Container.md)
 - [enabled](Fieldset.md#enabled)
 - [fieldType](Fieldset.md#fieldtype)
 - [form](Fieldset.md#form)
+- [fragment](Fieldset.md#fragment)
 - [id](Fieldset.md#id)
 - [index](Fieldset.md#index)
 - [isContainer](Fieldset.md#iscontainer)
+- [isFragment](Fieldset.md#isfragment)
 - [items](Fieldset.md#items)
 - [label](Fieldset.md#label)
 - [lang](Fieldset.md#lang)
@@ -264,6 +266,24 @@ Container.form
 
 ___
 
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Implementation of
+
+[FieldsetModel](../interfaces/FieldsetModel.md).[fragment](../interfaces/FieldsetModel.md#fragment)
+
+#### Inherited from
+
+Container.fragment
+
+___
+
 ### id
 
 • `get` **id**(): `string`
@@ -321,6 +341,24 @@ Whether the form field is container or not
 #### Inherited from
 
 Container.isContainer
+
+___
+
+### isFragment
+
+• `get` **isFragment**(): `any`
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[FieldsetModel](../interfaces/FieldsetModel.md).[isFragment](../interfaces/FieldsetModel.md#isfragment)
+
+#### Inherited from
+
+Container.isFragment
 
 ___
 

@@ -44,6 +44,7 @@
 - [fieldType](Field.md#fieldtype)
 - [form](Field.md#form)
 - [format](Field.md#format)
+- [fragment](Field.md#fragment)
 - [id](Field.md#id)
 - [index](Field.md#index)
 - [isContainer](Field.md#iscontainer)
@@ -525,6 +526,24 @@ returns the format constraint
 #### Implementation of
 
 [FieldModel](../interfaces/FieldModel.md).[format](../interfaces/FieldModel.md#format)
+
+___
+
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[fragment](../interfaces/FieldModel.md#fragment)
+
+#### Inherited from
+
+Scriptable.fragment
 
 ___
 

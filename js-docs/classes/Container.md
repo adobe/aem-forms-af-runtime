@@ -33,9 +33,11 @@ Defines a generic container class which any form container should extend from.
 - [enabled](Container.md#enabled)
 - [fieldType](Container.md#fieldtype)
 - [form](Container.md#form)
+- [fragment](Container.md#fragment)
 - [id](Container.md#id)
 - [index](Container.md#index)
 - [isContainer](Container.md#iscontainer)
+- [isFragment](Container.md#isfragment)
 - [items](Container.md#items)
 - [label](Container.md#label)
 - [lang](Container.md#lang)
@@ -262,6 +264,24 @@ Scriptable.form
 
 ___
 
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[fragment](../interfaces/ContainerModel.md#fragment)
+
+#### Inherited from
+
+Scriptable.fragment
+
+___
+
 ### id
 
 • `get` **id**(): `string`
@@ -319,6 +339,20 @@ Whether the form field is container or not
 #### Overrides
 
 Scriptable.isContainer
+
+___
+
+### isFragment
+
+• `get` **isFragment**(): `any`
+
+#### Returns
+
+`any`
+
+#### Implementation of
+
+[ContainerModel](../interfaces/ContainerModel.md).[isFragment](../interfaces/ContainerModel.md#isfragment)
 
 ___
 

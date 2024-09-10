@@ -37,6 +37,7 @@ Implementation of FileUpload runtime model which extends from [field](Field.md)
 - [fieldType](FileUpload.md#fieldtype)
 - [form](FileUpload.md#form)
 - [format](FileUpload.md#format)
+- [fragment](FileUpload.md#fragment)
 - [id](FileUpload.md#id)
 - [index](FileUpload.md#index)
 - [isContainer](FileUpload.md#iscontainer)
@@ -620,6 +621,24 @@ returns the format constraint
 #### Inherited from
 
 Field.format
+
+___
+
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[fragment](../interfaces/FieldModel.md#fragment)
+
+#### Inherited from
+
+Field.fragment
 
 ___
 

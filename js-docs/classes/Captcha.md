@@ -39,6 +39,7 @@ Implementation of Captcha runtime model which extends from [field](Field.md) mod
 - [fieldType](Captcha.md#fieldtype)
 - [form](Captcha.md#form)
 - [format](Captcha.md#format)
+- [fragment](Captcha.md#fragment)
 - [id](Captcha.md#id)
 - [index](Captcha.md#index)
 - [isContainer](Captcha.md#iscontainer)
@@ -658,6 +659,24 @@ returns the format constraint
 #### Inherited from
 
 Field.format
+
+___
+
+### fragment
+
+• `get` **fragment**(): `string`
+
+#### Returns
+
+`string`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[fragment](../interfaces/CaptchaModel.md#fragment)
+
+#### Inherited from
+
+Field.fragment
 
 ___
 

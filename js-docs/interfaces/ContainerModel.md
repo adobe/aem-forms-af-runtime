@@ -39,9 +39,11 @@ Defines properties that each container should have
 - [exclusiveMinimum](ContainerModel.md#exclusiveminimum)
 - [fieldType](ContainerModel.md#fieldtype)
 - [format](ContainerModel.md#format)
+- [fragment](ContainerModel.md#fragment)
 - [id](ContainerModel.md#id)
 - [index](ContainerModel.md#index)
 - [isContainer](ContainerModel.md#iscontainer)
+- [isFragment](ContainerModel.md#isfragment)
 - [items](ContainerModel.md#items)
 - [label](ContainerModel.md#label)
 - [lang](ContainerModel.md#lang)
@@ -257,6 +259,16 @@ ___
 
 ___
 
+### fragment
+
+• `Readonly` **fragment**: `string`
+
+#### Inherited from
+
+[BaseModel](BaseModel.md).[fragment](BaseModel.md#fragment)
+
+___
+
 ### id
 
 • `Readonly` **id**: `string`
@@ -290,6 +302,12 @@ Whether the form field is container or not
 #### Inherited from
 
 [BaseModel](BaseModel.md).[isContainer](BaseModel.md#iscontainer)
+
+___
+
+### isFragment
+
+• **isFragment**: `boolean`
 
 ___
 
