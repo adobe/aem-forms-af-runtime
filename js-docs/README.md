@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.103
+# @aemforms/af-core - v0.22.104
 
 ## Table of contents
 
@@ -161,7 +161,7 @@ Payload of change event
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `changes` | { `currentValue`: `any` ; `prevValue?`: `any` ; `propertyName`: `string`  }[] | List of changes |
-| `eventSource?` | [`EventSource`](enums/EventSource.md) | To identify the source(code/ui) of the event |
+| `eventSource?` | `EventSource` | To identify the source(code/ui) of the event |
 
 ___
 

@@ -40,7 +40,7 @@ Implementation of `fieldChanged` event. The field changed event is triggered on 
 | :------ | :------ | :------ |
 | `changes` | [`ChangePayload`](../README.md#changepayload) | `undefined` |
 | `field` | [`BaseJson`](../README.md#basejson) | `undefined` |
-| `eventSource` | [`EventSource`](../enums/EventSource.md) | `EventSource.CODE` |
+| `eventSource` | `EventSource` | `EventSource.CODE` |
 
 #### Overrides
 
