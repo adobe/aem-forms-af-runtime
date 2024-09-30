@@ -1037,9 +1037,15 @@ ___
 
 ### exportData
 
-▸ **exportData**(): `any`
+▸ **exportData**(`attachmentSerializedMap?`): `any`
 
 Exports the form data
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `attachmentSerializedMap` | `Object` |
 
 #### Returns
 
