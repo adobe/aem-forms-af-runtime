@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.107
+# @aemforms/af-core - v0.22.108
 
 ## Table of contents
 
@@ -122,6 +122,7 @@
 - [isRepeatable](README.md#isrepeatable)
 - [jsonString](README.md#jsonstring)
 - [propertyChange](README.md#propertychange)
+- [readAttachments](README.md#readattachments)
 - [registerFunctions](README.md#registerfunctions)
 - [restoreFormInstance](README.md#restoreforminstance)
 - [setCustomDefaultConstraintTypeMessages](README.md#setcustomdefaultconstrainttypemessages)
@@ -905,6 +906,27 @@ Creates a change event
 [`Change`](classes/Change.md)
 
 [Change](classes/Change.md) change event
+
+___
+
+### readAttachments
+
+▸ `Const` **readAttachments**(`input`, `excludeUnbound?`): `Promise`<`any`\>
+
+Returns the list of attachments with its data reference.
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `input` | [`ContainerModel`](interfaces/ContainerModel.md) | `undefined` | The form model containing items. |
+| `excludeUnbound` | `boolean` | `false` | - |
+
+#### Returns
+
+`Promise`<`any`\>
+
+- A promise that resolves to a list of file attachments [FileObject](classes/FileObject.md) present in the form.
 
 ___
 
