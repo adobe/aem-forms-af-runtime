@@ -58,6 +58,7 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 
 - [\_canHaveRepeatingChildren](Form.md#_canhaverepeatingchildren)
 - [\_findActiveField](Form.md#_findactivefield)
+- [addPromises](Form.md#addpromises)
 - [change](Form.md#change)
 - [executeAction](Form.md#executeaction)
 - [executeExpression](Form.md#executeexpression)
@@ -81,6 +82,7 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [setFocus](Form.md#setfocus)
 - [validate](Form.md#validate)
 - [visit](Form.md#visit)
+- [waitForPromises](Form.md#waitforpromises)
 
 ### Properties
 
@@ -972,6 +974,26 @@ ___
 
 ___
 
+### addPromises
+
+▸ **addPromises**(`updates`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `updates` | `Promise`<`any`\> |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+FormModel.addPromises
+
+___
+
 ### change
 
 ▸ **change**(`event`, `context`): `void`
@@ -1429,6 +1451,20 @@ visits each element in the form
 #### Implementation of
 
 [FormModel](../interfaces/FormModel.md).[visit](../interfaces/FormModel.md#visit)
+
+___
+
+### waitForPromises
+
+▸ **waitForPromises**(): `Promise`<`void`\>
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Implementation of
+
+FormModel.waitForPromises
 
 ## Properties
 

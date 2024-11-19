@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.110
+# @aemforms/af-core - v0.22.111
 
 ## Table of contents
 
@@ -84,6 +84,7 @@
 
 - [CUSTOM\_PROPS\_KEY](README.md#custom_props_key)
 - [ConstraintType](README.md#constrainttype)
+- [FIELD\_TYPE](README.md#field_type)
 - [FunctionRuntime](README.md#functionruntime)
 - [TRANSLATION\_ID](README.md#translation_id)
 - [TRANSLATION\_TOKEN](README.md#translation_token)
@@ -366,6 +367,53 @@ ___
 ConstraintType is an object containing properties that represent the constraint types as per HTML5 specfication.
 Once can access these properties using dot notation (for example)
 (ConstraintType.PATTERN_MISMATCH, ConstraintType.TOO_SHORT, etc.).
+
+___
+
+### FIELD\_TYPE
+
+• **FIELD\_TYPE**: `Object`
+
+ADOBE CONFIDENTIAL
+___________________
+
+Copyright 2024 Adobe
+All Rights Reserved.
+
+NOTICE: All information contained herein is, and remains
+the property of Adobe and its suppliers, if any. The intellectual
+and technical concepts contained herein are proprietary to Adobe
+and its suppliers and are protected by all applicable intellectual
+property laws, including trade secret and copyright laws.
+Dissemination of this information or reproduction of this material
+is strictly forbidden unless prior written permission is obtained
+from Adobe.
+
+Adobe permits you to use and modify this file solely in accordance with
+the terms of the Adobe license agreement accompanying it.
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `BUTTON` | `string` |
+| `CAPTCHA` | `string` |
+| `CHECKBOX` | `string` |
+| `CHECKBOX_GROUP` | `string` |
+| `DATE_INPUT` | `string` |
+| `DROP_DOWN` | `string` |
+| `EMAIL` | `string` |
+| `FILE_INPUT` | `string` |
+| `FORM` | `string` |
+| `IMAGE` | `string` |
+| `MULTILINE_INPUT` | `string` |
+| `NUMBER_INPUT` | `string` |
+| `PANEL` | `string` |
+| `PASSWORD` | `string` |
+| `PLAIN_TEXT` | `string` |
+| `RADIO_GROUP` | `string` |
+| `TELEPHONE` | `string` |
+| `TEXT_INPUT` | `string` |
 
 ___
 
