@@ -64,6 +64,7 @@ execution of rules/events should extend from this class.
 - [focus](Scriptable.md#focus)
 - [getDependents](Scriptable.md#getdependents)
 - [getNonTransparentParent](Scriptable.md#getnontransparentparent)
+- [getPropertiesManager](Scriptable.md#getpropertiesmanager)
 - [getRules](Scriptable.md#getrules)
 - [getState](Scriptable.md#getstate)
 - [isTransparent](Scriptable.md#istransparent)
@@ -568,11 +569,11 @@ ___
 
 ### getDependents
 
-▸ **getDependents**(): `string`[]
+▸ **getDependents**(): { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[]
 
 #### Returns
 
-`string`[]
+{ `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[]
 
 #### Inherited from
 
@@ -594,6 +595,22 @@ ___
 
 ___
 
+### getPropertiesManager
+
+▸ **getPropertiesManager**(): `PropertiesManager`
+
+Get the PropertiesManager instance for use in setVariable
+
+#### Returns
+
+`PropertiesManager`
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[getPropertiesManager](BaseNode.md#getpropertiesmanager)
+
+___
+
 ### getRules
 
 ▸ **getRules**(): [`Items`](../README.md#items)<`string`\>
@@ -606,7 +623,7 @@ ___
 
 ### getState
 
-▸ **getState**(`forRestore?`): `T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+▸ **getState**(`forRestore?`): `T` & { `:type`: `string` ; `_dependents`: `undefined` \| { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 #### Parameters
 
@@ -616,7 +633,7 @@ ___
 
 #### Returns
 
-`T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+`T` & { `:type`: `string` ; `_dependents`: `undefined` \| { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 #### Inherited from
 

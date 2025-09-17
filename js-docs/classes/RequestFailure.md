@@ -1,36 +1,38 @@
-# Class: Focus
+# Class: RequestFailure
+
+Implementation of `requestFailure` event. The event is triggered when a request fails.
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`Focus`**
+  ↳ **`RequestFailure`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](Focus.md#constructor)
+- [constructor](RequestFailure.md#constructor)
 
 ### Accessors
 
-- [currentTarget](Focus.md#currenttarget)
-- [isCustomEvent](Focus.md#iscustomevent)
-- [metadata](Focus.md#metadata)
-- [payload](Focus.md#payload)
-- [target](Focus.md#target)
-- [type](Focus.md#type)
+- [currentTarget](RequestFailure.md#currenttarget)
+- [isCustomEvent](RequestFailure.md#iscustomevent)
+- [metadata](RequestFailure.md#metadata)
+- [payload](RequestFailure.md#payload)
+- [target](RequestFailure.md#target)
+- [type](RequestFailure.md#type)
 
 ### Methods
 
-- [toJson](Focus.md#tojson)
-- [toString](Focus.md#tostring)
+- [toJson](RequestFailure.md#tojson)
+- [toString](RequestFailure.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new Focus**(`payload?`, `dispatch?`)
+• **new RequestFailure**(`payload?`, `dispatch?`)
 
 #### Parameters
 

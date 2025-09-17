@@ -255,7 +255,7 @@ ___
 
 ### exclusiveMaximum
 
-• `Optional` **exclusiveMaximum**: `number`
+• `Optional` **exclusiveMaximum**: `string` \| `number`
 
 #### Inherited from
 
@@ -265,7 +265,7 @@ ___
 
 ### exclusiveMinimum
 
-• `Optional` **exclusiveMinimum**: `number`
+• `Optional` **exclusiveMinimum**: `string` \| `number`
 
 #### Inherited from
 
@@ -419,7 +419,7 @@ ___
 
 ### maximum
 
-• `Optional` **maximum**: `number`
+• `Optional` **maximum**: `string` \| `number`
 
 #### Inherited from
 
@@ -459,7 +459,7 @@ ___
 
 ### minimum
 
-• `Optional` **minimum**: `number`
+• `Optional` **minimum**: `string` \| `number`
 
 #### Inherited from
 
@@ -667,9 +667,15 @@ Whether the field should be visible to author or not.
 
 ### getState
 
-▸ **getState**(): `any`
+▸ **getState**(`forRestore?`): `any`
 
 [state](../README.md#state) of the form object
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `forRestore?` | `boolean` |
 
 #### Returns
 

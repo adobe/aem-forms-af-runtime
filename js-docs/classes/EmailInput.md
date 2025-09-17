@@ -13,6 +13,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 ### Accessors
 
 - [:type](EmailInput.md#:type)
+- [constraintMessage](EmailInput.md#constraintmessage)
 - [dataRef](EmailInput.md#dataref)
 - [default](EmailInput.md#default)
 - [description](EmailInput.md#description)
@@ -76,6 +77,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 - [getDependents](EmailInput.md#getdependents)
 - [getErrorMessage](EmailInput.md#geterrormessage)
 - [getNonTransparentParent](EmailInput.md#getnontransparentparent)
+- [getPropertiesManager](EmailInput.md#getpropertiesmanager)
 - [getRules](EmailInput.md#getrules)
 - [getState](EmailInput.md#getstate)
 - [isTransparent](EmailInput.md#istransparent)
@@ -100,6 +102,47 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 #### Inherited from
 
 Field.:type
+
+___
+
+### constraintMessage
+
+• `set` **constraintMessage**(`constraint`): `void`
+
+Sets constraint message(s) for validation types.
+This setter automatically triggers change events, enabling UI components
+to react to constraint message updates.
+
+**`example`**
+```
+// Set single constraint message
+field.constraintMessage = { type: 'required', message: 'This field is mandatory' };
+
+// Set multiple constraint messages in single call (new functionality)
+field.constraintMessage = [
+  { type: 'minimum', message: 'Date must be after 2025-08-11' },
+  { type: 'maximum', message: 'Date must be before 2025-08-14' }
+];
+
+// Set pattern validation message
+field.constraintMessage = { type: 'pattern', message: 'Please match the required format' };
+```
+
+**`see`** [ConstraintsMessages](../README.md#constraintsmessages) for available constraint types
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `constraint` | { `message`: `string` ; `type`: keyof [`ConstraintsMessages`](../README.md#constraintsmessages)  } \| { `message`: `string` ; `type`: keyof [`ConstraintsMessages`](../README.md#constraintsmessages)  }[] | Single constraint object or array of constraint objects |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Field.constraintMessage
 
 ___
 
@@ -381,11 +424,11 @@ ___
 
 ### exclusiveMaximum
 
-• `get` **exclusiveMaximum**(): `undefined` \| `number`
+• `get` **exclusiveMaximum**(): `undefined` \| `string` \| `number`
 
 #### Returns
 
-`undefined` \| `number`
+`undefined` \| `string` \| `number`
 
 #### Inherited from
 
@@ -397,7 +440,7 @@ Field.exclusiveMaximum
 
 | Name | Type |
 | :------ | :------ |
-| `eM` | `undefined` \| `number` |
+| `eM` | `undefined` \| `string` \| `number` |
 
 #### Returns
 
@@ -411,11 +454,11 @@ ___
 
 ### exclusiveMinimum
 
-• `get` **exclusiveMinimum**(): `undefined` \| `number`
+• `get` **exclusiveMinimum**(): `undefined` \| `string` \| `number`
 
 #### Returns
 
-`undefined` \| `number`
+`undefined` \| `string` \| `number`
 
 #### Inherited from
 
@@ -427,7 +470,7 @@ Field.exclusiveMinimum
 
 | Name | Type |
 | :------ | :------ |
-| `eM` | `undefined` \| `number` |
+| `eM` | `undefined` \| `string` \| `number` |
 
 #### Returns
 
@@ -599,11 +642,11 @@ ___
 
 ### maximum
 
-• `get` **maximum**(): `undefined` \| `number`
+• `get` **maximum**(): `undefined` \| `string` \| `number`
 
 #### Returns
 
-`undefined` \| `number`
+`undefined` \| `string` \| `number`
 
 #### Inherited from
 
@@ -615,7 +658,7 @@ Field.maximum
 
 | Name | Type |
 | :------ | :------ |
-| `m` | `undefined` \| `number` |
+| `m` | `undefined` \| `string` \| `number` |
 
 #### Returns
 
@@ -643,11 +686,11 @@ ___
 
 ### minimum
 
-• `get` **minimum**(): `undefined` \| `number`
+• `get` **minimum**(): `undefined` \| `string` \| `number`
 
 #### Returns
 
-`undefined` \| `number`
+`undefined` \| `string` \| `number`
 
 #### Inherited from
 
@@ -659,7 +702,7 @@ Field.minimum
 
 | Name | Type |
 | :------ | :------ |
-| `m` | `undefined` \| `number` |
+| `m` | `undefined` \| `string` \| `number` |
 
 #### Returns
 
@@ -1142,11 +1185,11 @@ ___
 
 ### getDependents
 
-▸ **getDependents**(): `string`[]
+▸ **getDependents**(): { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[]
 
 #### Returns
 
-`string`[]
+{ `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[]
 
 #### Inherited from
 
@@ -1190,6 +1233,22 @@ ___
 
 ___
 
+### getPropertiesManager
+
+▸ **getPropertiesManager**(): `PropertiesManager`
+
+Get the PropertiesManager instance for use in setVariable
+
+#### Returns
+
+`PropertiesManager`
+
+#### Inherited from
+
+[Field](Field.md).[getPropertiesManager](Field.md#getpropertiesmanager)
+
+___
+
 ### getRules
 
 ▸ **getRules**(): [`Items`](../README.md#items)<`string`\>
@@ -1224,7 +1283,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `:type` | `string` |
-| `_dependents` | `undefined` \| `string`[] |
+| `_dependents` | `undefined` \| { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[] |
 | `accept?` | `string`[] |
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
@@ -1249,8 +1308,8 @@ ___
 | `enumNames?` | `string`[] |
 | `errorMessage?` | `string` |
 | `events?` | [`Items`](../README.md#items)<`undefined` \| `string` \| `string`[]\> |
-| `exclusiveMaximum?` | `number` |
-| `exclusiveMinimum?` | `number` |
+| `exclusiveMaximum?` | `string` \| `number` |
+| `exclusiveMinimum?` | `string` \| `number` |
 | `fieldType?` | `string` |
 | `format?` | `string` |
 | `gridClassNames` | `undefined` |
@@ -1262,16 +1321,16 @@ ___
 | `maxItems?` | `number` |
 | `maxLength?` | `number` |
 | `maxOccur?` | `number` |
-| `maximum?` | `number` |
+| `maximum?` | `string` \| `number` |
 | `minItems?` | `number` |
 | `minLength?` | `number` |
 | `minOccur?` | `number` |
-| `minimum?` | `number` |
+| `minimum?` | `string` \| `number` |
 | `name?` | `string` |
 | `parent` | `undefined` |
 | `pattern?` | `string` |
 | `placeholder?` | `string` |
-| `properties` | { [key: string]: `any`;  } |
+| `properties` | { [key: string]: `any`;  } & { [key: string]: `any`;  } |
 | `qualifiedName` | `any` |
 | `readOnly` | `undefined` \| `boolean` |
 | `repeatable?` | `boolean` |

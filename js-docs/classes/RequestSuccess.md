@@ -1,36 +1,38 @@
-# Class: Focus
+# Class: RequestSuccess
+
+Implementation of `requestSuccess` event. The event is triggered when a request is successfully completed.
 
 ## Hierarchy
 
 - `ActionImpl`
 
-  ↳ **`Focus`**
+  ↳ **`RequestSuccess`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](Focus.md#constructor)
+- [constructor](RequestSuccess.md#constructor)
 
 ### Accessors
 
-- [currentTarget](Focus.md#currenttarget)
-- [isCustomEvent](Focus.md#iscustomevent)
-- [metadata](Focus.md#metadata)
-- [payload](Focus.md#payload)
-- [target](Focus.md#target)
-- [type](Focus.md#type)
+- [currentTarget](RequestSuccess.md#currenttarget)
+- [isCustomEvent](RequestSuccess.md#iscustomevent)
+- [metadata](RequestSuccess.md#metadata)
+- [payload](RequestSuccess.md#payload)
+- [target](RequestSuccess.md#target)
+- [type](RequestSuccess.md#type)
 
 ### Methods
 
-- [toJson](Focus.md#tojson)
-- [toString](Focus.md#tostring)
+- [toJson](RequestSuccess.md#tojson)
+- [toString](RequestSuccess.md#tostring)
 
 ## Constructors
 
 ### constructor
 
-• **new Focus**(`payload?`, `dispatch?`)
+• **new RequestSuccess**(`payload?`, `dispatch?`)
 
 #### Parameters
 

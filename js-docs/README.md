@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.111
+# @aemforms/af-core - v0.22.153
 
 ## Table of contents
 
@@ -46,6 +46,8 @@
 - [Node](classes/Node.md)
 - [RemoveInstance](classes/RemoveInstance.md)
 - [RemoveItem](classes/RemoveItem.md)
+- [RequestFailure](classes/RequestFailure.md)
+- [RequestSuccess](classes/RequestSuccess.md)
 - [Reset](classes/Reset.md)
 - [Save](classes/Save.md)
 - [Scriptable](classes/Scriptable.md)
@@ -117,6 +119,7 @@
 - [isCheckbox](README.md#ischeckbox)
 - [isCheckboxGroup](README.md#ischeckboxgroup)
 - [isDateField](README.md#isdatefield)
+- [isDateTimeField](README.md#isdatetimefield)
 - [isEmailInput](README.md#isemailinput)
 - [isEmpty](README.md#isempty)
 - [isFile](README.md#isfile)
@@ -146,7 +149,7 @@ ___
 
 ### CaptchaJson
 
-Ƭ **CaptchaJson**: [`FieldJson`](README.md#fieldjson) & { `captchaDisplayMode?`: [`CaptchaDisplayMode`](enums/CaptchaDisplayMode.md) ; `captchaProvider?`: `string` ; `siteKey?`: `string`  }
+Ƭ **CaptchaJson**: [`FieldJson`](README.md#fieldjson) & { `captchaDisplayMode?`: [`CaptchaDisplayMode`](enums/CaptchaDisplayMode.md) ; `captchaProvider?`: `string` ; `captchaSiteKey?`: `string`  }
 
 Type for `form captcha field properties` based on `adaptive form specification`
 
@@ -169,7 +172,7 @@ ___
 
 ### ConstraintsJson
 
-Ƭ **ConstraintsJson**: `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` ; `exclusiveMinimum?`: `number` ; `format?`: `string` ; `maxFileSize?`: `number` \| `string` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  }
+Ƭ **ConstraintsJson**: `TranslationConstraintsJson` & { `accept?`: `string`[] ; `enforceEnum?`: `boolean` ; `exclusiveMaximum?`: `number` \| `string` ; `exclusiveMinimum?`: `number` \| `string` ; `format?`: `string` ; `maxFileSize?`: `number` \| `string` ; `maxItems?`: `number` ; `maxLength?`: `number` ; `maxOccur?`: `number` ; `maximum?`: `number` \| `string` ; `minItems?`: `number` ; `minLength?`: `number` ; `minOccur?`: `number` ; `minimum?`: `number` \| `string` ; `pattern?`: `string` ; `required?`: `boolean` ; `step?`: `number` ; `type?`: `string` ; `uniqueItems?`: `boolean` ; `validationExpression?`: `string`  }
 
 Type for `constraint properties` based on `adaptive form specification`
 
@@ -362,7 +365,7 @@ ___
 
 ### ConstraintType
 
-• **ConstraintType**: `Readonly`<{ `ACCEPT_MISMATCH`: ``"acceptMismatch"`` = 'acceptMismatch'; `EXCLUSIVE_MAXIMUM_MISMATCH`: ``"exclusiveMaximumMismatch"`` = 'exclusiveMaximumMismatch'; `EXCLUSIVE_MINIMUM_MISMATCH`: ``"exclusiveMinimumMismatch"`` = 'exclusiveMinimumMismatch'; `EXPRESSION_MISMATCH`: ``"expressionMismatch"`` = 'expressionMismatch'; `FILE_SIZE_MISMATCH`: ``"fileSizeMismatch"`` = 'fileSizeMismatch'; `FORMAT_MISMATCH`: ``"formatMismatch"`` = 'formatMismatch'; `MAX_ITEMS_MISMATCH`: ``"maxItemsMismatch"`` = 'maxItemsMismatch'; `MIN_ITEMS_MISMATCH`: ``"minItemsMismatch"`` = 'minItemsMismatch'; `PATTERN_MISMATCH`: ``"patternMismatch"`` = 'patternMismatch'; `RANGE_OVERFLOW`: ``"rangeOverflow"`` = 'rangeOverflow'; `RANGE_UNDERFLOW`: ``"rangeUnderflow"`` = 'rangeUnderflow'; `STEP_MISMATCH`: ``"stepMismatch"`` = 'stepMismatch'; `TOO_LONG`: ``"tooLong"`` = 'tooLong'; `TOO_SHORT`: ``"tooShort"`` = 'tooShort'; `TYPE_MISMATCH`: ``"typeMismatch"`` = 'typeMismatch'; `UNIQUE_ITEMS_MISMATCH`: ``"uniqueItemsMismatch"`` = 'uniqueItemsMismatch'; `VALUE_MISSING`: ``"valueMissing"`` = 'valueMissing' }\>
+• **ConstraintType**: `Readonly`<{ `ACCEPT_MISMATCH`: ``"acceptMismatch"`` = 'acceptMismatch'; `ENUM_MISMATCH`: ``"enumMismatch"`` = 'enumMismatch'; `EXCLUSIVE_MAXIMUM_MISMATCH`: ``"exclusiveMaximumMismatch"`` = 'exclusiveMaximumMismatch'; `EXCLUSIVE_MINIMUM_MISMATCH`: ``"exclusiveMinimumMismatch"`` = 'exclusiveMinimumMismatch'; `EXPRESSION_MISMATCH`: ``"expressionMismatch"`` = 'expressionMismatch'; `FILE_SIZE_MISMATCH`: ``"fileSizeMismatch"`` = 'fileSizeMismatch'; `FORMAT_MISMATCH`: ``"formatMismatch"`` = 'formatMismatch'; `MAX_ITEMS_MISMATCH`: ``"maxItemsMismatch"`` = 'maxItemsMismatch'; `MIN_ITEMS_MISMATCH`: ``"minItemsMismatch"`` = 'minItemsMismatch'; `PATTERN_MISMATCH`: ``"patternMismatch"`` = 'patternMismatch'; `RANGE_OVERFLOW`: ``"rangeOverflow"`` = 'rangeOverflow'; `RANGE_UNDERFLOW`: ``"rangeUnderflow"`` = 'rangeUnderflow'; `STEP_MISMATCH`: ``"stepMismatch"`` = 'stepMismatch'; `TOO_LONG`: ``"tooLong"`` = 'tooLong'; `TOO_SHORT`: ``"tooShort"`` = 'tooShort'; `TYPE_MISMATCH`: ``"typeMismatch"`` = 'typeMismatch'; `UNIQUE_ITEMS_MISMATCH`: ``"uniqueItemsMismatch"`` = 'uniqueItemsMismatch'; `VALUE_MISSING`: ``"valueMissing"`` = 'valueMissing' }\>
 
 ConstraintType is an object containing properties that represent the constraint types as per HTML5 specfication.
 Once can access these properties using dot notation (for example)
@@ -441,7 +444,7 @@ ___
 
 ### constraintKeys
 
-• **constraintKeys**: `Readonly`<{ `accept`: ``"acceptMismatch"`` = ConstraintType.ACCEPT\_MISMATCH; `exclusiveMaximum`: ``"exclusiveMaximumMismatch"`` = ConstraintType.EXCLUSIVE\_MAXIMUM\_MISMATCH; `exclusiveMinimum`: ``"exclusiveMinimumMismatch"`` = ConstraintType.EXCLUSIVE\_MINIMUM\_MISMATCH; `format`: ``"formatMismatch"`` = ConstraintType.FORMAT\_MISMATCH; `maxFileSize`: ``"fileSizeMismatch"`` = ConstraintType.FILE\_SIZE\_MISMATCH; `maxItems`: ``"maxItemsMismatch"`` = ConstraintType.MAX\_ITEMS\_MISMATCH; `maxLength`: ``"tooLong"`` = ConstraintType.TOO\_LONG; `maximum`: ``"rangeOverflow"`` = ConstraintType.RANGE\_OVERFLOW; `minItems`: ``"minItemsMismatch"`` = ConstraintType.MIN\_ITEMS\_MISMATCH; `minLength`: ``"tooShort"`` = ConstraintType.TOO\_SHORT; `minimum`: ``"rangeUnderflow"`` = ConstraintType.RANGE\_UNDERFLOW; `pattern`: ``"patternMismatch"`` = ConstraintType.PATTERN\_MISMATCH; `required`: ``"valueMissing"`` = ConstraintType.VALUE\_MISSING; `step`: ``"stepMismatch"`` = ConstraintType.STEP\_MISMATCH; `type`: ``"typeMismatch"`` = ConstraintType.TYPE\_MISMATCH; `uniqueItems`: ``"uniqueItemsMismatch"`` = ConstraintType.UNIQUE\_ITEMS\_MISMATCH; `validationExpression`: ``"expressionMismatch"`` = ConstraintType.EXPRESSION\_MISMATCH }\>
+• **constraintKeys**: `Readonly`<{ `accept`: ``"acceptMismatch"`` = ConstraintType.ACCEPT\_MISMATCH; `enum`: ``"enumMismatch"`` = ConstraintType.ENUM\_MISMATCH; `exclusiveMaximum`: ``"exclusiveMaximumMismatch"`` = ConstraintType.EXCLUSIVE\_MAXIMUM\_MISMATCH; `exclusiveMinimum`: ``"exclusiveMinimumMismatch"`` = ConstraintType.EXCLUSIVE\_MINIMUM\_MISMATCH; `format`: ``"formatMismatch"`` = ConstraintType.FORMAT\_MISMATCH; `maxFileSize`: ``"fileSizeMismatch"`` = ConstraintType.FILE\_SIZE\_MISMATCH; `maxItems`: ``"maxItemsMismatch"`` = ConstraintType.MAX\_ITEMS\_MISMATCH; `maxLength`: ``"tooLong"`` = ConstraintType.TOO\_LONG; `maximum`: ``"rangeOverflow"`` = ConstraintType.RANGE\_OVERFLOW; `minItems`: ``"minItemsMismatch"`` = ConstraintType.MIN\_ITEMS\_MISMATCH; `minLength`: ``"tooShort"`` = ConstraintType.TOO\_SHORT; `minimum`: ``"rangeUnderflow"`` = ConstraintType.RANGE\_UNDERFLOW; `pattern`: ``"patternMismatch"`` = ConstraintType.PATTERN\_MISMATCH; `required`: ``"valueMissing"`` = ConstraintType.VALUE\_MISSING; `step`: ``"stepMismatch"`` = ConstraintType.STEP\_MISMATCH; `type`: ``"typeMismatch"`` = ConstraintType.TYPE\_MISMATCH; `uniqueItems`: ``"uniqueItemsMismatch"`` = ConstraintType.UNIQUE\_ITEMS\_MISMATCH; `validationExpression`: ``"expressionMismatch"`` = ConstraintType.EXPRESSION\_MISMATCH }\>
 
 This map consists of key which are constraints based on `adaptive form specification and value
 which specifies constraint types as per HTML5 specification
@@ -654,6 +657,7 @@ API to get the constraint type messages
 | Name | Type |
 | :------ | :------ |
 | `acceptMismatch` | ``"The specified file type not supported."`` |
+| `enumMismatch` | ``"Please select a value from the allowed options."`` |
 | `exclusiveMaximumMismatch` | ``"Value must be less than ${0}."`` |
 | `exclusiveMinimumMismatch` | ``"Value must be greater than ${0}."`` |
 | `expressionMismatch` | ``"Please enter a valid value."`` |
@@ -824,6 +828,26 @@ ___
 ▸ `Const` **isDateField**(`item`): `boolean`
 
 Checks if the input item provided is a date field
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `item` | [`FieldJson`](README.md#fieldjson) \| [`FieldsetJson`](README.md#fieldsetjson) | input item it could be [Fieldset](README.md#fieldsetjson) or [Field](README.md#fieldjson) |
+
+#### Returns
+
+`boolean`
+
+`true` if `item` is a form check box group, `false` otherwise
+
+___
+
+### isDateTimeField
+
+▸ `Const` **isDateTimeField**(`item`): `boolean`
+
+Checks if the input item provided is a date time field
 
 #### Parameters
 

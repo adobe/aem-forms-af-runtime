@@ -57,6 +57,7 @@ Defines a generic base class which all objects of form runtime model should exte
 - [focus](BaseNode.md#focus)
 - [getDependents](BaseNode.md#getdependents)
 - [getNonTransparentParent](BaseNode.md#getnontransparentparent)
+- [getPropertiesManager](BaseNode.md#getpropertiesmanager)
 - [getState](BaseNode.md#getstate)
 - [isTransparent](BaseNode.md#istransparent)
 - [reset](BaseNode.md#reset)
@@ -533,11 +534,11 @@ ___
 
 ### getDependents
 
-▸ **getDependents**(): `string`[]
+▸ **getDependents**(): { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[]
 
 #### Returns
 
-`string`[]
+{ `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[]
 
 ___
 
@@ -551,9 +552,21 @@ ___
 
 ___
 
+### getPropertiesManager
+
+▸ **getPropertiesManager**(): `PropertiesManager`
+
+Get the PropertiesManager instance for use in setVariable
+
+#### Returns
+
+`PropertiesManager`
+
+___
+
 ### getState
 
-▸ **getState**(`forRestore?`): `T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+▸ **getState**(`forRestore?`): `T` & { `:type`: `string` ; `_dependents`: `undefined` \| { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 #### Parameters
 
@@ -563,7 +576,7 @@ ___
 
 #### Returns
 
-`T` & { `:type`: `string` ; `_dependents`: `undefined` \| `string`[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
+`T` & { `:type`: `string` ; `_dependents`: `undefined` \| { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[] ; `allowedComponents`: `undefined` = undefined; `columnClassNames`: `undefined` = undefined; `columnCount`: `undefined` = undefined; `gridClassNames`: `undefined` = undefined; `id`: `string` ; `index`: `number` ; `maxOccur`: `undefined` \| `number` ; `minOccur`: `undefined` \| `number` ; `parent`: `undefined` = undefined; `properties`: { [key: string]: `any`;  } ; `qualifiedName`: `any` ; `repeatable`: `undefined` \| `boolean` = true }
 
 ___
 
