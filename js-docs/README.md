@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.154
+# @aemforms/af-core - v0.22.155
 
 ## Table of contents
 
@@ -129,6 +129,7 @@
 - [readAttachments](README.md#readattachments)
 - [registerFunctions](README.md#registerfunctions)
 - [restoreFormInstance](README.md#restoreforminstance)
+- [sanitizeName](README.md#sanitizename)
 - [setCustomDefaultConstraintTypeMessages](README.md#setcustomdefaultconstrainttypemessages)
 - [validateFormData](README.md#validateformdata)
 - [validateFormInstance](README.md#validateforminstance)
@@ -1034,6 +1035,33 @@ ___
 #### Returns
 
 [`FormModel`](interfaces/FormModel.md)
+
+___
+
+### sanitizeName
+
+▸ `Const` **sanitizeName**(`name`): `string`
+
+Sanitizes a name for use in expressions by wrapping it in quotes if it doesn't follow
+standard identifier naming conventions (starts with letter, contains only letters, numbers, underscores).
+
+**`example`**
+sanitizeName('fieldName') // returns 'fieldName'
+sanitizeName('field-name') // returns '"field-name"'
+sanitizeName('123field') // returns '"123field"'
+sanitizeName('field name') // returns '"field name"'
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `string` | The name to sanitize |
+
+#### Returns
+
+`string`
+
+The sanitized name (quoted if necessary)
 
 ___
 
