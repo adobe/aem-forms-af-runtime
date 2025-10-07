@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.155
+# @aemforms/af-core - v0.22.156
 
 ## Table of contents
 
@@ -1043,12 +1043,12 @@ ___
 ▸ `Const` **sanitizeName**(`name`): `string`
 
 Sanitizes a name for use in expressions by wrapping it in quotes if it doesn't follow
-standard identifier naming conventions (starts with letter, contains only letters, numbers, underscores).
+standard identifier naming conventions (starts with letter, number, underscore, or $, contains only letters, numbers, underscores, dots, and square brackets).
 
 **`example`**
 sanitizeName('fieldName') // returns 'fieldName'
 sanitizeName('field-name') // returns '"field-name"'
-sanitizeName('123field') // returns '"123field"'
+sanitizeName('123field') // returns '123field'
 sanitizeName('field name') // returns '"field name"'
 
 #### Parameters
