@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.157
+# @aemforms/af-core - v0.22.158
 
 ## Table of contents
 
@@ -50,6 +50,7 @@
 - [RequestSuccess](classes/RequestSuccess.md)
 - [Reset](classes/Reset.md)
 - [Save](classes/Save.md)
+- [ScriptError](classes/ScriptError.md)
 - [Scriptable](classes/Scriptable.md)
 - [Submit](classes/Submit.md)
 - [SubmitError](classes/SubmitError.md)
@@ -78,6 +79,7 @@
 - [MetaDataJson](README.md#metadatajson)
 - [Primitives](README.md#primitives)
 - [RulesJson](README.md#rulesjson)
+- [ScriptErrorPayload](README.md#scripterrorpayload)
 - [State](README.md#state)
 - [TranslationJson](README.md#translationjson)
 - [UIChangePayload](README.md#uichangepayload)
@@ -317,6 +319,24 @@ Type for `constraint messages` based on `adaptive form specification`
 | :------ | :------ |
 | `events?` | [`Items`](README.md#items)<`string`[] \| `string` \| `undefined`\> |
 | `rules?` | [`Items`](README.md#items)<`string`\> |
+
+___
+
+### ScriptErrorPayload
+
+Ƭ **ScriptErrorPayload**: `Object`
+
+Payload of scriptError event
+
+#### Type declaration
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `error` | `string` | The error message containing full context (field, expression, error details) |
+| `event?` | `string` | Event name (e.g., 'click', 'blur') or property name (e.g., 'value', 'visible') |
+| `name?` | `string` | Name of the field where the error occurred |
+| `rule?` | `string` | The actual rule/expression that failed |
+| `stack?` | `string` | Stack trace of the error (only available for execution errors) |
 
 ___
 
