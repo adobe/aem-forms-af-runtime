@@ -864,6 +864,24 @@ The placeholder to show on the widget.
 
 [FieldModel](../interfaces/FieldModel.md).[placeholder](../interfaces/FieldModel.md#placeholder)
 
+• `set` **placeholder**(`value`): `void`
+
+The placeholder to show on the widget.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[placeholder](../interfaces/FieldModel.md#placeholder)
+
 ___
 
 ### properties

@@ -1033,6 +1033,28 @@ The placeholder to show on the widget.
 
 Field.placeholder
 
+• `set` **placeholder**(`value`): `void`
+
+The placeholder to show on the widget.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[CaptchaModel](../interfaces/CaptchaModel.md).[placeholder](../interfaces/CaptchaModel.md#placeholder)
+
+#### Inherited from
+
+Field.placeholder
+
 ___
 
 ### properties

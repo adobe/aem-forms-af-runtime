@@ -768,6 +768,22 @@ ___
 
 Field.placeholder
 
+• `set` **placeholder**(`value`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Field.placeholder
+
 ___
 
 ### properties

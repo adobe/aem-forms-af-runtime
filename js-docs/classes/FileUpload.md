@@ -1011,6 +1011,28 @@ The placeholder to show on the widget.
 
 Field.placeholder
 
+• `set` **placeholder**(`value`): `void`
+
+The placeholder to show on the widget.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `value` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[placeholder](../interfaces/FieldModel.md#placeholder)
+
+#### Inherited from
+
+Field.placeholder
+
 ___
 
 ### properties
