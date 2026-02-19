@@ -47,6 +47,7 @@ Defines a generic base class which all objects of form runtime model should exte
 ### Properties
 
 - [\_eventSource](BaseNode.md#_eventsource)
+- [\_onlyViewNotify](BaseNode.md#_onlyviewnotify)
 - [value](BaseNode.md#value)
 
 ### Methods
@@ -455,6 +456,19 @@ Whether the field should be visible to author or not.
 #### Implementation of
 
 [BaseModel](../interfaces/BaseModel.md).[_eventSource](../interfaces/BaseModel.md#_eventsource)
+
+___
+
+### \_onlyViewNotify
+
+• `Optional` **\_onlyViewNotify**: `boolean`
+
+When set (e.g. by forms-engine when applying view-origin changes), notifyDependents notifies only
+'view' and undefined (default) dependents (skips 'model'). Caller must clear after the batch of updates. Used to avoid re-triggering rules/model.
+
+#### Implementation of
+
+BaseModel.\_onlyViewNotify
 
 ___
 

@@ -67,6 +67,7 @@ Implementation of check box runtime model which extends from [field](Field.md) m
 ### Properties
 
 - [\_eventSource](Checkbox.md#_eventsource)
+- [\_onlyViewNotify](Checkbox.md#_onlyviewnotify)
 
 ### Methods
 
@@ -1108,6 +1109,19 @@ Field.visible
 #### Inherited from
 
 [Field](Field.md).[_eventSource](Field.md#_eventsource)
+
+___
+
+### \_onlyViewNotify
+
+• `Optional` **\_onlyViewNotify**: `boolean`
+
+When set (e.g. by forms-engine when applying view-origin changes), notifyDependents notifies only
+'view' and undefined (default) dependents (skips 'model'). Caller must clear after the batch of updates. Used to avoid re-triggering rules/model.
+
+#### Inherited from
+
+[Field](Field.md).[_onlyViewNotify](Field.md#_onlyviewnotify)
 
 ## Methods
 

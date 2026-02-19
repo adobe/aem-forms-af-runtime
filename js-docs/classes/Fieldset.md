@@ -68,6 +68,7 @@ Defines a field set class which extends from [container](Container.md)
 ### Properties
 
 - [\_eventSource](Fieldset.md#_eventsource)
+- [\_onlyViewNotify](Fieldset.md#_onlyviewnotify)
 
 ## Accessors
 
@@ -1134,3 +1135,20 @@ Validates the given form field
 #### Inherited from
 
 [Container](Container.md).[_eventSource](Container.md#_eventsource)
+
+___
+
+### \_onlyViewNotify
+
+• `Optional` **\_onlyViewNotify**: `boolean`
+
+When set (e.g. by forms-engine when applying view-origin changes), notifyDependents notifies only
+'view' and undefined (default) dependents (skips 'model'). Caller must clear after the batch of updates. Used to avoid re-triggering rules/model.
+
+#### Implementation of
+
+FieldsetModel.\_onlyViewNotify
+
+#### Inherited from
+
+[Container](Container.md).[_onlyViewNotify](Container.md#_onlyviewnotify)

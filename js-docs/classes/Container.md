@@ -77,6 +77,7 @@ Defines a generic container class which any form container should extend from.
 ### Properties
 
 - [\_eventSource](Container.md#_eventsource)
+- [\_onlyViewNotify](Container.md#_onlyviewnotify)
 - [value](Container.md#value)
 
 ### Constructors
@@ -1056,6 +1057,23 @@ Validates the given form field
 #### Inherited from
 
 [Scriptable](Scriptable.md).[_eventSource](Scriptable.md#_eventsource)
+
+___
+
+### \_onlyViewNotify
+
+• `Optional` **\_onlyViewNotify**: `boolean`
+
+When set (e.g. by forms-engine when applying view-origin changes), notifyDependents notifies only
+'view' and undefined (default) dependents (skips 'model'). Caller must clear after the batch of updates. Used to avoid re-triggering rules/model.
+
+#### Implementation of
+
+ContainerModel.\_onlyViewNotify
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[_onlyViewNotify](Scriptable.md#_onlyviewnotify)
 
 ___
 

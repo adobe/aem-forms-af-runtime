@@ -52,6 +52,7 @@ execution of rules/events should extend from this class.
 ### Properties
 
 - [\_eventSource](Scriptable.md#_eventsource)
+- [\_onlyViewNotify](Scriptable.md#_onlyviewnotify)
 - [value](Scriptable.md#value)
 
 ### Methods
@@ -443,6 +444,19 @@ BaseNode.visible
 #### Inherited from
 
 [BaseNode](BaseNode.md).[_eventSource](BaseNode.md#_eventsource)
+
+___
+
+### \_onlyViewNotify
+
+• `Optional` **\_onlyViewNotify**: `boolean`
+
+When set (e.g. by forms-engine when applying view-origin changes), notifyDependents notifies only
+'view' and undefined (default) dependents (skips 'model'). Caller must clear after the batch of updates. Used to avoid re-triggering rules/model.
+
+#### Inherited from
+
+[BaseNode](BaseNode.md).[_onlyViewNotify](BaseNode.md#_onlyviewnotify)
 
 ___
 

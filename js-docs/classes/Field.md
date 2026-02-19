@@ -78,6 +78,7 @@
 ### Properties
 
 - [\_eventSource](Field.md#_eventsource)
+- [\_onlyViewNotify](Field.md#_onlyviewnotify)
 
 ### Methods
 
@@ -1259,6 +1260,23 @@ Scriptable.visible
 #### Inherited from
 
 [Scriptable](Scriptable.md).[_eventSource](Scriptable.md#_eventsource)
+
+___
+
+### \_onlyViewNotify
+
+• `Optional` **\_onlyViewNotify**: `boolean`
+
+When set (e.g. by forms-engine when applying view-origin changes), notifyDependents notifies only
+'view' and undefined (default) dependents (skips 'model'). Caller must clear after the batch of updates. Used to avoid re-triggering rules/model.
+
+#### Implementation of
+
+FieldModel.\_onlyViewNotify
+
+#### Inherited from
+
+[Scriptable](Scriptable.md).[_onlyViewNotify](Scriptable.md#_onlyviewnotify)
 
 ## Methods
 
