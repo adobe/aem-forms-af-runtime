@@ -43,6 +43,7 @@ Defines a field set class which extends from [container](Container.md)
 - [screenReaderText](Fieldset.md#screenreadertext)
 - [type](Fieldset.md#type)
 - [uniqueItems](Fieldset.md#uniqueitems)
+- [valid](Fieldset.md#valid)
 - [value](Fieldset.md#value)
 - [visible](Fieldset.md#visible)
 
@@ -749,6 +750,47 @@ ___
 #### Inherited from
 
 Container.uniqueItems
+
+___
+
+### valid
+
+• `get` **valid**(): `boolean`
+
+Returns whether the container and all its children are valid.
+
+IMPORTANT: The @dependencyTracked() decorator is crucial for enabling a two-level
+dependency chain when rules reference container validity (e.g., $form.panel.$valid):
+
+1. When a rule like "enabled: '$form.panel.$valid'" executes on field2:
+   - field2 accesses panel.$valid (this getter)
+   - @dependencyTracked() registers field2 as a dependent of panel
+
+2. When this getter accesses child.valid:
+   - Each child's @dependencyTracked() valid getter registers panel as a dependent
+   - This creates the chain: child -> panel -> field2
+
+3. When a child's valid state changes (e.g., field1 gets a value):
+   - field1 notifies panel (its dependent)
+   - panel's valid recalculates
+   - panel notifies field2 (its dependent)
+   - field2's enabled rule re-executes with the new panel.valid value
+
+Without @dependencyTracked() on this getter, or if wrapped with
+withDependencyTrackingControl(true, ...), the children would NOT register
+the panel as a dependent, breaking the dependency chain.
+
+#### Returns
+
+`boolean`
+
+#### Implementation of
+
+[FieldsetModel](../interfaces/FieldsetModel.md).[valid](../interfaces/FieldsetModel.md#valid)
+
+#### Inherited from
+
+Container.valid
 
 ___
 

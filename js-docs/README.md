@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.164
+# @aemforms/af-core - v0.22.165
 
 ## Table of contents
 
@@ -689,7 +689,7 @@ API to get the constraint type messages
 | `patternMismatch` | ``"Please match the format requested."`` |
 | `rangeOverflow` | ``"Value must be less than or equal to ${0}."`` |
 | `rangeUnderflow` | ``"Value must be greater than or equal to ${0}."`` |
-| `stepMismatch` | ``"Please enter a valid value."`` |
+| `stepMismatch` | ``"Please enter a valid value. The two nearest valid values are ${0} and ${1}."`` |
 | `tooLong` | ``"Please shorten this text to ${0} characters or less."`` |
 | `tooShort` | ``"Please lengthen this text to ${0} characters or more."`` |
 | `typeMismatch` | ``"Please enter a valid value."`` |
