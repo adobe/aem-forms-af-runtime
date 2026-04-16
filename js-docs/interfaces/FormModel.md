@@ -60,6 +60,7 @@ Defines the interface for form model
 - [parent](FormModel.md#parent)
 - [pattern](FormModel.md#pattern)
 - [placeholder](FormModel.md#placeholder)
+- [propDependencyBehaviour](FormModel.md#propdependencybehaviour)
 - [properties](FormModel.md#properties)
 - [qualifiedName](FormModel.md#qualifiedname)
 - [readOnly](FormModel.md#readonly)
@@ -530,6 +531,12 @@ The placeholder to show on the widget.
 #### Inherited from
 
 [ContainerModel](ContainerModel.md).[placeholder](ContainerModel.md#placeholder)
+
+___
+
+### propDependencyBehaviour
+
+• `Readonly` **propDependencyBehaviour**: ``"strict"`` \| ``"any"``
 
 ___
 

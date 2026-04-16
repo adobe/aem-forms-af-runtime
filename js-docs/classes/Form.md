@@ -41,6 +41,7 @@ Defines `form model` which implements [form model](../interfaces/FormModel.md)
 - [minItems](Form.md#minitems)
 - [name](Form.md#name)
 - [parent](Form.md#parent)
+- [propDependencyBehaviour](Form.md#propdependencybehaviour)
 - [properties](Form.md#properties)
 - [qualifiedName](Form.md#qualifiedname)
 - [readOnly](Form.md#readonly)
@@ -657,6 +658,20 @@ Defines the parent of the container
 #### Inherited from
 
 Container.parent
+
+___
+
+### propDependencyBehaviour
+
+• `get` **propDependencyBehaviour**(): ``"strict"`` \| ``"any"``
+
+#### Returns
+
+``"strict"`` \| ``"any"``
+
+#### Implementation of
+
+[FormModel](../interfaces/FormModel.md).[propDependencyBehaviour](../interfaces/FormModel.md#propdependencybehaviour)
 
 ___
 
