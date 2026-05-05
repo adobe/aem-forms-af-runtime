@@ -1,4 +1,4 @@
-# @aemforms/af-core - v0.22.174
+# @aemforms/af-core - v0.22.175
 
 ## Table of contents
 
