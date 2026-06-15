@@ -840,6 +840,26 @@ ___
 
 Field.maxLength
 
+• `set` **maxLength**(`m`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `m` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[maxLength](../interfaces/FieldModel.md#maxlength)
+
+#### Inherited from
+
+Field.maxLength
+
 ___
 
 ### maximum
@@ -887,6 +907,26 @@ ___
 #### Returns
 
 `undefined` \| `number`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[minLength](../interfaces/FieldModel.md#minlength)
+
+#### Inherited from
+
+Field.minLength
+
+• `set` **minLength**(`m`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `m` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
 
 #### Implementation of
 
@@ -983,6 +1023,26 @@ ___
 #### Returns
 
 `undefined` \| `string`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[pattern](../interfaces/FieldModel.md#pattern)
+
+#### Inherited from
+
+Field.pattern
+
+• `set` **pattern**(`p`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `p` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
 
 #### Implementation of
 
@@ -1235,6 +1295,26 @@ ___
 #### Returns
 
 `undefined` \| `number`
+
+#### Implementation of
+
+[FieldModel](../interfaces/FieldModel.md).[step](../interfaces/FieldModel.md#step)
+
+#### Inherited from
+
+Field.step
+
+• `set` **step**(`s`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `s` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
 
 #### Implementation of
 
@@ -1668,7 +1748,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `:type` | `string` |
-| `_dependents` | `undefined` \| { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[] |
+| `_dependents` | `any` |
 | `accept?` | `string`[] |
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |

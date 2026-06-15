@@ -648,6 +648,22 @@ ___
 
 Field.maxLength
 
+• `set` **maxLength**(`m`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `m` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+Field.maxLength
+
 ___
 
 ### maximum
@@ -687,6 +703,22 @@ ___
 #### Returns
 
 `undefined` \| `number`
+
+#### Inherited from
+
+Field.minLength
+
+• `set` **minLength**(`m`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `m` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 
@@ -759,6 +791,22 @@ ___
 #### Returns
 
 `undefined` \| `string`
+
+#### Inherited from
+
+Field.pattern
+
+• `set` **pattern**(`p`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `p` | `undefined` \| `string` |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 
@@ -949,6 +997,22 @@ ___
 #### Returns
 
 `undefined` \| `number`
+
+#### Inherited from
+
+Field.step
+
+• `set` **step**(`s`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `s` | `undefined` \| `number` |
+
+#### Returns
+
+`void`
 
 #### Inherited from
 
@@ -1322,7 +1386,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `:type` | `string` |
-| `_dependents` | `undefined` \| { `id`: `string` = x.node.id; `propertyName`: `undefined` \| `string` = x.propertyName }[] |
+| `_dependents` | `any` |
 | `accept?` | `string`[] |
 | `allowedComponents` | `undefined` |
 | `altText?` | `string` |
